@@ -1,0 +1,12 @@
+beautifulsoup4==4.13.1
+Flask==3.1.0
+google_api_python_client==2.144.0
+google_auth_oauthlib==1.2.1
+msal==1.30.0
+openai_whisper==20240930
+pandas==2.2.3
+protobuf==5.29.3
+PyPDF2==3.0.1
+python_docx==1.1.2
+Requests==2.32.3
+whisper==1.1.10
