@@ -3,7 +3,7 @@ from one_drive import navigate_onedrive, format_combined_content, summarize_cont
 from graph_api import generate_access_token
 
 
-if __name__ == '__main__':
+'''if __name__ == '__main__':
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
     SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
     GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
@@ -22,4 +22,4 @@ if __name__ == '__main__':
     outlooks = (display_and_summarize_emails(headers, cutoff_days=365))
 
 microsoft_combined = outlooks + file_sum
-print(microsoft_combined)
+print(microsoft_combined)'''

@@ -3,38 +3,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Processed Emails & Files</title>
+    <title>Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add jQuery here -->
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+            padding: 0;
+            background-color: #f5f5f5;
         }
         .container {
-            max-width: 800px;
-            background: white;
-            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .left-column, .right-column {
+            flex: 1;
+            min-width: 45%;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 20px;
             border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            overflow-wrap: break-word;
+            background: white;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            color: #007bff;
+        .file-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
         }
-        .output {
-            white-space: pre-wrap;
-            background: #eef;
-            padding: 10px;
+        .summarize-button {
+            align-self: flex-start;
+            padding: 6px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
             border-radius: 5px;
-            font-family: monospace;
+            cursor: pointer;
+        }
+        .summarize-button:hover {
+            background-color: #0056b3;
+        }
+        .back-button {
+            margin-top: 10px;
+            padding: 6px 12px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #c82333;
         }
     </style>
+    <script>
+        let originalCardContent = {}; 
+        let fetchControllers = {}; 
+
+        function summarizeFile(event, fileId, fileName, fileMimeType, fileSource, cardId) {
+            event.preventDefault();
+
+            let cardElement = document.getElementById(cardId);
+            if (!originalCardContent[cardId]) {
+                originalCardContent[cardId] = cardElement.innerHTML;
+            }
+
+            if (fetchControllers[cardId]) {
+                fetchControllers[cardId].abort(); 
+            }
+            fetchControllers[cardId] = new AbortController();
+            let signal = fetchControllers[cardId].signal;
+
+            cardElement.innerHTML = `
+                <p>Summarizing...</p>
+                <button class="back-button" onclick="restoreContent('${cardId}', true)">Cancel</button>
+            `;
+
+            let formData = new FormData();
+            formData.append("file_id", String(fileId));
+            formData.append("file_name", String(fileName));
+            formData.append("file_mime_type", fileMimeType);
+            formData.append("file_source", fileSource);
+
+            fetch('/summarize', {
+                method: 'POST',
+                body: formData,
+                signal: signal 
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!fetchControllers[cardId]) return; 
+
+                if (data.summary) {
+                    cardElement.innerHTML = `
+                        <p>${data.summary}</p>
+                        <button class="back-button" onclick="restoreContent('${cardId}', false)">Back</button>
+                    `;
+                } else {
+                    cardElement.innerHTML = `<p>Error: Unable to summarize.</p>`;
+                }
+            })
+            .catch(error => {
+                if (error.name === 'AbortError') {
+                    console.log("Fetch request canceled.");
+                } else {
+                    console.error('Error:', error);
+                    cardElement.innerHTML = `<p>Error: Something went wrong.</p>`;
+                }
+            })
+            .finally(() => {
+                delete fetchControllers[cardId];
+            });
+        }
+
+        function restoreContent(cardId, isCancel) {
+            if (originalCardContent[cardId]) {
+                document.getElementById(cardId).innerHTML = originalCardContent[cardId];
+                delete originalCardContent[cardId];
+
+                if (isCancel && fetchControllers[cardId]) {
+                    fetchControllers[cardId].abort();
+                    delete fetchControllers[cardId];
+                }
+            }
+        }
+
+        function updateSummarizeButton() {
+            let checkboxes = document.querySelectorAll('.email-checkbox');
+            let selected = Array.from(checkboxes).some(checkbox => checkbox.checked);
+            document.getElementById('summarize-emails-button').style.display = selected ? 'block' : 'none';
+        }
+
+        function summarizeSelectedEmails() {
+            let selectedEmails = Array.from(document.querySelectorAll('.email-checkbox:checked')).map(cb => cb.value);
+            if (selectedEmails.length === 0) return;
+
+            document.getElementById('gmail-card').innerHTML = "<p>Summarizing...</p>";
+
+            fetch('/summarize_emails', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email_ids: selectedEmails })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('gmail-card').innerHTML = `<h2>Gmail Summary</h2><p>${data.summary}</p>`;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+    </script>
+
 </head>
 <body>
+
+    <h1>Dashboard</h1>
+    
     <div class="container">
-        <h1>Processed Data</h1>
-        <div class="output">{{ output|safe }}</div>
-    </div>
+        <!-- Left Column -->
+        <div class="left-column">
+            <div class="card" id="gmail-card">
+                <h2>Gmail Emails</h2>
+                <button id="connect-gmail-btn" class="connect-button">Connect Gmail</button>
+                <p id="gmail-status" class="status">Not Connected</p>
+                <ul id="email-list">
+                    {% for email in gmails_metadata %}
+                        <li>
+                            <input type="checkbox" class="email-checkbox" value="{{ email.id }}" onchange="updateSummarizeButton()">
+                            <a href="{{ email.link }}" target="_blank">{{ email.sender }} {{ email.subject }} ({{ email.date }})</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <button id="summarize-emails-button" class="summarize-button" style="display:none;" onclick="summarizeSelectedEmails()">Summarize Selected</button>
+            </div>
+            
+            <script>
+                let originalGmailContent = ""; 
+                let gmailFetchController = null; 
+            
+                function updateSummarizeButton() {
+                    let checkboxes = document.querySelectorAll('.email-checkbox');
+                    let selected = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                    document.getElementById('summarize-emails-button').style.display = selected ? 'block' : 'none';
+                }
+            
+                function summarizeSelectedEmails() {
+                    let selectedEmails = Array.from(document.querySelectorAll('.email-checkbox:checked')).map(cb => cb.value);
+                    if (selectedEmails.length === 0) return;
+            
+                    let gmailCard = document.getElementById("gmail-card");
+            
+                    // Save original content
+                    if (!originalGmailContent) {
+                        originalGmailContent = gmailCard.innerHTML;
+                    }
+            
+                    // Abort any ongoing fetch request
+                    if (gmailFetchController) {
+                        gmailFetchController.abort();
+                    }
+                    gmailFetchController = new AbortController();
+                    let signal = gmailFetchController.signal;
+            
+                    gmailCard.innerHTML = `
+                        <p>Summarizing selected emails...</p>
+                        <button class="back-button" onclick="restoreGmailContent(true)">Cancel</button>
+                    `;
+            
+                    fetch('/summarize_emails', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email_ids: selectedEmails }),
+                        signal: signal
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!gmailFetchController) return;
+            
+                        if (data.summary) {
+                            gmailCard.innerHTML = `
+                                <h2>Gmail Summary</h2>
+                                <p>${data.summary}</p>
+                                <button class="back-button" onclick="restoreGmailContent(false)">Back</button>
+                            `;
+                        } else {
+                            gmailCard.innerHTML = `<p>Error: Unable to summarize.</p>`;
+                        }
+                    })
+                    .catch(error => {
+                        if (error.name === 'AbortError') {
+                            console.log("Summarization request canceled.");
+                        } else {
+                            console.error('Error:', error);
+                            gmailCard.innerHTML = `<p>Error: Something went wrong.</p>`;
+                        }
+                    })
+                    .finally(() => {
+                        gmailFetchController = null;
+                    });
+                }
+            
+                function restoreGmailContent(isCancel) {
+                    let gmailCard = document.getElementById("gmail-card");
+            
+                    if (originalGmailContent) {
+                        gmailCard.innerHTML = originalGmailContent;
+                        originalGmailContent = "";
+                    }
+            
+                    if (isCancel && gmailFetchController) {
+                        gmailFetchController.abort();
+                        gmailFetchController = null;
+                    }
+                }
+            </script>            
+
+            <div class="card">
+                <h2>Canvas Summary</h2>
+                <p>{{ canvas_data|safe }}</p>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="card" id="google-drive-card">
+                <h2>Google Drive Files</h2>
+        
+                <!-- Connect Google Drive Button -->
+                <button id="connect-drive-btn" class="connect-button">Connect Google Drive</button>
+                <p id="drive-status" class="status">Not Connected</p>
+        
+                <ul>
+                    {% for file in drive_list %}
+                        <li class="file-container">
+                            <a href="https://drive.google.com/file/d/{{ file.id }}" target="_blank">{{ file.name }}</a>
+                            <button class="summarize-button" 
+                                onclick="summarizeFile(event, '{{ file.id|string }}', '{{ file.name|string }}', '{{ file.mimeType|string }}', 'google_drive', 'google-drive-card')">
+                                Summarize
+                            </button>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="card" id="microsoft-card">
+                <h2>Microsoft (OneDrive & Outlook)</h2>
+                <button id="connect-microsoft-btn" class="connect-button">Connect Microsoft</button>
+                <p id="microsoft-status" class="status">Not Connected</p>
+                <div id="microsoft-auth-container" style="display: none;">
+                    <p>Enter this code: <strong id="user-code"></strong></p>
+                    <!--<p>Go to: <a id="verification-url" href="#" target="_blank">Microsoft Device Login</a></p>-->
+                </div>    
+                <button id="check-status-btn" class="connect-button" style="display: none;">Check Status</button>            
+            
+                <div class="card">
+                    <h2>Outlook Summary</h2>
+                    <div id="outlook-summary">No data yet.</div> <!-- Placeholder -->
+                </div>
+            
+                <div class="card" id="onedrive-card">
+                    <h2>OneDrive Files</h2>
+                    <ul id="onedrive-files"> <!-- Placeholder -->
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        
+        <script>
+            $(document).ready(function() {
+                $("#connect-drive-btn").click(function() {
+                    $.ajax({
+                        url: "/connect_google_drive",
+                        type: "POST",
+                        success: function(response) {
+                            if (response.status === "success") {
+                                $("#drive-status").text("Connected to Google Drive ✅").css("color", "green");
+                                $("#connect-drive-btn").hide();
+
+                                // Update the file list
+                                let files = response.files;
+                                let fileListHtml = "";
+                                files.forEach(file => {
+                                    fileListHtml += `<li class="file-container">
+                                                        <a href="https://drive.google.com/file/d/${file.id}" target="_blank">${file.name}</a>
+                                                        <button class="summarize-button" 
+                                                            onclick="summarizeFile(event, '${file.id}', '${file.name}', '${file.mimeType}', 'google_drive', 'google-drive-card')">
+                                                            Summarize
+                                                        </button>
+                                                    </li>`;
+                                });
+                                $("#google-drive-card ul").html(fileListHtml); // Update the Google Drive file list
+                            } else {
+                                $("#drive-status").text("Connection Failed ❌").css("color", "red");
+                            }
+                        },
+                        error: function() {
+                            $("#drive-status").text("Connection Error ❌").css("color", "red");
+                        }
+                    });
+                });
+            });
+            $(document).ready(function() {
+                $("#connect-gmail-btn").click(function() {
+                    $("#gmail-status").text("Fetching metadata... ⏳").css("color", "orange");
+
+                    $.ajax({
+                        url: "/connect_gmail",  // Endpoint for Gmail authentication
+                        type: "POST",
+                        success: function(response) {
+                            if (response.status === "success") {
+                                $("#gmail-status").text("Connected to Gmail ✅").css("color", "green");
+                                $("#connect-gmail-btn").hide();
+                                // Update the email list
+                                let emails = response.emails;
+                                let emailListHtml = "";
+                                emails.forEach(email => {
+                                    emailListHtml += `<li>
+                                                        <input type="checkbox" class="email-checkbox" value="${email.id}" onchange="updateSummarizeButton()">
+                                                        <a href="${email.link}" target="_blank">${email.sender} ${email.subject} (${email.date})</a>
+                                                    </li>`;
+                                });
+                                $("#email-list").html(emailListHtml); // Update the email list
+                            } else {
+                                $("#gmail-status").text("Connection Failed ❌").css("color", "red");
+                            }
+                        },
+                        error: function() {
+                            $("#gmail-status").text("Connection Error ❌").css("color", "red");
+                        }
+                    });
+                });
+            });
+            $(document).ready(function() {
+                $("#connect-microsoft-btn").click(function() {
+                    $("#microsoft-status").text("Fetching authentication details... ⏳").css("color", "orange");
+                    $.ajax({
+                        url: "/fetch_code",
+                        type: "POST",
+                        success: function(response) {
+                            console.log(response);  // Log the full response
+
+                            if (response.status === "pending") {
+                                $("#microsoft-status").text("User authentication required! ⚠️").css("color", "red");
+
+                                // Show user code
+                                $("#microsoft-auth-container").show();
+                                $("#user-code").text(response.user_code);  
+
+                                // Store verification URL in button data attribute
+                                $("#check-status-btn").data("verification-url", response.verification_url);
+
+                                // Update button text and make it clickable
+                                $("#check-status-btn")
+                                    .text(`Authenticate`)
+                                    .css("display", "inline-block")
+                                    .off("click") // Remove previous event listeners
+                                    .click(function() {
+                                        window.open($(this).data("verification-url"), "_blank"); // Open authentication link
+                                        fetchMicrosoftStatus(); // Start checking status
+                                    });
+                            } 
+                            else {
+                                $("#microsoft-status").text("Connection failed ❌").css("color", "red");
+                            }
+                        },
+                        error: function() {
+                            $("#microsoft-status").text("Connection Error ❌").css("color", "red");
+                        }
+                    });
+                });
+
+                function fetchMicrosoftStatus() {
+                    $("#microsoft-status").text("Fetching data from OneDrive & Outlook... ⏳").css("color", "orange");
+
+                    $.ajax({
+                        url: "/fetch_onedrive_outlook",
+                        type: "POST",
+                        success: function(response) {
+                            console.log(response);  // Debugging
+
+                            if (response.status === "pending") {
+                                $("#microsoft-status").text("Connected ✅").css("color", "green");
+
+                                // Hide authentication elements after successful connection
+                                $("#microsoft-auth-container").hide();
+                                $("#check-status-btn").hide();
+
+                                // Update Outlook Summary
+                                $("#outlook-summary").html(response.outlooks || "No emails found.");
+
+                                // Update OneDrive Files
+                                let filesList = $("#onedrive-files");
+                                filesList.empty();  // Clear old data
+
+                                response.o_files.forEach(file => {
+                                    let listItem = `
+                                        <li class="file-container">
+                                            ${file[0]} (ID: ${file[1]})
+                                            <button class="summarize-button" 
+                                                onclick="summarizeFile(event, '${file[1]}', '${file[0]}', '', 'onedrive', 'onedrive-card')">
+                                                Summarize
+                                            </button>
+                                        </li>
+                                    `;
+                                    filesList.append(listItem);
+                                });
+
+                            } else {
+                                $("#microsoft-status").text("Error fetching data ❌").css("color", "red");
+                            }
+                        },
+                        error: function() {
+                            $("#microsoft-status").text("Error retrieving data ❌").css("color", "red");
+                        }
+                    });
+                }
+            });
+
+
+
+        </script>        
+
 </body>
 </html>
+
+
+

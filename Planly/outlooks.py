@@ -1,25 +1,18 @@
 import requests
 from bs4 import BeautifulSoup
 from configparser import ConfigParser
-import google.generativeai as genai
 from graph_api import generate_access_token
 from datetime import datetime, timedelta
 import time
 import random
+from predict import predict_sentences  # Import your sentence prediction function
 
 GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
 
-# Configure Google Gemini API
+# Load API key from config file
 config = ConfigParser()
 config.read('credentials.ini')
 api_key = config['API_KEY']['google_api_key']
-
-# Configure Google Gemini with API Key
-genai.configure(api_key=api_key)
-
-# Select the appropriate model for summarization
-model_gemini_pro = genai.GenerativeModel('gemini-pro')
-summary = ""
 
 def retry_with_backoff(api_call, max_retries=5):
     """Retry logic with exponential backoff for API calls."""
@@ -61,7 +54,7 @@ def display_and_summarize_emails(headers, cutoff_days=7):
             print("No emails found within the cutoff date.")
             return
 
-        all_email_bodies = ""
+        summarized_emails = ""
 
         for email in emails:
             email_id = email.get('id', 'Unknown ID')
@@ -79,53 +72,32 @@ def display_and_summarize_emails(headers, cutoff_days=7):
 
             # Clean the HTML content
             soup = BeautifulSoup(body_content, 'html.parser')
-            clean_text = soup.get_text()
+            clean_text = soup.get_text().strip()
+
+            # Summarize only the email body
+            if clean_text:
+                summary = predict_sentences(clean_text)  # Summarize only the body
+            else:
+                summary = "No important content detected."
 
             # Construct the email link
             email_link = f"https://outlook.office.com/mail/inbox/id/{email_id}"
 
-            # Collect the cleaned email bodies
-            all_email_bodies += (
+            # Reattach metadata after summarization
+            summarized_emails += (
                 f"**Subject:** {subject.strip() or 'No Action'}\n"
                 f"**Sender:** {sender}\n"
                 f"**Date:** {formatted_date}\n"
                 f"**Link:** {email_link}\n\n"
-                f"{clean_text.strip()}\n\n"
+                f"{summary}\n\n"
             )
 
-        # Summarize all email bodies using Gemini API
-        if all_email_bodies:
-            prompt = (
-            "You are going to be provided the text from multiple emails. "
-            "Go through the entire text and use it to make a list of actionable tasks and important notes. "
-            "For each task or note, include the following details in this format: "
-            "<input type='checkbox'> for the checkbox, "
-            "the **Action/Note**, "
-            "**Requester**, "
-            "**Date**, "
-            "**Link** to the email. "
-            "Organize the output by importance level (low, medium, high) and display each item in the following format:\n\n"
-            "<ul>\n"
-            "<li><input type='checkbox'> **Action/Note**: [task/note description] <br> **Requester**: [sender name] <br> **Date**: [sent date] <br> **Link**: [email link]</li>\n"
-            "</ul>\n\n"
-            "Here's the content:\n\n"
-            f"{all_email_bodies}"
-            )
-            # Retry the summarization API call with backoff
-            response = retry_with_backoff(lambda: model_gemini_pro.generate_content(prompt))
-
-            # Access the summary via 'text'
-            summary = response.text
-            return ("\nSummary of Outlook Emails:\n") + summary
-            print(summary)
-        else:
-            print("No email bodies to summarize.")
+        return ("\nSummary of Outlook Emails:\n") + summarized_emails if summarized_emails else "No email content to summarize."
 
     except requests.exceptions.HTTPError as http_err:
         print(f"HTTP error occurred: {http_err}")
     except Exception as err:
         print(f"Other error occurred: {err}")
-
 
 '''if __name__ == '__main__':
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
@@ -142,3 +114,4 @@ def display_and_summarize_emails(headers, cutoff_days=7):
 
     except Exception as e:
         print(f"Error retrieving access token: {e}")'''
+

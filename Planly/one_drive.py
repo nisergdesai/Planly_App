@@ -7,10 +7,44 @@ from io import BytesIO
 from PyPDF2 import PdfReader
 from docx import Document
 from configparser import ConfigParser
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 import whisper
 from datetime import datetime, timedelta
 import time
+
+def summarize_content_with_gemini(content):
+    client = genai.Client(api_key="AIzaSyBrl4OwWlUfGzNjwo2brjNj73Z7jXop1oc")
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=['summarize', content],
+        config=types.GenerateContentConfig(
+        safety_settings=[
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_HARASSMENT,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE,
+            ),
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE,
+            ),
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE,
+            ),
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE,
+            ),
+            types.SafetySetting(
+                category=types.HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY,
+                threshold=types.HarmBlockThreshold.BLOCK_NONE,
+            ),
+        ]
+        )
+    )
+
+    return(response.text)
 
 GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
 
@@ -50,10 +84,10 @@ config.read('credentials.ini')
 api_key = config['API_KEY']['google_api_key']
 
 # Configure Google Gemini with API Key
-genai.configure(api_key=api_key)
+#genai.configure(api_key=api_key)
 
 # Select the appropriate model for summarization
-model_gemini_pro = genai.GenerativeModel('gemini-pro')
+#model_gemini_pro = genai.GenerativeModel('gemini-pro')
 
 def fetch_onenote_notebooks(access_token):
     """
@@ -209,8 +243,6 @@ combined_content = []
 processed_files = set()
 
 def get_onedrive_file_content(headers, file_id, file_name, access_token, cutoff_date):
-    global combined_content  # Access the global variable
-    
     file_extension = os.path.splitext(file_name)[1].lower()
     url = f"https://graph.microsoft.com/v1.0/me/drive/items/{file_id}/content"
     file_metadata_url = f"https://graph.microsoft.com/v1.0/me/drive/items/{file_id}"
@@ -219,115 +251,92 @@ def get_onedrive_file_content(headers, file_id, file_name, access_token, cutoff_
     response = retry_with_backoff(requests.get, url=file_metadata_url, headers=headers)
     if response.status_code != 200:
         print(f"Failed to fetch file metadata. Status Code: {response.status_code}, Error: {response.text}")
-        return ""
+        return None
 
     file_metadata = response.json()
     last_modified_str = file_metadata.get("lastModifiedDateTime", "Unknown")
-    
-    last_modified = datetime.fromisoformat(last_modified_str[:-1])  # Remove the 'Z' for parsing
-    if last_modified < cutoff_date:
-        return ""
+    last_modified = datetime.fromisoformat(last_modified_str[:-1])  # Remove 'Z' for parsing
 
+    '''if last_modified < cutoff_date:
+        return None
+'''
     # Fetch file content with retry logic
     response = retry_with_backoff(requests.get, url=url, headers=headers)
     if response.status_code != 200:
         print(f"Failed to fetch file content. Status Code: {response.status_code}, Error: {response.text}")
-        return ""
+        return None
     
     file_content = response.content
+    extracted_text = ""
 
     # Process audio files using Whisper
-    if file_extension in [".mp3", ".wav", ".m4a", ".flac", ".mov"]:  # Add supported audio extensions
+    if file_extension in [".mp3", ".wav", ".m4a", ".flac", ".mov"]:
         try:
             with tempfile.NamedTemporaryFile(delete=False, suffix=file_extension) as temp_audio:
                 temp_audio.write(file_content)
                 temp_audio_path = temp_audio.name
             
             result = model.transcribe(temp_audio_path)
-            transcription = result["text"]
-
-            combined_content.append({
-                "title": file_name,
-                "last_modified": last_modified_str,
-                "content": transcription.strip()
-            })
-            
+            extracted_text = result["text"]
             os.remove(temp_audio_path)
-            return transcription.strip()
         except Exception as e:
             print(f"Error transcribing audio file {file_name}: {e}")
-            return ""
-        
+            return None
+
     elif file_extension == ".pdf":
         try:
             with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
                 temp_file.write(file_content)
                 temp_file_path = temp_file.name
 
-            text = ""
             with open(temp_file_path, "rb") as pdf_file:
                 reader = PdfReader(pdf_file)
-                for page in reader.pages:
-                    text += page.extract_text() or ""
+                extracted_text = "\n".join(page.extract_text() or "" for page in reader.pages)
 
             os.remove(temp_file_path)
-            combined_content.append({
-                "title": file_name,
-                "last_modified": last_modified_str,
-                "content": text.strip()
-            })
-            return text.strip()
         except Exception as e:
             print(f"Error reading PDF file {file_name}: {e}")
-            return ""
+            return None
 
     elif file_extension == ".docx":
         try:
             doc = Document(BytesIO(file_content))
-            text = "\n".join(para.text for para in doc.paragraphs)
-            combined_content.append({
-                "title": file_name,
-                "last_modified": last_modified_str,
-                "content": text.strip()
-            })
-            return text.strip()
+            extracted_text = "\n".join(para.text for para in doc.paragraphs)
         except Exception as e:
             print(f"Error reading DOCX file {file_name}: {e}")
-            return ""
+            return None
 
     elif file_extension == ".txt":
         try:
-            text = file_content.decode('utf-8')
-            combined_content.append({
-                "title": file_name,
-                "last_modified": last_modified_str,
-                "content": text.strip()
-            })
-            return text.strip()
+            extracted_text = file_content.decode('utf-8')
         except Exception as e:
             print(f"Error reading TXT file {file_name}: {e}")
-            return ""
+            return None
 
     elif file_extension == ".one":
         try:
             onenote_content = fetch_onenote_content(access_token['access_token'], file_name)
-            for page in onenote_content:
-                combined_content.append({
-                    "title": file_name,
-                    "last_modified": last_modified_str,
-                    "content": page['content']
-                })
+            extracted_text = "\n".join(page['content'] for page in onenote_content)
         except Exception as e:
             print(f"Error extracting OneNote content from file {file_name}: {e}")
-            return ""
+            return None
 
-    else:
-        return ""
+    if not extracted_text.strip():
+        return None  # Skip empty files
+
+    # Summarize extracted content
+    summary = summarize_content_with_gemini(extracted_text)
+
+    # Return structured data
+    return summary
+
 
 def navigate_onedrive(headers, access_token, cutoff_days):
     current_folder_id = None
     folder_stack = []
     visited_folders = set()
+    file_structure = {}
+    file_list = []
 
     # Calculate cutoff date
     cutoff_date = datetime.now() - timedelta(days=cutoff_days)
@@ -335,11 +344,17 @@ def navigate_onedrive(headers, access_token, cutoff_days):
     while True:
         folder_name = "Root" if not folder_stack else folder_stack[-1][0]
         items = list_onedrive_items(headers, folder_id=current_folder_id)
+
         if not items:
             if not folder_stack:
                 break
             _, current_folder_id = folder_stack.pop()
             continue
+
+        # Store files in the dictionary
+        file_structure[folder_name] = [
+            item[0] for item in items if item[2] == "File"
+        ]
 
         folder_found = False
         for item in items:
@@ -347,7 +362,8 @@ def navigate_onedrive(headers, access_token, cutoff_days):
 
             if item_type == "File" and item_name not in processed_files and not item_name.endswith('.onetoc2'):
                 processed_files.add(item_name)
-                get_onedrive_file_content(headers, item_id, item_name, access_token, cutoff_date)
+                file_list.append((item_name, item_id))
+                #get_onedrive_file_content(headers, item_id, item_name, access_token, cutoff_date)
             elif item_type == "Folder":
                 if item_id not in visited_folders:
                     visited_folders.add(item_id)
@@ -361,26 +377,7 @@ def navigate_onedrive(headers, access_token, cutoff_days):
                 break
             _, current_folder_id = folder_stack.pop()
 
-def summarize_content_with_gemini(combined_content):
-    model_gemini_pro = genai.GenerativeModel('gemini-pro')
-    prompt = (
-    "You are going to be provided the text from multiple files. "
-    "Go through the entire text and use it to make a list of actionable tasks and important notes. "
-    "It is okay if some files have little or zero tasks. "
-    "For each task or note, include the following details in this format: "
-    "<input type='checkbox'> for the checkbox, "
-    "**Actions/Notes**, "
-    "**File Title**, "
-    "**Date Modified**. "
-    "Organize the output by importance level (low, medium, high) and display each item in the following format:\n\n"
-    "<ul>\n"
-    "<li><input type='checkbox'> **Actions/Notes**: [task/note description] <br> **Title**: [file title] <br> **Date Modified**: [last modified date]</li>\n"
-    "</ul>\n\n"
-    "Here is the content:\n\n"
-    f"{combined_content}"
-    )
-    response = model_gemini_pro.generate_content(prompt)
-    return response.text
+    return file_list
 
 def format_combined_content(content_list):
     """
@@ -404,7 +401,7 @@ def format_combined_content(content_list):
     }
 
     # Navigate OneDrive and extract content
-    navigate_onedrive(headers, access_token, 3)
+    navigate_onedrive(headers, access_token, 300)
     formatted = format_combined_content(combined_content)
     print(summarize_content_with_gemini(formatted))
-    '''
+'''

@@ -1,0 +1,11 @@
+# Ignore Pickle files
+*.pkl
+*.pickle
+
+# Ignore Microsoft Graph API token
+ms_graph_api_token.json
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
