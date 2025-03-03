@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 from configparser import ConfigParser
 import google.generativeai as genai
+import os
+import time
+import json
 
 # Import Gmail processing functions
 from gmail_service import Create_Service
@@ -99,8 +102,38 @@ def process_drive_files():
         setup_gemini(api_key=api_key)
         return process_files(drive_service, drive_credentials, whisper_model)
     return ""
+
+def is_token_valid():
+    if os.path.exists("ms_graph_api_token.json"):
+        with open("ms_graph_api_token.json", "r") as file:
+            token_data = json.load(file)
+
+            # Extract the AccessToken section
+            access_tokens = token_data.get("AccessToken", {})
+
+            if not access_tokens:
+                return False  # No access token found
+
+            # Get the first token (assuming there's only one key)
+            for key, token_info in access_tokens.items():
+                expiration_time = int(token_info.get("expires_on", 0))
+                print("Expiration Time:", expiration_time)
+                current_time = int(time.time())
+
+                if expiration_time > current_time:
+                    return True  # Token is still valid
+
+    return False  # Token is invalid or doesn't exist
+
+
 @app.route('/fetch_code', methods=['POST'])
 def fetch_code():
+    if is_token_valid():
+        # If token is valid, skip authentication and proceed to fetch data
+        return jsonify({
+            "status": "success"
+        })
+
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
     SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
     global flow
@@ -116,15 +149,31 @@ def fetch_code():
 def fetch_onedrive_outlook():
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
     SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
-    access_token = generate_access_token(flow, app_id=APP_ID, scopes=SCOPES)
+    access_token = None
 
-    headers = {'Authorization': 'Bearer ' + access_token['access_token']}
-
-    # Ensure onedrive_files is always a list
-    onedrive_files = navigate_onedrive(headers, access_token['access_token'], 300)
+    if is_token_valid():
+        with open("ms_graph_api_token.json", "r") as file:
+            data = json.load(file)
+            access_token = list(data["AccessToken"].values())[0]["secret"]
+        headers = {'Authorization': 'Bearer ' + access_token}
+        # Ensure onedrive_files is always a list
+        onedrive_files = navigate_onedrive(headers, access_token, 300)
 
     # Ensure outlook_summary is always a list
-    outlook_summary = display_and_summarize_emails(headers, cutoff_days=365)
+        outlook_summary = display_and_summarize_emails(headers, cutoff_days=365)
+        
+
+
+    else:
+        # If token is not valid, get a new one (e.g., after successful authentication)
+        access_token = generate_access_token(flow, app_id=APP_ID, scopes=SCOPES)
+        headers = {'Authorization': 'Bearer ' + access_token['access_token']}
+
+    # Ensure onedrive_files is always a list
+        onedrive_files = navigate_onedrive(headers, access_token['access_token'], 300)
+
+    # Ensure outlook_summary is always a list
+        outlook_summary = display_and_summarize_emails(headers, cutoff_days=365)
 
     return jsonify({
         "status": "pending",

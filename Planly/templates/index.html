@@ -380,7 +380,8 @@
             });
             $(document).ready(function() {
                 $("#connect-microsoft-btn").click(function() {
-                    $("#microsoft-status").text("Fetching authentication details... ⏳").css("color", "orange");
+                    $("#microsoft-status").text("Checking connection... ⏳").css("color", "orange");
+
                     $.ajax({
                         url: "/fetch_code",
                         type: "POST",
@@ -388,27 +389,33 @@
                             console.log(response);  // Log the full response
 
                             if (response.status === "pending") {
-                                $("#microsoft-status").text("User authentication required! ⚠️").css("color", "red");
+                                if (response.user_code) {
+                                    // User needs to authenticate
+                                    $("#microsoft-status").text("User authentication required! ⚠️").css("color", "green");
 
-                                // Show user code
-                                $("#microsoft-auth-container").show();
-                                $("#user-code").text(response.user_code);  
+                                    // Show user code
+                                    $("#microsoft-auth-container").show();
+                                    $("#user-code").text(response.user_code);
 
-                                // Store verification URL in button data attribute
-                                $("#check-status-btn").data("verification-url", response.verification_url);
+                                    // Store verification URL in button data attribute
+                                    $("#check-status-btn").data("verification-url", response.verification_url);
 
-                                // Update button text and make it clickable
-                                $("#check-status-btn")
-                                    .text(`Authenticate`)
-                                    .css("display", "inline-block")
-                                    .off("click") // Remove previous event listeners
-                                    .click(function() {
-                                        window.open($(this).data("verification-url"), "_blank"); // Open authentication link
-                                        fetchMicrosoftStatus(); // Start checking status
-                                    });
+                                    // Update button text and make it clickable
+                                    $("#check-status-btn")
+                                        .text(`Authenticate`)
+                                        .css("display", "inline-block")
+                                        .off("click") // Remove previous event listeners
+                                        .click(function() {
+                                            window.open($(this).data("verification-url"), "_blank"); // Open authentication link
+                                            fetchMicrosoftStatus(); // Start checking status
+                                        });
+                                }
                             } 
+                            else if (response.status == "success"){
+                                fetchMicrosoftStatus(); // Start checking status
+                            }
                             else {
-                                $("#microsoft-status").text("Connection failed ❌").css("color", "red");
+                                $("#microsoft-status").text("Error fetching data ❌").css("color", "red");
                             }
                         },
                         error: function() {
@@ -430,6 +437,7 @@
                                 $("#microsoft-status").text("Connected ✅").css("color", "green");
 
                                 // Hide authentication elements after successful connection
+                                $("#connect-microsoft-btn").hide();
                                 $("#microsoft-auth-container").hide();
                                 $("#check-status-btn").hide();
 
@@ -463,8 +471,6 @@
                     });
                 }
             });
-
-
 
         </script>        
 

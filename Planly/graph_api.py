@@ -43,7 +43,8 @@ def generate_access_token(flow, app_id, scopes):
         token_cache_data = json.loads(access_token_cache.serialize())
         token_cache_data['Scopes'] = scopes
         _f.write(json.dumps(token_cache_data, indent=2))
-    print(flow['user_code'])
+    #print(flow['user_code'])
+    #print(token_response)
     return token_response  
 
 def generate_user_code(app_id, scopes):
@@ -84,7 +85,8 @@ def generate_user_code(app_id, scopes):
     SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
 
     #result = generate_access_token(APPLICATION_ID, SCOPES)
-    user_code = generate_user_code(APPLICATION_ID, SCOPES)
-    print(user_code)
-    #print(result['access_token'])
-'''
+    flow = generate_user_code(APPLICATION_ID, SCOPES)
+    gen = generate_access_token(flow, APPLICATION_ID, SCOPES)
+    print(gen)
+
+    #print(result['access_token'])'''
