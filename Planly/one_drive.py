@@ -12,6 +12,7 @@ from google.genai import types
 import whisper
 from datetime import datetime, timedelta
 import time
+import json
 
 def summarize_content_with_gemini(content):
     client = genai.Client(api_key="AIzaSyBrl4OwWlUfGzNjwo2brjNj73Z7jXop1oc")
@@ -332,10 +333,12 @@ def get_onedrive_file_content(headers, file_id, file_name, access_token, cutoff_
 
 
 def navigate_onedrive(headers, access_token, cutoff_days):
+    # Reset state for each new call
     current_folder_id = None
     folder_stack = []
     visited_folders = set()
-    file_structure = {}
+    processed_files = set()  # Ensure processed files are reset
+    file_structure = {}  # Initialize file_structure here
     file_list = []
 
     # Calculate cutoff date
@@ -361,9 +364,22 @@ def navigate_onedrive(headers, access_token, cutoff_days):
             item_name, item_id, item_type = item
 
             if item_type == "File" and item_name not in processed_files and not item_name.endswith('.onetoc2'):
-                processed_files.add(item_name)
-                file_list.append((item_name, item_id))
-                #get_onedrive_file_content(headers, item_id, item_name, access_token, cutoff_date)
+                file_metadata_url = f"https://graph.microsoft.com/v1.0/me/drive/items/{item_id}"
+
+                # Fetch file metadata with retry logic
+                response = retry_with_backoff(requests.get, url=file_metadata_url, headers=headers)
+                if response.status_code != 200:
+                    print(f"Failed to fetch file metadata. Status Code: {response.status_code}, Error: {response.text}")
+                    return None
+
+                file_metadata = response.json()
+                last_modified_str = file_metadata.get("lastModifiedDateTime", "Unknown")
+                last_modified = datetime.fromisoformat(last_modified_str[:-1])  # Remove 'Z' for parsing
+                print(last_modified, cutoff_date)
+                if last_modified >= cutoff_date:
+                    processed_files.add(item_name)
+                    file_list.append((item_name, item_id))
+
             elif item_type == "Folder":
                 if item_id not in visited_folders:
                     visited_folders.add(item_id)
@@ -379,6 +395,8 @@ def navigate_onedrive(headers, access_token, cutoff_days):
 
     return file_list
 
+
+
 def format_combined_content(content_list):
     """
     Dynamically formats a list of dictionaries containing title, last modified, and content.
@@ -391,17 +409,20 @@ def format_combined_content(content_list):
     )
     return formatted_output
 
-'''if __name__ == '__main__':
+if __name__ == '__main__':
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
     SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
 
-    access_token = generate_access_token(app_id=APP_ID, scopes=SCOPES)
-    headers = {
-        'Authorization': 'Bearer ' + access_token['access_token']
-    }
+    #access_token = generate_access_token(app_id=APP_ID, scopes=SCOPES)
+    with open("ms_graph_api_token.json", "r") as file:
+        data = json.load(file)
+        access_token = list(data["AccessToken"].values())[0]["secret"]
+    headers = {'Authorization': 'Bearer ' + access_token}
+    #headers = {
+     #   'Authorization': 'Bearer ' + access_token['access_token']
+    #}
 
     # Navigate OneDrive and extract content
-    navigate_onedrive(headers, access_token, 300)
-    formatted = format_combined_content(combined_content)
-    print(summarize_content_with_gemini(formatted))
-'''
+    print(navigate_onedrive(headers, access_token, 40))
+    #formatted = format_combined_content(combined_content)
+    #print(summarize_content_with_gemini(formatted))

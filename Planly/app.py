@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request, redirect, url_for, jsonify, request
 from configparser import ConfigParser
 import google.generativeai as genai
 import os
@@ -151,35 +151,47 @@ def fetch_onedrive_outlook():
     SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
     access_token = None
 
+    # Get the cutoff_days from the frontend
+    cutoff_days_onedrive = int(request.form.get("cutoff_days", -1))  # Default to 300 if not provided
+    cutoff_days_outlook = int(request.form.get("cutoff_days", -1))   # Default to 300 if not provided
+    type = request.form.get('type')  # 'onedrive' or 'outlook'
+    print(f"Received cutoff_days: OneDrive={cutoff_days_onedrive}, Outlook={cutoff_days_outlook}")  # Debugging
+
     if is_token_valid():
         with open("ms_graph_api_token.json", "r") as file:
             data = json.load(file)
             access_token = list(data["AccessToken"].values())[0]["secret"]
         headers = {'Authorization': 'Bearer ' + access_token}
-        # Ensure onedrive_files is always a list
-        onedrive_files = navigate_onedrive(headers, access_token, 300)
-
-    # Ensure outlook_summary is always a list
-        outlook_summary = display_and_summarize_emails(headers, cutoff_days=365)
         
-
+        # Based on the type, call the appropriate function for either OneDrive or Outlook
+        if type == 'onedrive':
+            onedrive_files = navigate_onedrive(headers, access_token, cutoff_days_onedrive)
+            print(onedrive_files)
+            outlook_summary = []  # No need to process Outlook data
+        else:  # 'outlook'
+            onedrive_files = []  # No need to process OneDrive data
+            outlook_summary = display_and_summarize_emails(headers, cutoff_days_outlook)
+            print(outlook_summary)
 
     else:
         # If token is not valid, get a new one (e.g., after successful authentication)
         access_token = generate_access_token(flow, app_id=APP_ID, scopes=SCOPES)
         headers = {'Authorization': 'Bearer ' + access_token['access_token']}
-
-    # Ensure onedrive_files is always a list
-        onedrive_files = navigate_onedrive(headers, access_token['access_token'], 300)
-
-    # Ensure outlook_summary is always a list
-        outlook_summary = display_and_summarize_emails(headers, cutoff_days=365)
+        
+        # Based on the type, call the appropriate function for either OneDrive or Outlook
+        if type == 'onedrive':
+            onedrive_files = navigate_onedrive(headers, access_token['access_token'], cutoff_days_onedrive)
+            outlook_summary = []  # No need to process Outlook data
+        else:  # 'outlook'
+            onedrive_files = []  # No need to process OneDrive data
+            outlook_summary = display_and_summarize_emails(headers, cutoff_days_outlook)
 
     return jsonify({
         "status": "pending",
         "o_files": onedrive_files,
         "outlooks": outlook_summary,
     })
+
 
 '''def process_onedrive_data():
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'

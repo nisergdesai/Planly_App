@@ -295,10 +295,18 @@
                 <p id="microsoft-status" class="status">Not Connected</p>
                 <div id="microsoft-auth-container" style="display: none;">
                     <p>Enter this code: <strong id="user-code"></strong></p>
-                    <!--<p>Go to: <a id="verification-url" href="#" target="_blank">Microsoft Device Login</a></p>-->
                 </div>    
-                <button id="check-status-btn" class="connect-button" style="display: none;">Check Status</button>            
-            
+                <button id="check-status-btn" class="connect-button" style="display: none;">Check Status</button>    
+                    <!-- Choose Date Inputs (Initially Hidden) -->
+                    <div id="date-selection" style="display: none;">
+                        <label for="onedrive-date">Choose OneDrive Date:</label>
+                        <input type="date" id="onedrive-date">
+                        <button onclick="chooseDate('onedrive')">Set OneDrive Date</button>
+                
+                        <label for="outlook-date">Choose Outlook Date:</label>
+                        <input type="date" id="outlook-date">
+                        <button onclick="chooseDate('outlook')">Set Outlook Date</button>
+                    </div>
                 <div class="card">
                     <h2>Outlook Summary</h2>
                     <div id="outlook-summary">No data yet.</div> <!-- Placeholder -->
@@ -306,13 +314,10 @@
             
                 <div class="card" id="onedrive-card">
                     <h2>OneDrive Files</h2>
-                    <ul id="onedrive-files"> <!-- Placeholder -->
-                    </ul>
+                    <ul id="onedrive-files"></ul> <!-- Placeholder -->
                 </div>
             </div>
-            
-        </div>
-        
+
         <script>
             $(document).ready(function() {
                 $("#connect-drive-btn").click(function() {
@@ -386,35 +391,25 @@
                         url: "/fetch_code",
                         type: "POST",
                         success: function(response) {
-                            console.log(response);  // Log the full response
+                            console.log(response);  
 
                             if (response.status === "pending") {
                                 if (response.user_code) {
-                                    // User needs to authenticate
                                     $("#microsoft-status").text("User authentication required! ⚠️").css("color", "green");
-
-                                    // Show user code
                                     $("#microsoft-auth-container").show();
                                     $("#user-code").text(response.user_code);
-
-                                    // Store verification URL in button data attribute
-                                    $("#check-status-btn").data("verification-url", response.verification_url);
-
-                                    // Update button text and make it clickable
                                     $("#check-status-btn")
                                         .text(`Authenticate`)
                                         .css("display", "inline-block")
-                                        .off("click") // Remove previous event listeners
+                                        .off("click")
                                         .click(function() {
-                                            window.open($(this).data("verification-url"), "_blank"); // Open authentication link
-                                            fetchMicrosoftStatus(); // Start checking status
+                                            window.open(response.verification_url, "_blank"); 
+                                            fetchMicrosoftStatus(); 
                                         });
                                 }
-                            } 
-                            else if (response.status == "success"){
-                                fetchMicrosoftStatus(); // Start checking status
-                            }
-                            else {
+                            } else if (response.status === "success") {
+                                fetchMicrosoftStatus(); 
+                            } else {
                                 $("#microsoft-status").text("Error fetching data ❌").css("color", "red");
                             }
                         },
@@ -431,22 +426,25 @@
                         url: "/fetch_onedrive_outlook",
                         type: "POST",
                         success: function(response) {
-                            console.log(response);  // Debugging
+                            console.log(response);
 
                             if (response.status === "pending") {
                                 $("#microsoft-status").text("Connected ✅").css("color", "green");
 
-                                // Hide authentication elements after successful connection
+                                // Hide authentication elements
                                 $("#connect-microsoft-btn").hide();
                                 $("#microsoft-auth-container").hide();
                                 $("#check-status-btn").hide();
+
+                                // Show date selection fields
+                                $("#date-selection").show();
 
                                 // Update Outlook Summary
                                 $("#outlook-summary").html(response.outlooks || "No emails found.");
 
                                 // Update OneDrive Files
                                 let filesList = $("#onedrive-files");
-                                filesList.empty();  // Clear old data
+                                filesList.empty();  
 
                                 response.o_files.forEach(file => {
                                     let listItem = `
@@ -471,6 +469,68 @@
                     });
                 }
             });
+            function chooseDate(type) {
+                let selectedDate = type === 'onedrive' ? $("#onedrive-date").val() : $("#outlook-date").val();
+
+                if (selectedDate) {
+                    let dateDifference = calculateDateDifference(selectedDate);
+                    console.log({
+                        cutoff_days: dateDifference,
+                        type: type  // Pass 'onedrive' or 'outlook'
+                    });
+
+                    $.ajax({
+                        url: "/fetch_onedrive_outlook",
+                        type: "POST",
+                        data: {
+                            cutoff_days: dateDifference,
+                            type: type  // Pass 'onedrive' or 'outlook'
+                        },
+                        success: function(response) {
+                            console.log(response); // Debugging
+
+                            if (type === "outlook") {
+                                // Ensure response.outlooks is never null or undefined
+                                let outlookData = response.outlooks || "No recent emails found.";
+                                $("#outlook-summary").html(outlookData);
+                            } else if (type === "onedrive") {
+                                let filesList = $("#onedrive-files");
+                                filesList.empty(); // Clear previous content
+
+                                if (response.o_files && response.o_files.length > 0) {
+                                    response.o_files.forEach(file => {
+                                        let listItem = `
+                                            <li class="file-container">
+                                                ${file[0]} (ID: ${file[1]})
+                                                <button class="summarize-button" 
+                                                    onclick="summarizeFile(event, '${file[1]}', '${file[0]}', '', 'onedrive', 'onedrive-card')">
+                                                    Summarize
+                                                </button>
+                                            </li>
+                                        `;
+                                        filesList.append(listItem);
+                                    });
+                                } else {
+                                    filesList.append("<li>No recent OneDrive files found.</li>");
+                                }
+                            }
+                        },
+                        error: function() {
+                            console.error("Error retrieving data");
+                        }
+                    });
+                }
+            }
+
+
+
+            function calculateDateDifference(selectedDate) {
+                let today = new Date();
+                let chosenDate = new Date(selectedDate);
+                let timeDiff = today - chosenDate;  // Difference in milliseconds
+                let dayDiff = Math.floor(timeDiff / (1000 * 3600 * 24));  // Convert to days
+                return dayDiff;
+            }
 
         </script>        
 
