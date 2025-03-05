@@ -40,8 +40,8 @@ flow = None
 gmail_service = None 
 
 # Process Gmail emails
-def fetch_email_metadata(g_service):
-    emails = fetch_emails_in_date_ranges(g_service, days=15, chunk_size=10)
+def fetch_email_metadata(g_service, days):
+    emails = fetch_emails_in_date_ranges(g_service, days=days, chunk_size=10)
     email_list = []
 
     for email in emails:
@@ -65,15 +65,20 @@ def connect_gmail():
     SCOPES = ['https://mail.google.com/']
     gmail_service = Create_Service(CLIENT_FILE, API_NAME, API_VERSION, SCOPES)
 
+    # Get the num_days from the frontend (default to 15 if not provided)
+    num_days = int(request.form.get("num_days", -1))
+    print(f"Received num_days: {num_days}")  # Debugging
+
     if gmail_service:
-        emails = fetch_email_metadata(gmail_service)
+        emails = fetch_email_metadata(gmail_service, num_days)
         return jsonify({"status": "success", "emails": emails})
     else:
         return jsonify({"status": "error", "message": "Failed to Connect to Gmail"}), 500
 
+
 def list_drive_files(d_service):
     if d_service:
-        return list_recent_drive_files(d_service)
+        return list_recent_drive_files(d_service, 112)
     return ""
 
 # Google Drive API setup triggered by button click
@@ -85,13 +90,18 @@ def connect_google_drive():
     API_VERSION = 'v3'
     SCOPES = ['https://www.googleapis.com/auth/drive']
 
+    # Get the num_days from the frontend
+    num_days = int(request.form.get("num_days", -1))  # Default to 15 if not provided
+    print(f"Received num_days: {num_days}")  # Debugging
+
     drive_service, drive_credentials = Create_Service_Drive(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 
     if drive_service and drive_credentials:
-        files = list_drive_files(drive_service)
+        files = list_recent_drive_files(drive_service, num_days=num_days)
         return jsonify({"status": "success", "files": files})
     else:
         return jsonify({"status": "error", "message": "Failed to Connect to Google Drive"}), 500
+
 
 # List recent Google Drive files (only if already connected)
 

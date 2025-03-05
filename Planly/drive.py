@@ -409,8 +409,11 @@ def get_cutoff_date():
     cutoff_date = now - datetime.timedelta(weeks=16)
     return cutoff_date.isoformat() + 'Z'
 
-def list_recent_drive_files(service):
-    cutoff_date = get_cutoff_date()
+def list_recent_drive_files(service, num_days):
+    now = datetime.datetime.utcnow()
+    cutoff_date = now - datetime.timedelta(days=num_days)
+    cutoff_date = cutoff_date.isoformat() + 'Z'
+    #cutoff_date = get_cutoff_date()
     query = f"modifiedTime > '{cutoff_date}'"
 
     # Apply retry logic to the API call for listing files

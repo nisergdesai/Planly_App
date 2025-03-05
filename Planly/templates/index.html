@@ -168,18 +168,21 @@
         <div class="left-column">
             <div class="card" id="gmail-card">
                 <h2>Gmail Emails</h2>
+            
                 <button id="connect-gmail-btn" class="connect-button">Connect Gmail</button>
                 <p id="gmail-status" class="status">Not Connected</p>
-                <ul id="email-list">
-                    {% for email in gmails_metadata %}
-                        <li>
-                            <input type="checkbox" class="email-checkbox" value="{{ email.id }}" onchange="updateSummarizeButton()">
-                            <a href="{{ email.link }}" target="_blank">{{ email.sender }} {{ email.subject }} ({{ email.date }})</a>
-                        </li>
-                    {% endfor %}
-                </ul>
+            
+                <!-- Choose Date Input (Initially Hidden) -->
+                <div id="gmail-date-selection" style="display: none;">
+                    <label for="gmail-date">Choose Gmail Date:</label>
+                    <input type="date" id="gmail-date">
+                    <button onclick="chooseGmailDate()">Set Gmail Date</button>
+                </div>
+            
+                <ul id="email-list"></ul> <!-- Placeholder for Gmail emails -->
                 <button id="summarize-emails-button" class="summarize-button" style="display:none;" onclick="summarizeSelectedEmails()">Summarize Selected</button>
             </div>
+            
             
             <script>
                 let originalGmailContent = ""; 
@@ -272,23 +275,21 @@
         <div class="right-column">
             <div class="card" id="google-drive-card">
                 <h2>Google Drive Files</h2>
-        
+            
                 <!-- Connect Google Drive Button -->
                 <button id="connect-drive-btn" class="connect-button">Connect Google Drive</button>
                 <p id="drive-status" class="status">Not Connected</p>
-        
-                <ul>
-                    {% for file in drive_list %}
-                        <li class="file-container">
-                            <a href="https://drive.google.com/file/d/{{ file.id }}" target="_blank">{{ file.name }}</a>
-                            <button class="summarize-button" 
-                                onclick="summarizeFile(event, '{{ file.id|string }}', '{{ file.name|string }}', '{{ file.mimeType|string }}', 'google_drive', 'google-drive-card')">
-                                Summarize
-                            </button>
-                        </li>
-                    {% endfor %}
-                </ul>
+            
+                <!-- Choose Date Input (Initially Hidden) -->
+                <div id="drive-date-selection" style="display: none;">
+                    <label for="drive-date">Choose Google Drive Date:</label>
+                    <input type="date" id="drive-date">
+                    <button onclick="chooseDriveDate()">Set Drive Date</button>
+                </div>
+            
+                <ul id="google-drive-files"></ul> <!-- Placeholder for Drive Files -->
             </div>
+            
             <div class="card" id="microsoft-card">
                 <h2>Microsoft (OneDrive & Outlook)</h2>
                 <button id="connect-microsoft-btn" class="connect-button">Connect Microsoft</button>
@@ -329,19 +330,25 @@
                                 $("#drive-status").text("Connected to Google Drive ✅").css("color", "green");
                                 $("#connect-drive-btn").hide();
 
+                                // Show date selection fields
+                                $("#drive-date-selection").show();
+
                                 // Update the file list
-                                let files = response.files;
-                                let fileListHtml = "";
-                                files.forEach(file => {
-                                    fileListHtml += `<li class="file-container">
-                                                        <a href="https://drive.google.com/file/d/${file.id}" target="_blank">${file.name}</a>
-                                                        <button class="summarize-button" 
-                                                            onclick="summarizeFile(event, '${file.id}', '${file.name}', '${file.mimeType}', 'google_drive', 'google-drive-card')">
-                                                            Summarize
-                                                        </button>
-                                                    </li>`;
+                                let filesList = $("#google-drive-files");
+                                filesList.empty(); // Clear previous content
+
+                                response.files.forEach(file => {
+                                    let listItem = `
+                                        <li class="file-container">
+                                            <a href="https://drive.google.com/file/d/${file.id}" target="_blank">${file.name}</a>
+                                            <button class="summarize-button" 
+                                                onclick="summarizeFile(event, '${file.id}', '${file.name}', '${file.mimeType}', 'google_drive', 'google-drive-card')">
+                                                Summarize
+                                            </button>
+                                        </li>
+                                    `;
+                                    filesList.append(listItem);
                                 });
-                                $("#google-drive-card ul").html(fileListHtml); // Update the Google Drive file list
                             } else {
                                 $("#drive-status").text("Connection Failed ❌").css("color", "red");
                             }
@@ -363,6 +370,9 @@
                             if (response.status === "success") {
                                 $("#gmail-status").text("Connected to Gmail ✅").css("color", "green");
                                 $("#connect-gmail-btn").hide();
+                                // Show the date selection fields
+                                $("#gmail-date-selection").show();
+
                                 // Update the email list
                                 let emails = response.emails;
                                 let emailListHtml = "";
@@ -372,7 +382,7 @@
                                                         <a href="${email.link}" target="_blank">${email.sender} ${email.subject} (${email.date})</a>
                                                     </li>`;
                                 });
-                                $("#email-list").html(emailListHtml); // Update the email list
+                                $("#email-list").html(emailListHtml); // Update the Gmail email list
                             } else {
                                 $("#gmail-status").text("Connection Failed ❌").css("color", "red");
                             }
@@ -474,10 +484,12 @@
 
                 if (selectedDate) {
                     let dateDifference = calculateDateDifference(selectedDate);
-                    console.log({
-                        cutoff_days: dateDifference,
-                        type: type  // Pass 'onedrive' or 'outlook'
-                    });
+                    
+                    // Determine the target element for displaying the loading message
+                    let targetElement = type === 'onedrive' ? $("#onedrive-files") : $("#outlook-summary");
+
+                    // Show a loading message in the respective card
+                    targetElement.html(`<p style="color: orange;">Fetching ${type.charAt(0).toUpperCase() + type.slice(1)} data... ⏳</p>`);
 
                     $.ajax({
                         url: "/fetch_onedrive_outlook",
@@ -490,9 +502,8 @@
                             console.log(response); // Debugging
 
                             if (type === "outlook") {
-                                // Ensure response.outlooks is never null or undefined
-                                let outlookData = response.outlooks || "No recent emails found.";
-                                $("#outlook-summary").html(outlookData);
+                                let outlookData = response.outlooks || "<p style='color: gray;'>No recent emails found.</p>";
+                                targetElement.html(outlookData);
                             } else if (type === "onedrive") {
                                 let filesList = $("#onedrive-files");
                                 filesList.empty(); // Clear previous content
@@ -511,26 +522,115 @@
                                         filesList.append(listItem);
                                     });
                                 } else {
-                                    filesList.append("<li>No recent OneDrive files found.</li>");
+                                    filesList.append("<li style='color: gray;'>No recent OneDrive files found.</li>");
                                 }
                             }
                         },
                         error: function() {
                             console.error("Error retrieving data");
+                            targetElement.html(`<p style="color: red;">Error retrieving ${type} data ❌</p>`);
+                        }
+                    });
+                }
+            }
+            // Function to handle date selection for Google Drive
+            function chooseDriveDate() {
+                let selectedDate = $("#drive-date").val();
+
+                if (selectedDate) {
+                    let dateDifference = calculateDateDifference(selectedDate);
+
+                    // Show a loading message
+                    $("#google-drive-files").html(`<p style="color: orange;">Fetching Google Drive data... ⏳</p>`);
+
+                    $.ajax({
+                        url: "/connect_google_drive",
+                        type: "POST",
+                        data: {
+                            num_days: dateDifference
+                        },
+                        success: function(response) {
+                            console.log(response); // Debugging
+
+                            let filesList = $("#google-drive-files");
+                            filesList.empty(); // Clear previous content
+
+                            if (response.files && response.files.length > 0) {
+                                response.files.forEach(file => {
+                                    let listItem = `
+                                        <li class="file-container">
+                                            <a href="https://drive.google.com/file/d/${file.id}" target="_blank">${file.name}</a>
+                                            <button class="summarize-button" 
+                                                onclick="summarizeFile(event, '${file.id}', '${file.name}', '${file.mimeType}', 'google_drive', 'google-drive-card')">
+                                                Summarize
+                                            </button>
+                                        </li>
+                                    `;
+                                    filesList.append(listItem);
+                                });
+                            } else {
+                                filesList.append("<li style='color: purple;'>No recent Google Drive files found.</li>");
+                            }
+                        },
+                        error: function() {
+                            console.error("Error retrieving data");
+                            $("#google-drive-files").html(`<p style="color: red;">Error retrieving Google Drive data ❌</p>`);
                         }
                     });
                 }
             }
 
+            function chooseGmailDate() {
+                let selectedDate = $("#gmail-date").val();
 
+                if (selectedDate) {
+                    let dateDifference = calculateDateDifference(selectedDate);
+
+                    // Show a loading message while fetching
+                    $("#email-list").html(`<p style="color: orange;">Fetching Gmail data... ⏳</p>`);
+
+                    $.ajax({
+                        url: "/connect_gmail",
+                        type: "POST",
+                        data: {
+                            num_days: dateDifference
+                        },
+                        success: function(response) {
+                            console.log(response); // Debugging
+
+                            let emailList = $("#email-list");
+                            emailList.empty(); // Clear previous content
+
+                            if (response.emails && response.emails.length > 0) {
+                                response.emails.forEach(email => {
+                                    let listItem = `
+                                        <li>
+                                            <input type="checkbox" class="email-checkbox" value="${email.id}" onchange="updateSummarizeButton()">
+                                            <a href="${email.link}" target="_blank">${email.sender} ${email.subject} (${email.date})</a>
+                                        </li>
+                                    `;
+                                    emailList.append(listItem);
+                                });
+                            } else {
+                                emailList.append("<li style='color: gray;'>No recent Gmail emails found.</li>");
+                            }
+                        },
+                        error: function() {
+                            console.error("Error retrieving data");
+                            $("#email-list").html(`<p style="color: red;">Error retrieving Gmail data ❌</p>`);
+                        }
+                    });
+                }
+            }
 
             function calculateDateDifference(selectedDate) {
                 let today = new Date();
                 let chosenDate = new Date(selectedDate);
                 let timeDiff = today - chosenDate;  // Difference in milliseconds
-                let dayDiff = Math.floor(timeDiff / (1000 * 3600 * 24));  // Convert to days
+                let dayDiff = Math.max(Math.floor(timeDiff / (1000 * 3600 * 24)), 0);  // Ensure non-negative
                 return dayDiff;
             }
+
 
         </script>        
 
