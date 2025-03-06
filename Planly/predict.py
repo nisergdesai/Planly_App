@@ -95,7 +95,8 @@ def predict_sentences_action_notes(text):
 
 # Example: Feed a paragraph for prediction
 text = """
-"""
+While Stephen King is a bestselling horror author, his book On Writing is equal parts memoir and general writing advice for those seeking to hone their craft.  While aimed at writers of fiction, this chapter offers some helpful tips (as well as King's own pet peeves) that could be applied to a variety of writing situations.
+In a 250-500 word response, what aspects of King's toolbox (or his advice) do you find the most useful for writers in WRIT 2?  What do find not so useful?  As a writer, what is in your "toolbox"?"""
 # Get predictions for action tasks and important notes
 #output_paragraph = predict_sentences_action_notes(text)
 

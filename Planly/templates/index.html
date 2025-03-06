@@ -266,8 +266,20 @@
             </script>            
 
             <div class="card">
-                <h2>Canvas Summary</h2>
-                <p>{{ canvas_data|safe }}</p>
+                <h2>Active Courses</h2>
+                <div id="courses">
+                    {% for course in courses %}
+                        <div class="course" onclick="toggleCourse('{{ course.id }}')">
+                            {{ course.name }}
+                            <div id="buttons-{{ course.id }}" class="hidden">
+                                <button onclick="fetchContent('{{ course.id }}', 'syllabus')">Syllabus</button>
+                                <button onclick="fetchContent('{{ course.id }}', 'upcoming_assignments')">Upcoming Assignments</button>
+                                <button onclick="fetchContent('{{ course.id }}', 'recent_announcements')">Recent Announcements</button>
+                                <div id="content-{{ course.id }}" class="content hidden"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>                               
             </div>
         </div>
 
@@ -579,6 +591,31 @@
                     });
                 }
             }
+
+            function toggleCourse(courseId) {
+                $("#buttons-" + courseId).toggleClass("hidden");
+            }
+
+            function fetchContent(courseId, contentType) {
+                $.ajax({
+                    url: "/course_details",
+                    type: "POST",
+                    contentType: "application/json",  // ✅ Specify JSON content type
+                    data: JSON.stringify({ course_id: courseId, content_type: contentType }),
+                    success: function (data) {
+                        if (data.content) {
+                            // Injecting the HTML content directly without wrapping it in <p> tags.
+                            $("#content-" + courseId).html(data.content).removeClass("hidden");
+                        } else {
+                            $("#content-" + courseId).html("<p>Error fetching data.</p>").removeClass("hidden");
+                        }
+                    },
+                    error: function () {
+                        $("#content-" + courseId).html("<p>Failed to fetch data.</p>").removeClass("hidden");
+                    }
+                });
+            }
+
 
             function chooseGmailDate() {
                 let selectedDate = $("#gmail-date").val();

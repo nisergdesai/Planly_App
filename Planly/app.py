@@ -19,7 +19,7 @@ from one_drive import navigate_onedrive, format_combined_content, summarize_cont
 from graph_api import generate_access_token, generate_user_code
 
 # Import Canvas processing functions
-from canvas import summarize_combined_text, combined_results
+from canvas import get_active_courses, get_syllabus, get_recent_announcements, get_upcoming_assignments
 
 from predict import predict_sentences, predict_sentences_action_notes
 
@@ -232,26 +232,39 @@ def outlooks():
 
     return display_and_summarize_emails(headers, cutoff_days=365)
 
-# Canvas Processing
-def process_canvas_data():
-    return summarize_combined_text(combined_results)
-
 @app.route('/')
-def home():
-    #gmails_metadata = fetch_email_metadata()
-    #drive_list = list_drive_files(drive_service)  # Only lists files if already connected
-    #one_drive_list = list_onedrive()
-    canvas_data = process_canvas_data()
-    #outlook_summary = outlooks()
+def index():
+    # Get active courses
+    courses = get_active_courses()
+    return render_template('index.html', courses=courses)
 
-    return render_template(
-        "index.html",
-        #gmails_metadata=gmails_metadata,
-        #outlook_summary=outlook_summary.replace("\n", "<br>"),
-        canvas_data=canvas_data.replace("\n", "<br>"),
-        #drive_list=drive_list,
-        #one_drive_display=[(str(name), str(item_id)) for name, item_id in one_drive_list]
-    )
+@app.route('/course_details', methods=['POST'])
+def course_details():
+    data = request.get_json()  # Receive JSON data from frontend
+    course_id = data.get('course_id')
+    content_type = data.get('content_type')
+    
+    # Get all active courses and find the specific course by id
+    courses = get_active_courses()
+    course = next((course for course in courses if course['id'] == int(course_id)), None)
+
+    # If course is not found, return an error
+    if not course:
+        return jsonify({"error": "Course not found"}), 404
+
+    # Fetch the content based on the content_type
+    if content_type == 'syllabus':
+        content = get_syllabus(course)
+    elif content_type == 'upcoming_assignments':
+        content = get_upcoming_assignments(course)
+    elif content_type == 'recent_announcements':
+        content = get_recent_announcements(course)
+    else:
+        content = "Invalid content type"
+
+    # Return the content in the response
+    return jsonify({"content": content})
+
 
 @app.route('/summarize_emails', methods=['POST'])
 def summarize_selected_emails():
