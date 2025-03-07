@@ -35,7 +35,7 @@ class CustomDistilBertForSequenceClassification(DistilBertForSequenceClassificat
 base_model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=3)
 
 # Load the custom model, using the base model's config and weights
-model = CustomDistilBertForSequenceClassification.from_pretrained('/Users/nisergdesai/Trainer/email_task_classifier', config=base_model.config)
+model = CustomDistilBertForSequenceClassification.from_pretrained('trainer/email_task_classifier', config=base_model.config)
 
 # Load the tokenizer
 tokenizer = DistilBertTokenizer.from_pretrained("distilbert-base-uncased")
