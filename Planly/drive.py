@@ -279,6 +279,8 @@ from drive_service import Create_Service_Drive
 from googleapiclient.discovery import build
 from google import genai
 from google.genai import types
+from docx import Document
+
 
 def retry_with_backoff(api_call, max_retries=5):
     """Retry logic with exponential backoff for API calls."""
@@ -433,6 +435,7 @@ def list_recent_drive_files(service, num_days):
         'application/vnd.google-apps.presentation',  # Google Slides
         'application/vnd.google-apps.spreadsheet',  # Google Sheets
         'application/pdf',  # PDFs
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document' # Docx
     }
 
     # Include audio and video types
@@ -445,7 +448,6 @@ def list_recent_drive_files(service, num_days):
     ]
 
     return filtered_files  # Return the list instead of printing
-
 
 
 def read_google_doc(credentials, file_id):
@@ -512,6 +514,25 @@ def read_pdf_file(service, file_id, file_name):
 
     return text
 
+def read_docx_file(service, file_id, file_name):
+    request = service.files().get_media(fileId=file_id)
+    with tempfile.NamedTemporaryFile(delete=False, suffix=f"_{file_name}.docx") as temp_file:
+        downloader = MediaIoBaseDownload(temp_file, request)
+        done = False
+        while not done:
+            _, done = downloader.next_chunk()
+        temp_file_path = temp_file.name
+
+    try:
+        doc = Document(temp_file_path)
+        text = "\n".join([para.text for para in doc.paragraphs])
+    except Exception as e:
+        print(f"Error reading DOCX file {file_name}: {e}")
+        text = ""
+    finally:
+        os.remove(temp_file_path)
+
+    return text
 
 def combine_file_contents(file_name, file_id, mime_type, credentials, service, whisper_model):
     combined_content_list = []
@@ -520,18 +541,16 @@ def combine_file_contents(file_name, file_id, mime_type, credentials, service, w
 
     if mime_type == 'application/vnd.google-apps.document':
         content = read_google_doc(credentials, file_id)
-
     elif mime_type == 'application/vnd.google-apps.presentation':
         content = read_google_slides(credentials, file_id)
-
     elif mime_type == 'application/vnd.google-apps.spreadsheet':
         content = read_google_sheet(credentials, file_id)
-
     elif mime_type.startswith('audio/') or mime_type.startswith('video/'):
         content = read_audio_video(service, whisper_model, file_id, file_name)
-
     elif mime_type == 'application/pdf':
         content = read_pdf_file(service, file_id, file_name)
+    elif mime_type == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':  # DOCX MIME type
+        content = read_docx_file(service, file_id, file_name)
 
     '''if content:
         combined_content_list.append(f"File Name: {file_name}\nModified Time: {modified_time}\nContent:\n{content}\n\n")
