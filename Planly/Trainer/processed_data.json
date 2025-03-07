@@ -1,0 +1,6086 @@
+[
+    {
+        "sentence": "please complete the attached form and turn it in by august 1st .",
+        "label": 1
+    },
+    {
+        "sentence": "please fill out the attached form and turn it in by august 1st",
+        "label": 1
+    },
+    {
+        "sentence": "please complete the attached form and turn it in by august 1",
+        "label": 1
+    },
+    {
+        "sentence": "please give me a copy of your senior profile and three paragraph highlighting your personal growth , academic growth , and extracurricular activity .",
+        "label": 1
+    },
+    {
+        "sentence": "take care , mrs. sultana .",
+        "label": 3
+    },
+    {
+        "sentence": "i wa just checking to see if you saw my previous email .",
+        "label": 3
+    },
+    {
+        "sentence": "i just checked to see if you 've seen my earlier email",
+        "label": 3
+    },
+    {
+        "sentence": "i just checked to see if you had seen my previous email",
+        "label": 3
+    },
+    {
+        "sentence": "i just checked to see if you had read my previous email",
+        "label": 3
+    },
+    {
+        "sentence": "i just checked to see if you 've seen my previous email",
+        "label": 3
+    },
+    {
+        "sentence": "i wa just checking if you had my previous email",
+        "label": 3
+    },
+    {
+        "sentence": "i just checked to see if you saw my previous e-mail",
+        "label": 3
+    },
+    {
+        "sentence": "i wa just checking if you saw my previous email",
+        "label": 3
+    },
+    {
+        "sentence": "i wa just checking to see if you had seen my previous email",
+        "label": 3
+    },
+    {
+        "sentence": "i wa just checking to see if you read my previous email",
+        "label": 3
+    },
+    {
+        "sentence": "i wa hoping you could write me one since you were the teacher that reached out the most about the loss i dealt with this year .",
+        "label": 2
+    },
+    {
+        "sentence": "i hoped you could write me a letter since you were the teacher who addressed me the most about this loss",
+        "label": 2
+    },
+    {
+        "sentence": "i wa hoping you could write me one because you were the teacher who spoke most about the loss i dealt with this year",
+        "label": 2
+    },
+    {
+        "sentence": "i wa hoping you could write a letter for me since you were the teacher who reached out to me the most about the loss i 'd dealt with this year",
+        "label": 2
+    },
+    {
+        "sentence": "i wa hoping you could write me one because you were the teacher who reached out the most about the loss i dealt with this year",
+        "label": 2
+    },
+    {
+        "sentence": "i completely understand if you still can ’ t write me one , but i thought i should let you know .",
+        "label": 2
+    },
+    {
+        "sentence": "i totally understand if you ca n't write one but i thought i should tell you",
+        "label": 2
+    },
+    {
+        "sentence": "i totally understand if you ca n't write me one but i thought i 'd let you know",
+        "label": 2
+    },
+    {
+        "sentence": "i totally understand if you ca n't write one but i thought i should let you know",
+        "label": 2
+    },
+    {
+        "sentence": "i understand if you still ca n't write one but i thought i should let you know",
+        "label": 2
+    },
+    {
+        "sentence": "i fully understand if you ca n't write me one but i thought i should let you know",
+        "label": 2
+    },
+    {
+        "sentence": "i totally understand if you ca n't write me one but i thought i should let you know",
+        "label": 2
+    },
+    {
+        "sentence": "i completely understand if you ca n't write me one but i thought i should let you know",
+        "label": 2
+    },
+    {
+        "sentence": "thank you , niserg .",
+        "label": 3
+    },
+    {
+        "sentence": "i will really appreciate it if you can ask some other teacher .",
+        "label": 2
+    },
+    {
+        "sentence": "i 'd be grateful if you could ask another teacher",
+        "label": 2
+    },
+    {
+        "sentence": "i 'd be very grateful if you could ask another teacher",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll appreciate it if you could ask other teacher",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll really appreciate it if you could ask another teacher",
+        "label": 2
+    },
+    {
+        "sentence": "i would really appreciate it if you could ask another teacher",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll really appreciate it if you ask another teacher",
+        "label": 2
+    },
+    {
+        "sentence": "i will really appreciate it if you can ask a different teacher",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll really appreciate it if you can ask another teacher",
+        "label": 2
+    },
+    {
+        "sentence": "i have 40 letter of rec to write and i ca n't accept anymore .",
+        "label": 2
+    },
+    {
+        "sentence": "please take care mr sultana",
+        "label": 3
+    },
+    {
+        "sentence": "i am sending this email because i wa wondering if you could write a recommendation letter for me for college application .",
+        "label": 2
+    },
+    {
+        "sentence": "i send this email because i wa wondering if you could write a recommendation letter for me to apply for college",
+        "label": 2
+    },
+    {
+        "sentence": "i send this email because i wa wondering if you could write a recommendation letter for me for college application",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm sending this email because i wa wondering if you could write a recommendation letter for me for college application",
+        "label": 2
+    },
+    {
+        "sentence": "i am sending this email because i wa wondering if you could write a recommendation letter for me for college application",
+        "label": 2
+    },
+    {
+        "sentence": "i have been fortunate enough to be in your class and due to that , i developed more a a person and a student .",
+        "label": 2
+    },
+    {
+        "sentence": "i wa lucky enough to be in your class and a a result i developed more a a person and a a student",
+        "label": 2
+    },
+    {
+        "sentence": "i have been lucky enough to be in your class and because of this i have developed more a a person and a a student",
+        "label": 2
+    },
+    {
+        "sentence": "thank you , niserg desai .",
+        "label": 3
+    },
+    {
+        "sentence": "$ 3.00 redemption link : http : //www.rl.tangocard.com/r/1/wdiaqigyeaal9yv1qvpqa197sldvwrhgzzugkwv-opm expiration : doe not expire .",
+        "label": 3
+    },
+    {
+        "sentence": "to redeem , click the redemption link above to activate your reward link .",
+        "label": 1
+    },
+    {
+        "sentence": "click the above redemption link to activate your reward link",
+        "label": 1
+    },
+    {
+        "sentence": "you will be able to spend your balance on retail gift card .",
+        "label": 2
+    },
+    {
+        "sentence": "you 'll be able to spend your balance on gift card for retail",
+        "label": 2
+    },
+    {
+        "sentence": "you will be able to spend your balance on gift card for retail use",
+        "label": 2
+    },
+    {
+        "sentence": "you can spend your balance on retail gift card",
+        "label": 2
+    },
+    {
+        "sentence": "you will be able to spend your balance on gift card",
+        "label": 2
+    },
+    {
+        "sentence": "you will be able to spend your balance on retail gift card",
+        "label": 2
+    },
+    {
+        "sentence": "if you do n't want to spend your entire reward link value right away , save the email or url and return via the redemption link before the expiration date .",
+        "label": 2
+    },
+    {
+        "sentence": "if you do n't want to spend your entire reward value right away save the email or url and return via the redemption link before the expiration date",
+        "label": 2
+    },
+    {
+        "sentence": "please treat like cash .",
+        "label": 2
+    },
+    {
+        "sentence": "please treat it a money",
+        "label": 2
+    },
+    {
+        "sentence": "please treat it like money",
+        "label": 2
+    },
+    {
+        "sentence": "we are excited to have a few new staff member to our mission san jose high school family .",
+        "label": 2
+    },
+    {
+        "sentence": "we 're excited to welcome a few new school employee to our family in mission san jose",
+        "label": 2
+    },
+    {
+        "sentence": "we are delighted to welcome a few new staff to our mission san jose high school family",
+        "label": 2
+    },
+    {
+        "sentence": "we are thrilled to have a few new employee in our mission san jose high school family",
+        "label": 2
+    },
+    {
+        "sentence": "please help me in welcoming the following individual : jacqueline goodwin , mohini kaladi , tejinderpal kaur , oana seremeta , kim roderick , bhavika vyas , iris wong ( msjhs class of 2003 ! ) .",
+        "label": 2
+    },
+    {
+        "sentence": "please help me in bringing the following person home jacqueline goodwin mohini kaladi tejinderpal kaur oana seremeta kim roderick bhavika vyas iris wong msjhs class of 2003",
+        "label": 2
+    },
+    {
+        "sentence": "please help me in welcoming the following person jacqueline goodwin mohini kaladi tejinderpal kaur oana seremeta kim roderick bhavika vyas iris wong msjhs class of 2003",
+        "label": 2
+    },
+    {
+        "sentence": "please help me welcome the following individual jacqueline goodwin mohini kaladi tejinderpal kaur oana seremeta kim roderick bhavika vyas iris wong msjhs class of 2003",
+        "label": 2
+    },
+    {
+        "sentence": "please help me to welcome the following individual jacqueline goodwin mohini kaladi tejinderpal kaur oana seremeta kim roderick bhavika vyas iris wong msjhs class of 2003",
+        "label": 2
+    },
+    {
+        "sentence": "please help me in welcoming the following individual jacqueline goodwin mohini kaladi tejinderpal kaur oana seremeta kim roderick bhavika vyas iris wong msjhs class of 2003",
+        "label": 2
+    },
+    {
+        "sentence": "we will be holding these on thursday , friday , monday , tuesday , and next thursday during office hour .",
+        "label": 2
+    },
+    {
+        "sentence": "we will hold these on thursday friday monday tuesday and next thursday during the office hour",
+        "label": 2
+    },
+    {
+        "sentence": "we 'll hold these on thursday friday monday tuesday and next thursday during office hour",
+        "label": 2
+    },
+    {
+        "sentence": "we will hold them on thursday friday monday tuesday and next thursday during office hour",
+        "label": 2
+    },
+    {
+        "sentence": "we 're holding these on thursday friday monday tuesday and next thursday during office hour",
+        "label": 2
+    },
+    {
+        "sentence": "we will hold these on thursday friday monday tuesday and next thursday during office hour",
+        "label": 2
+    },
+    {
+        "sentence": "each interview will be 10 minute long and we will be asking a few question similar to those on the application .",
+        "label": 2
+    },
+    {
+        "sentence": "each interview will last 10 minute and we will ask some similar question to the one on the application",
+        "label": 2
+    },
+    {
+        "sentence": "each interview is 10 minute long and we 're gon na ask a few question similar to those on the application",
+        "label": 2
+    },
+    {
+        "sentence": "each interview will be 10 minute long and we 'll ask question similar to those on the application",
+        "label": 2
+    },
+    {
+        "sentence": "each interview is 10 minute long and we will ask a few question similar to those on the application",
+        "label": 2
+    },
+    {
+        "sentence": "each interview will be ten minute long and we will ask a few question similar to those in the application",
+        "label": 2
+    },
+    {
+        "sentence": "each interview will be 10 minute long and we will ask a few question similar to those on the application",
+        "label": 2
+    },
+    {
+        "sentence": "please sign up for a slot on the attached spreadsheet preferably by tomorrow evening .",
+        "label": 1
+    },
+    {
+        "sentence": "please register for a slot on the attached spreadsheet preferably by tomorrow night",
+        "label": 1
+    },
+    {
+        "sentence": "please sign for a slot on the attached spreadsheet preferably by tomorrow evening",
+        "label": 1
+    },
+    {
+        "sentence": "please sign up for a slot in the attached spreadsheet preferably by tomorrow evening",
+        "label": 1
+    },
+    {
+        "sentence": "please sign up for a slot on the attached spreadsheet preferably by tomorrow evening",
+        "label": 1
+    },
+    {
+        "sentence": "feel free to let u know if you have any question or concern !",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question please let u know",
+        "label": 3
+    },
+    {
+        "sentence": "please let u know if you have question",
+        "label": 3
+    },
+    {
+        "sentence": "please let u know if you have any question",
+        "label": 3
+    },
+    {
+        "sentence": "let u know if you have any question or concern",
+        "label": 3
+    },
+    {
+        "sentence": "please let u know if you have any question or concern",
+        "label": 3
+    },
+    {
+        "sentence": "feel free to let u know if you have question or concern",
+        "label": 3
+    },
+    {
+        "sentence": "feel free to let u know if you have any question or concern",
+        "label": 3
+    },
+    {
+        "sentence": "back to school night will be held via zoom on thursday , september 3rd from 6pm-8pm .",
+        "label": 2
+    },
+    {
+        "sentence": "back to school night will be hosted by zoom from 6 to 8 pm on thursday september 3",
+        "label": 2
+    },
+    {
+        "sentence": "back to school night will be held via zoom on thursday september 3 from 6pm to 8pm",
+        "label": 2
+    },
+    {
+        "sentence": "back to school night will be held via zoom on thursday september 3rd from 6 - 8 pm",
+        "label": 2
+    },
+    {
+        "sentence": "more detail to follow .",
+        "label": 3
+    },
+    {
+        "sentence": "please visit this page to learn next step : http : //foothill.edu/hs/",
+        "label": 1
+    },
+    {
+        "sentence": "you will be unable to register for any class until the admission and record office ha reviewed your permission form .",
+        "label": 2
+    },
+    {
+        "sentence": "you will be unable to register for any class until the admission and record office ha examined your permit form",
+        "label": 2
+    },
+    {
+        "sentence": "you will not be able to register for class until the admission and record office ha reviewed your permission form",
+        "label": 2
+    },
+    {
+        "sentence": "you will be unable to register for any class until the admission and record office review your permission form",
+        "label": 2
+    },
+    {
+        "sentence": "you will not be able to register for any class until the admission and record office ha reviewed your permission form",
+        "label": 2
+    },
+    {
+        "sentence": "you will be unable to register for class until the admission and record office ha reviewed your permission form",
+        "label": 2
+    },
+    {
+        "sentence": "you will be unable to register for any class until the admission and record office ha reviewed your permission form",
+        "label": 2
+    },
+    {
+        "sentence": "please log into : http : //myportal.fhda.edu",
+        "label": 1
+    },
+    {
+        "sentence": "click on 'apps ' , then click on 'student registration ' , and click 'get my date to register ' .",
+        "label": 1
+    },
+    {
+        "sentence": "you do not qualify for priority registration .",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for choosing foothill college .",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for choosing foothill college",
+        "label": 3
+    },
+    {
+        "sentence": "student will need the following to join the class from home : ( a ) any computer ( window or apple mac ) ; ( b ) any browser ; ( c ) software needed to write the code ( student are already using this to submit their homework ) .",
+        "label": 2
+    },
+    {
+        "sentence": "following are the step student need to complete at least one hour before the first class ( one-time setup ) :",
+        "label": 1
+    },
+    {
+        "sentence": "open browser and type the following url : http : //zoom.us/j/28754154942",
+        "label": 1
+    },
+    {
+        "sentence": "open your browser and enter the following url httpszoomusj28754154942",
+        "label": 1
+    },
+    {
+        "sentence": "zoom client exe will be downloaded from the browser .",
+        "label": 2
+    },
+    {
+        "sentence": "the zoom client client exe can be downloaded from the browser",
+        "label": 2
+    },
+    {
+        "sentence": "the zoom client is downloaded from the browser",
+        "label": 2
+    },
+    {
+        "sentence": "the zoom client exe can be downloaded from your browser",
+        "label": 2
+    },
+    {
+        "sentence": "run this exe to install zoom client .",
+        "label": 1
+    },
+    {
+        "sentence": "use this executable to install the zoom client",
+        "label": 1
+    },
+    {
+        "sentence": "use this exe to install the zoom client",
+        "label": 1
+    },
+    {
+        "sentence": "run this exe to install the zoom client",
+        "label": 1
+    },
+    {
+        "sentence": "make sure to complete the audio test when prompted .",
+        "label": 1
+    },
+    {
+        "sentence": "please complete the audio test when asked",
+        "label": 1
+    },
+    {
+        "sentence": "make sure you complete the audio test when asked",
+        "label": 1
+    },
+    {
+        "sentence": "you will see a popup with the message - please wait for host to start the meeting .",
+        "label": 2
+    },
+    {
+        "sentence": "you 'll see a popup message - please wait for the host to start the meeting",
+        "label": 2
+    },
+    {
+        "sentence": "you will see a popup with a message - please wait for the host to start the meeting",
+        "label": 2
+    },
+    {
+        "sentence": "you will see a popup with the message - please wait for the host to start the meeting",
+        "label": 2
+    },
+    {
+        "sentence": "your setup is now complete .",
+        "label": 3
+    },
+    {
+        "sentence": "you have now completed the setup",
+        "label": 3
+    },
+    {
+        "sentence": "your configuration is now complete",
+        "label": 3
+    },
+    {
+        "sentence": "your setup is complete",
+        "label": 3
+    },
+    {
+        "sentence": "please join the class 2 minute before the actual class start time .",
+        "label": 1
+    },
+    {
+        "sentence": "a popup window will ask to open zoom ? click open zoom button .",
+        "label": 1
+    },
+    {
+        "sentence": "on the next popup window , select – join with computer audio .",
+        "label": 1
+    },
+    {
+        "sentence": "now you are in the class .",
+        "label": 2
+    },
+    {
+        "sentence": "you 're in class",
+        "label": 2
+    },
+    {
+        "sentence": "you 're in a class",
+        "label": 2
+    },
+    {
+        "sentence": "you 're in the class",
+        "label": 2
+    },
+    {
+        "sentence": "now you 're in class",
+        "label": 2
+    },
+    {
+        "sentence": "now you 're in the class",
+        "label": 2
+    },
+    {
+        "sentence": "student should send a confirmation email after completing the setup .",
+        "label": 1
+    },
+    {
+        "sentence": "after completing the setup the student should send an acknowledgement email",
+        "label": 1
+    },
+    {
+        "sentence": "after completing the setup the student should send a confirmation e-mail",
+        "label": 1
+    },
+    {
+        "sentence": "after the setup process the student should send a confirmation email",
+        "label": 1
+    },
+    {
+        "sentence": "after completing the setup student should send a confirmation email",
+        "label": 1
+    },
+    {
+        "sentence": "the student should send a confirmation email after completing the setup",
+        "label": 1
+    },
+    {
+        "sentence": "reminder : your application is incomplete !",
+        "label": 2
+    },
+    {
+        "sentence": "reminder your application is incomplete",
+        "label": 2
+    },
+    {
+        "sentence": "please complete the step listed below to submit your application .",
+        "label": 1
+    },
+    {
+        "sentence": "please follow the step below to apply",
+        "label": 1
+    },
+    {
+        "sentence": "please follow the step below to submit your application",
+        "label": 1
+    },
+    {
+        "sentence": "please complete the step below to submit your application",
+        "label": 1
+    },
+    {
+        "sentence": "please follow the step listed below to submit your application",
+        "label": 1
+    },
+    {
+        "sentence": "your application will not be considered until you complete this process .",
+        "label": 2
+    },
+    {
+        "sentence": "your application will not be considered until you have successfully completed this process",
+        "label": 2
+    },
+    {
+        "sentence": "your application will not be considered until you finish this process",
+        "label": 2
+    },
+    {
+        "sentence": "your application will not be considered until you have completed this process",
+        "label": 2
+    },
+    {
+        "sentence": "your application will not be considered until you complete this process",
+        "label": 2
+    },
+    {
+        "sentence": "be sure to submit all required document by the application deadline .",
+        "label": 1
+    },
+    {
+        "sentence": "be sure to provide all the document required by the deadline of your application",
+        "label": 1
+    },
+    {
+        "sentence": "please submit all of the necessary document by the deadline",
+        "label": 1
+    },
+    {
+        "sentence": "please submit the document by the deadline",
+        "label": 1
+    },
+    {
+        "sentence": "please find the syllabus for your course attached .",
+        "label": 2
+    },
+    {
+        "sentence": "it includes detail about the schedule , assignment , and grading criterion .",
+        "label": 2
+    },
+    {
+        "sentence": "it includes detail on the timetable assignment and grading criterion",
+        "label": 2
+    },
+    {
+        "sentence": "it includes detail about scheduling assignment and grading criterion",
+        "label": 2
+    },
+    {
+        "sentence": "make sure to review the syllabus before the first class .",
+        "label": 1
+    },
+    {
+        "sentence": "make sure you read the syllabus before taking the first class",
+        "label": 1
+    },
+    {
+        "sentence": "ensure you have reviewed the syllabus before the first class",
+        "label": 1
+    },
+    {
+        "sentence": "make sure to study the syllabus before the first class",
+        "label": 1
+    },
+    {
+        "sentence": "make sure you read the syllabus before the first class",
+        "label": 1
+    },
+    {
+        "sentence": "if you have any question , feel free to reach out .",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question feel free to ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question feel free to contact u",
+        "label": 3
+    },
+    {
+        "sentence": "if you have question feel free to reach out",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question feel free to reach out",
+        "label": 3
+    },
+    {
+        "sentence": "looking forward to seeing you in class !",
+        "label": 3
+    },
+    {
+        "sentence": "do n't forget , your payment is due by the end of this week !",
+        "label": 1
+    },
+    {
+        "sentence": "failure to make payment by the deadline will result in a late fee .",
+        "label": 2
+    },
+    {
+        "sentence": "failure to pay within the deadline will result in a late fee",
+        "label": 2
+    },
+    {
+        "sentence": "failure to pay by the deadline will result in a late fee",
+        "label": 2
+    },
+    {
+        "sentence": "failure to make the payment by the deadline will result in a late fee",
+        "label": 2
+    },
+    {
+        "sentence": "failure to make payment by the deadline will result in a late fee",
+        "label": 2
+    },
+    {
+        "sentence": "click here to pay : [ link ]",
+        "label": 1
+    },
+    {
+        "sentence": "let u know if you have any issue with the payment process .",
+        "label": 3
+    },
+    {
+        "sentence": "let u know if you are having problem with the payment process",
+        "label": 3
+    },
+    {
+        "sentence": "let u know if you 're having issue with the payment process",
+        "label": 3
+    },
+    {
+        "sentence": "let u know if you have any problem with the payment process",
+        "label": 3
+    },
+    {
+        "sentence": "please let u know if you have any problem with the payment process",
+        "label": 3
+    },
+    {
+        "sentence": "let u know if you have any issue with the payment process",
+        "label": 3
+    },
+    {
+        "sentence": "here is your monthly update on your project status .",
+        "label": 2
+    },
+    {
+        "sentence": "here is your monthly update on your progress on your project",
+        "label": 2
+    },
+    {
+        "sentence": "here is your monthly update on your progress",
+        "label": 2
+    },
+    {
+        "sentence": "here 's your monthly update about your project status",
+        "label": 2
+    },
+    {
+        "sentence": "here is your monthly update on project status",
+        "label": 2
+    },
+    {
+        "sentence": "here 's your monthly update on your project status",
+        "label": 2
+    },
+    {
+        "sentence": "here is your monthly update on your project status",
+        "label": 2
+    },
+    {
+        "sentence": "the project is currently 75 % complete and progressing on schedule .",
+        "label": 2
+    },
+    {
+        "sentence": "please review the attached report for detailed information .",
+        "label": 1
+    },
+    {
+        "sentence": "please refer to the attached report for detail",
+        "label": 1
+    },
+    {
+        "sentence": "please review the attached report for further detail",
+        "label": 1
+    },
+    {
+        "sentence": "please see the attached report for more detailed information",
+        "label": 1
+    },
+    {
+        "sentence": "please refer to the attached report for detailed information",
+        "label": 1
+    },
+    {
+        "sentence": "please see the attached report for detailed information",
+        "label": 1
+    },
+    {
+        "sentence": "please review the attached report for detailed information",
+        "label": 1
+    },
+    {
+        "sentence": "let me know if you need any clarification .",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if you need anything",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if you need clarification",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if you need any clarification",
+        "label": 3
+    },
+    {
+        "sentence": "please remember to complete the feedback survey for this course .",
+        "label": 1
+    },
+    {
+        "sentence": "please complete the feedback survey for this course",
+        "label": 1
+    },
+    {
+        "sentence": "please remember to complete the survey for this course",
+        "label": 1
+    },
+    {
+        "sentence": "the survey is anonymous and will help u improve the course in the future .",
+        "label": 2
+    },
+    {
+        "sentence": "the survey is anonymous and will help improve our course in the future",
+        "label": 2
+    },
+    {
+        "sentence": "this survey is anonymous and will help u improve the course in the future",
+        "label": 2
+    },
+    {
+        "sentence": "your feedback is highly appreciated .",
+        "label": 2
+    },
+    {
+        "sentence": "your feedback is appreciated",
+        "label": 2
+    },
+    {
+        "sentence": "your feedback is greatly appreciated",
+        "label": 2
+    },
+    {
+        "sentence": "your feedback is very appreciated",
+        "label": 2
+    },
+    {
+        "sentence": "it should only take about 10 minute to complete .",
+        "label": 2
+    },
+    {
+        "sentence": "it should only take about 10 minute to complete",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for your participation !",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for the participation",
+        "label": 3
+    },
+    {
+        "sentence": "we have scheduled a meeting for monday , february 19th at 10 am .",
+        "label": 2
+    },
+    {
+        "sentence": "we have a meeting scheduled for monday february 19 at 10 am",
+        "label": 2
+    },
+    {
+        "sentence": "we have scheduled a meeting for monday february 19 at 10 am",
+        "label": 2
+    },
+    {
+        "sentence": "we have scheduled a meeting for monday february 19th at 10 am",
+        "label": 2
+    },
+    {
+        "sentence": "please confirm your availability for this time .",
+        "label": 1
+    },
+    {
+        "sentence": "if you are unable to attend , let me know and we can reschedule .",
+        "label": 1
+    },
+    {
+        "sentence": "if you ca n't attend let me know so that we can schedule a later date",
+        "label": 1
+    },
+    {
+        "sentence": "if you 're unable to attend let me know and we 'll arrange another date",
+        "label": 1
+    },
+    {
+        "sentence": "if you 're not available to go let me know so we can reschedule",
+        "label": 1
+    },
+    {
+        "sentence": "if you are unable to attend let me know so we can reschedule",
+        "label": 1
+    },
+    {
+        "sentence": "if you 're unable to attend let me know and we can reschedule",
+        "label": 1
+    },
+    {
+        "sentence": "if you are unable to attend let me know and we can reschedule",
+        "label": 1
+    },
+    {
+        "sentence": "looking forward to our discussion !",
+        "label": 3
+    },
+    {
+        "sentence": "i hope this email find you well !",
+        "label": 3
+    },
+    {
+        "sentence": "i hope this email will find you well",
+        "label": 3
+    },
+    {
+        "sentence": "i hope this email find you well",
+        "label": 3
+    },
+    {
+        "sentence": "i wanted to check in and see if you received the document i sent last week .",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to see if you had received the document i sent you last week",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to check and see if you 've got the document i sent you last week",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to check if you received the document i sent you last week",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to check and see if you got the document i sent you last week",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to check and see if you got the document i 've sent last week",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to check in to see if you 've received the document i sent to you last week",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to check in to see if you received the paper i sent last week",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to check in and see if you got the document i sent last week",
+        "label": 1
+    },
+    {
+        "sentence": "i wanted to check and see if you received the document i sent you last week",
+        "label": 1
+    },
+    {
+        "sentence": "please let me know if you have any question or need further information .",
+        "label": 3
+    },
+    {
+        "sentence": "please let me know if you have any question or want more information",
+        "label": 3
+    },
+    {
+        "sentence": "please let me know if you have question or need more information",
+        "label": 3
+    },
+    {
+        "sentence": "please let me know if you have any question or need more information",
+        "label": 3
+    },
+    {
+        "sentence": "please let me know if you have question or need further information",
+        "label": 3
+    },
+    {
+        "sentence": "please let me know if you have any question or need further information",
+        "label": 3
+    },
+    {
+        "sentence": "you ’ ve been selected to participate in the upcoming event next month !",
+        "label": 2
+    },
+    {
+        "sentence": "you have been chosen to participate in the next month 's event",
+        "label": 2
+    },
+    {
+        "sentence": "you were selected to participate in the next event next month",
+        "label": 2
+    },
+    {
+        "sentence": "you have been selected to be a part of the upcoming event next month",
+        "label": 2
+    },
+    {
+        "sentence": "you have been selected to participate in the event next month",
+        "label": 2
+    },
+    {
+        "sentence": "you have been selected to take part in the upcoming event next month",
+        "label": 2
+    },
+    {
+        "sentence": "you were selected to participate in the upcoming event next month",
+        "label": 2
+    },
+    {
+        "sentence": "please confirm your attendance a soon a possible .",
+        "label": 1
+    },
+    {
+        "sentence": "we need to finalize the list of participant by the end of this week .",
+        "label": 1
+    },
+    {
+        "sentence": "we have to finalize the participant list by the end of this week",
+        "label": 1
+    },
+    {
+        "sentence": "we have to finalise the list of participant by the end of the week",
+        "label": 1
+    },
+    {
+        "sentence": "looking forward to having you join u !",
+        "label": 3
+    },
+    {
+        "sentence": "we look forward to bringing you along",
+        "label": 3
+    },
+    {
+        "sentence": "your order ha been shipped and is expected to arrive by friday .",
+        "label": 2
+    },
+    {
+        "sentence": "your order wa shipped and it 's expected to arrive in the next few day",
+        "label": 2
+    },
+    {
+        "sentence": "your order ha been shipped and should arrive on friday",
+        "label": 2
+    },
+    {
+        "sentence": "your order ha been shipped and is expected to arrive by friday",
+        "label": 2
+    },
+    {
+        "sentence": "here ’ s your tracking number : [ tracking number ]",
+        "label": 2
+    },
+    {
+        "sentence": "here 's your tracking number",
+        "label": 2
+    },
+    {
+        "sentence": "let me know if there are any issue with your order .",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if there 's a problem with your order",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if there 's any problem with your order",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if there are problem with your order",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if you have any issue with your order",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if there are any problem with your order",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if there is an issue with your order",
+        "label": 3
+    },
+    {
+        "sentence": "let me know if there are any issue with your order",
+        "label": 3
+    },
+    {
+        "sentence": "we ’ ve extended the registration deadline for the workshop until friday , february 16th .",
+        "label": 2
+    },
+    {
+        "sentence": "the registration deadline for this workshop ha been extended until friday 16 february",
+        "label": 2
+    },
+    {
+        "sentence": "the deadline for registration for the workshop ha been extended to friday february 16th",
+        "label": 2
+    },
+    {
+        "sentence": "we have extended the deadline to register for the workshop until friday 16 february",
+        "label": 2
+    },
+    {
+        "sentence": "we have extended the deadline for registration for the workshop until friday february 16",
+        "label": 2
+    },
+    {
+        "sentence": "we 've extended the deadline to register for the workshop until friday february 16th",
+        "label": 2
+    },
+    {
+        "sentence": "we have extended the registration deadline for this workshop until friday february 16",
+        "label": 2
+    },
+    {
+        "sentence": "we 've extended the registration deadline for the workshop until friday february 16",
+        "label": 2
+    },
+    {
+        "sentence": "we have extended the registration deadline for this workshop until friday february 16th",
+        "label": 2
+    },
+    {
+        "sentence": "we 've extended the registration deadline for the workshop until friday february 16th",
+        "label": 2
+    },
+    {
+        "sentence": "don ’ t miss out on this opportunity to participate .",
+        "label": 2
+    },
+    {
+        "sentence": "do n't miss this opportunity to be a part of the conversation",
+        "label": 2
+    },
+    {
+        "sentence": "do n't miss this opportunity",
+        "label": 2
+    },
+    {
+        "sentence": "do n't miss this opportunity to get involved",
+        "label": 2
+    },
+    {
+        "sentence": "do n't miss this opportunity to participate",
+        "label": 2
+    },
+    {
+        "sentence": "click here to register : [ link ]",
+        "label": 1
+    },
+    {
+        "sentence": "please click on the register link",
+        "label": 1
+    },
+    {
+        "sentence": "if you have any question , please don ’ t hesitate to ask .",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question please ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question do n't hesitate to ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you have question please do n't hesitate to ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question please do n't hesitate to ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any problem or question , please visit help.tangocard.com .",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any problem please visit helptangocardcom",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question please visit helptangocardcom",
+        "label": 3
+    },
+    {
+        "sentence": "restriction apply , see amazon.com/gc-legal .",
+        "label": 3
+    },
+    {
+        "sentence": "reference id : rl211208-1212899-40-1 ( id used only for troubleshooting purpose . )",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for participating .",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for taking part",
+        "label": 3
+    },
+    {
+        "sentence": "you 've been selected .",
+        "label": 2
+    },
+    {
+        "sentence": "you 're selected",
+        "label": 2
+    },
+    {
+        "sentence": "last month you signed up for our research study , but we did n't have space for you .",
+        "label": 2
+    },
+    {
+        "sentence": "you signed up for our research study last month but we did n't have a place for you",
+        "label": 2
+    },
+    {
+        "sentence": "you signed up for our research study last month but we did not have space for you",
+        "label": 2
+    },
+    {
+        "sentence": "you signed up for our research study last month but we did n't have space for you",
+        "label": 2
+    },
+    {
+        "sentence": "last month you signed up for our research study but we do n't have space for you",
+        "label": 2
+    },
+    {
+        "sentence": "last month you signed up for our research study but we did n't have space for you",
+        "label": 2
+    },
+    {
+        "sentence": "we 're happy to let you know that you have been selected to participate and now have the opportunity to earn a $ 40 digital gift card .",
+        "label": 2
+    },
+    {
+        "sentence": "we 're pleased to let you know that you were selected and now have the opportunity to earn a 40 digital gift card",
+        "label": 2
+    },
+    {
+        "sentence": "we 're happy to let you know that you have been selected and have now the opportunity to earn a 40 digital gift card",
+        "label": 2
+    },
+    {
+        "sentence": "we are happy to let you know you have been selected to participate and you have the opportunity to earn a digital gift card worth 40",
+        "label": 2
+    },
+    {
+        "sentence": "we are happy to let you know that you were selected to participate and now have the opportunity to earn a 40 digital gift card",
+        "label": 2
+    },
+    {
+        "sentence": "we 're happy to let you know that you 've been selected for participation and now have the opportunity to earn a 40 digital gift card",
+        "label": 2
+    },
+    {
+        "sentence": "we are pleased to let you know that you have been selected to participate and now have the opportunity to earn a 40 digital gift card",
+        "label": 2
+    },
+    {
+        "sentence": "we 're happy to let you know that you have been selected to participate and now have the opportunity to earn a 40 digital gift card",
+        "label": 2
+    },
+    {
+        "sentence": "the activity will take no more than 1 hour and 40 minute ( 100 minute ) .",
+        "label": 2
+    },
+    {
+        "sentence": "once completed , you 'll be eligible to receive a $ 40 digital gift card that can be used at a variety of retailer , such a walmart , amazon , starbucks , itunes , target , and dunkin ' donut .",
+        "label": 2
+    },
+    {
+        "sentence": "once you 've completed your registration you 'll be eligible to receive a 40 digital gift card which can be used at a variety of retailer such a wal-mart amazon starbucks itunes target and dunkin ' donut",
+        "label": 2
+    },
+    {
+        "sentence": "you should complete this activity during your personal ( not school ) time , and you must finish by 11:59 p.m. et , on november 17 .",
+        "label": 2
+    },
+    {
+        "sentence": "make sure you 're set up in a quiet , private workspace , where you 'll be free from interruption for an hour , and you 'll have a computer ( desktop , laptop , or chromebook ) and a reliable internet connection .",
+        "label": 2
+    },
+    {
+        "sentence": "make sure you are positioned in a quiet private workspace where you wo n't be interrupted for an hour and you will have a computer laptop or chromebook and a reliable internet connection",
+        "label": 2
+    },
+    {
+        "sentence": "make sure you 're in a quiet private workspace where you 'll be free from interruption for an hour and you 'll have a computer laptop or chromebook and a reliable internet connection",
+        "label": 2
+    },
+    {
+        "sentence": "make sure you are set up in a quiet private workspace where you will be free of interruption for an hour and you have a computer desktop laptop or chromebook and a reliable internet connection",
+        "label": 2
+    },
+    {
+        "sentence": "make sure you 're set up in a quiet private workspace where you 'll be free from interruption for an hour and you 'll have a desktop laptop or chromebook and a reliable internet connection",
+        "label": 2
+    },
+    {
+        "sentence": "make sure you 're set up in a quiet private workspace where you 'll be free of interruption for an hour and you 'll have a computer desktop laptop or chromebook and a reliable internet connection",
+        "label": 2
+    },
+    {
+        "sentence": "please make sure your battery is fully charged or you 're plugged into a power source .",
+        "label": 2
+    },
+    {
+        "sentence": "make sure your battery is fully charged or you plug in a power source",
+        "label": 2
+    },
+    {
+        "sentence": "please make sure your battery is completely charged or you are plugged into a power source",
+        "label": 2
+    },
+    {
+        "sentence": "please make sure your battery is fully charged or you plug into a power source",
+        "label": 2
+    },
+    {
+        "sentence": "please make sure your battery is fully charged or you 're plugging into a power source",
+        "label": 2
+    },
+    {
+        "sentence": "please make sure your battery is fully charged or you are plugged into a power source",
+        "label": 2
+    },
+    {
+        "sentence": "there 's limited space in this study , and you wo n't be able to take part if we 've reached our participant limit .",
+        "label": 2
+    },
+    {
+        "sentence": "there is limited space in this study and you wo n't be able to participate if we have reached our participation limit",
+        "label": 2
+    },
+    {
+        "sentence": "there is limited space in this study and you wo n't be able to participate if we reach our participant limit",
+        "label": 2
+    },
+    {
+        "sentence": "there is limited room in this study and you wo n't be able to take part if we reach our participant limit",
+        "label": 2
+    },
+    {
+        "sentence": "there is limited space in this study and you will not be able to take part if we 've reached our participation limit",
+        "label": 2
+    },
+    {
+        "sentence": "there is limited space in this study and you wo n't be able to take part if we reach our participant limit",
+        "label": 2
+    },
+    {
+        "sentence": "there is limited space in this study and you wo n't be able to take part if we have reached our participant limit",
+        "label": 2
+    },
+    {
+        "sentence": "there 's limited space in this study and you wo n't be able to take part if we reached our participant limit",
+        "label": 2
+    },
+    {
+        "sentence": "there 's limited space in this study and you wo n't be able to take part if we 've reached our participant limit",
+        "label": 2
+    },
+    {
+        "sentence": "please start a soon a you can .",
+        "label": 2
+    },
+    {
+        "sentence": "how to earn your $ 40 digital gift card :",
+        "label": 2
+    },
+    {
+        "sentence": "how do i get 40 digital gift card ?",
+        "label": 2
+    },
+    {
+        "sentence": "how do i get a 40 digital gift card ?",
+        "label": 2
+    },
+    {
+        "sentence": "how do i earn a digital gift card ?",
+        "label": 2
+    },
+    {
+        "sentence": "how can i earn 40 digital gift card",
+        "label": 2
+    },
+    {
+        "sentence": "complete the activity in a single session .",
+        "label": 1
+    },
+    {
+        "sentence": "if you close before finishing , you ca n't come back , and you 'll forfeit your $ 40 digital gift card .",
+        "label": 2
+    },
+    {
+        "sentence": "spend time and make an honest effort on every question .",
+        "label": 1
+    },
+    {
+        "sentence": "this opportunity is only for you , so please do n't share this message .",
+        "label": 2
+    },
+    {
+        "sentence": "this is just for you so please do n't share this message",
+        "label": 2
+    },
+    {
+        "sentence": "this opportunity is for you only so please do n't share this message",
+        "label": 2
+    },
+    {
+        "sentence": "this opportunity is for you so please do n't share this message",
+        "label": 2
+    },
+    {
+        "sentence": "this opportunity is only for you so please do n't share this message",
+        "label": 2
+    },
+    {
+        "sentence": "complete about 15 minute of math or reading and writing question to earn up to $ 5 .",
+        "label": 1
+    },
+    {
+        "sentence": "if there 's space remaining after you finish the first set , you may be asked to complete another 15 minute of question .",
+        "label": 2
+    },
+    {
+        "sentence": "if there 's still time left after the first set you may be asked 15 minute of question",
+        "label": 2
+    },
+    {
+        "sentence": "if there is still space after you complete the first set you may be asked to complete another 15 minute of question",
+        "label": 2
+    },
+    {
+        "sentence": "if there is room left after you finish the first set you may be asked to complete another 15 minute of question",
+        "label": 2
+    },
+    {
+        "sentence": "if there 's still space after you finish the first set you may be asked to complete another 15 minute of question",
+        "label": 2
+    },
+    {
+        "sentence": "if there 's time left after you finish the first set you may be asked to complete another 15 minute of question",
+        "label": 2
+    },
+    {
+        "sentence": "do n't start the activity until you 're ready to begin .",
+        "label": 1
+    },
+    {
+        "sentence": "do n't start an activity until you 're ready",
+        "label": 1
+    },
+    {
+        "sentence": "do n't start the activity until you 're ready",
+        "label": 1
+    },
+    {
+        "sentence": "do n't start a new activity until you 're ready to start",
+        "label": 1
+    },
+    {
+        "sentence": "do n't start the activity until you 're ready for it",
+        "label": 1
+    },
+    {
+        "sentence": "the link below will launch it .",
+        "label": 2
+    },
+    {
+        "sentence": "the link below will launch",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for your previous participation in our practice activity where you earned a gift card for answering reading and writing or math question .",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your participation in our practice activity where you earned a gift card for answering question in reading and writing or math",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your past participation in our practice activity where you earned a gift card for answering question about reading and writing or mathematics",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your previous participation in our practice activity where you earned a gift card for answering the question in reading writing or math",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your previous participation in our practice activity where you earned a gift card for answering question in reading and writing or math",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your participation in our previous practice activity where you earned a gift card for answering reading and writing or math question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your participation in our practice activity where you earned a gift card for answering reading and writing or math question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your past participation in our practice activity where you earned a gift card for answering reading and writing or math question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your previous participation in our practice activity where you earned a gift card for answer to reading and writing or math question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for your previous participation in our practice activity where you earned a gift card for answering reading and writing or math question",
+        "label": 3
+    },
+    {
+        "sentence": "claim code : vt5h-wwxwn3-tsal .",
+        "label": 2
+    },
+    {
+        "sentence": "to redeem your gift card visit www.amazon.com/redeem .",
+        "label": 1
+    },
+    {
+        "sentence": "for redeeming your amazon gift card visit wwwamazoncomredeem",
+        "label": 1
+    },
+    {
+        "sentence": "if you have question about redeeming your gift card , please visit www.amazon.com/gc-redeem .",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question regarding the redemption of your gift card please visit wwwamazoncomgc-redeem",
+        "label": 3
+    },
+    {
+        "sentence": "if you have question about the redemption of your gift card please visit wwwamazoncomgc-redeem",
+        "label": 3
+    },
+    {
+        "sentence": "if you have question about redeeming your gift card please visit wwwamazoncomgc-redeem",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for contacting the university of minnesota twin city !",
+        "label": 3
+    },
+    {
+        "sentence": "i understand the term of interest can be confusing online , however we have your interest accurately marked for fall 2022 .",
+        "label": 3
+    },
+    {
+        "sentence": "if you have additional question , please do not hesitate to let u know .",
+        "label": 1
+    },
+    {
+        "sentence": "please let u know if you have any additional question",
+        "label": 1
+    },
+    {
+        "sentence": "if you have any additional question please let u know",
+        "label": 1
+    },
+    {
+        "sentence": "if you have any question please do n't hesitate to ask u",
+        "label": 1
+    },
+    {
+        "sentence": "if you have any question please do not hesitate to contact u",
+        "label": 1
+    },
+    {
+        "sentence": "if you have any question please do not hesitate to ask",
+        "label": 1
+    },
+    {
+        "sentence": "if you have question please do not hesitate to let u know",
+        "label": 1
+    },
+    {
+        "sentence": "if you have any other question please do n't hesitate to let u know",
+        "label": 1
+    },
+    {
+        "sentence": "if you have any additional question please do n't hesitate to let u know",
+        "label": 1
+    },
+    {
+        "sentence": "if you have additional question please do not hesitate to let u know",
+        "label": 1
+    },
+    {
+        "sentence": "thank you so much for your response to my question .",
+        "label": 3
+    },
+    {
+        "sentence": "thank you very much for your response",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for responding to my question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for the response to my question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you so much for responding to my question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you so much for your reply to my question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you very much for your response to my question",
+        "label": 3
+    },
+    {
+        "sentence": "thank you so much for your response to my question",
+        "label": 3
+    },
+    {
+        "sentence": "unfortunately , i still do not see the option to select fall 2022 for freshman .",
+        "label": 2
+    },
+    {
+        "sentence": "unfortunately i still do not see the option to select the fall 2022 option for freshman",
+        "label": 2
+    },
+    {
+        "sentence": "i have included a picture of what the information request page look like .",
+        "label": 2
+    },
+    {
+        "sentence": "i included a picture of how it look on the information request page",
+        "label": 2
+    },
+    {
+        "sentence": "i have included a picture of how the page look like",
+        "label": 2
+    },
+    {
+        "sentence": "i have attached a picture of what the request page look like",
+        "label": 2
+    },
+    {
+        "sentence": "i have included a picture of what the information request page look like",
+        "label": 2
+    },
+    {
+        "sentence": "you 're invited to attend the first nacac virtual college fair of the season on sunday , august 29 from 1-6 p.m. et !",
+        "label": 2
+    },
+    {
+        "sentence": "you are invited to the first nacac virtual college fair of the season on sunday august 29 from 1-6 pm",
+        "label": 2
+    },
+    {
+        "sentence": "you are invited to the first nacac virtual college fair of the season on sunday august 29 from 1-6 pm et",
+        "label": 2
+    },
+    {
+        "sentence": "you are invited to attend the first nacac virtual college fair of the season on sunday august 29 from 1 pm to 6 pm",
+        "label": 2
+    },
+    {
+        "sentence": "you are invited to attend the first nacac virtual college fair of the season on sunday august 29 from 1-6 pm",
+        "label": 2
+    },
+    {
+        "sentence": "you 're invited to attend the first nacac virtual college fair of the season on sunday august 29 from 1 - 6 pm et",
+        "label": 2
+    },
+    {
+        "sentence": "please sign up for free at virtualcollegefairs.org .",
+        "label": 1
+    },
+    {
+        "sentence": "please register for free on virtualcollegefairsorg",
+        "label": 1
+    },
+    {
+        "sentence": "please sign up for free on virtualcollegefairsorg",
+        "label": 1
+    },
+    {
+        "sentence": "the virtual fair is a great opportunity to connect with college and pursue your college dream .",
+        "label": 2
+    },
+    {
+        "sentence": "the virtual fair is a great opportunity to connect with college and follow your college dream",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat live with college admission representative or drop in on live zoom session offered by hundred of college on a single day .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat with college admission representative live in a single day or drop in on the live session offered by hundred of college",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat with college admission representative live or drop in on hundred of live zoom session offered by hundred of college on a single day",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat with college admission agent online or to drop in on live zoom session offered by hundred of college on a single day",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat with college admission representative in person or drop in on live zoom session offered by hundred of college on a single day",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat live with college admission agent or drop in on live 'zoom session ' offered by hundred of college on a single day",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat with college admission representative or drop in live zoom session offered by hundred of college on a single day",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat with college admission representative or drop into live zoom session offered by hundred of college on a single day",
+        "label": 2
+    },
+    {
+        "sentence": "it 's easy to chat live with college admission representative or drop in on live zoom session offered by hundred of college on a single day",
+        "label": 2
+    },
+    {
+        "sentence": "more than 100,000 student and family signed up this past spring .",
+        "label": 3
+    },
+    {
+        "sentence": "in the spring of this year over 100000 student and family registered",
+        "label": 3
+    },
+    {
+        "sentence": "more than 100000 student signed up this spring",
+        "label": 3
+    },
+    {
+        "sentence": "more than 100000 student signed up this past spring",
+        "label": 3
+    },
+    {
+        "sentence": "over 100000 student and family signed up this past spring",
+        "label": 3
+    },
+    {
+        "sentence": "more than 100000 student and family signed up this spring",
+        "label": 3
+    },
+    {
+        "sentence": "more than 100000 student and family signed up this past spring",
+        "label": 3
+    },
+    {
+        "sentence": "go now to virtualcollegefairs.org and start tagging the zoom session you want to attend .",
+        "label": 1
+    },
+    {
+        "sentence": "start marking the session you want to attend on virtual college fairsorg",
+        "label": 1
+    },
+    {
+        "sentence": "go to virtualcollegefairsorg and start tagging the zoom session that you want to attend",
+        "label": 1
+    },
+    {
+        "sentence": "go to virtualcollegefairsorg and start tagging the session you want to attend",
+        "label": 1
+    },
+    {
+        "sentence": "go to virtualcollegefairsorg and start marking the zoom session you want to attend",
+        "label": 1
+    },
+    {
+        "sentence": "go to virtualcollegefairsorg and start tracking the zoom session you want to attend",
+        "label": 1
+    },
+    {
+        "sentence": "go to virtualcollegefairsorg and start tagging the zoom session you want to attend",
+        "label": 1
+    },
+    {
+        "sentence": "you 'll then get a text reminder before the session start .",
+        "label": 2
+    },
+    {
+        "sentence": "you will then receive a reminder text before the session begin",
+        "label": 2
+    },
+    {
+        "sentence": "you will be notified by text message before the session start",
+        "label": 2
+    },
+    {
+        "sentence": "you 'll be reminded via texting before the session start",
+        "label": 2
+    },
+    {
+        "sentence": "you 'll then receive a reminder in a text before the session start",
+        "label": 2
+    },
+    {
+        "sentence": "you 'll receive a reminder text before the session start",
+        "label": 2
+    },
+    {
+        "sentence": "you 'll get a reminder text before the session start",
+        "label": 2
+    },
+    {
+        "sentence": "you 'll then get a reminder text before the session begin",
+        "label": 2
+    },
+    {
+        "sentence": "we look forward to seeing you on august 29 !",
+        "label": 2
+    },
+    {
+        "sentence": "fall 2021 schedule .",
+        "label": 3
+    },
+    {
+        "sentence": "attend a many fair a you wish !",
+        "label": 1
+    },
+    {
+        "sentence": "participate a many fair a you want",
+        "label": 1
+    },
+    {
+        "sentence": "click below to see a list of college that will share information about their program , major , financial aid , and more on each fair date .",
+        "label": 1
+    },
+    {
+        "sentence": "additional college will be added throughout the fall .",
+        "label": 2
+    },
+    {
+        "sentence": "further college will be added throughout the fall",
+        "label": 2
+    },
+    {
+        "sentence": "additional college will be added throughout the fall",
+        "label": 2
+    },
+    {
+        "sentence": "three of these event are smaller fair for student with special interest or residing in specific region : northeastern u ( sep. 28 ) , midwest u ( oct. 14 ) , and the art & stem ( nov. 2 ) .",
+        "label": 2
+    },
+    {
+        "sentence": "connect virtually .",
+        "label": 3
+    },
+    {
+        "sentence": "covid-19 ha limited the opportunity for you to visit , learn about , and connect with college .",
+        "label": 2
+    },
+    {
+        "sentence": "we aim to bridge that gap through these special one-day event .",
+        "label": 3
+    },
+    {
+        "sentence": "we aim to bridge this gap through these special event of one day",
+        "label": 3
+    },
+    {
+        "sentence": "we aim to bridge this gap by hosting special one-day event",
+        "label": 3
+    },
+    {
+        "sentence": "we aim to bridge this gap through these special one-day event",
+        "label": 3
+    },
+    {
+        "sentence": "we aim to bridge that gap through these special one day event",
+        "label": 3
+    },
+    {
+        "sentence": "at each virtual fair , you can attend presentation by college , ask question , and demonstrate interest ... all without leaving home .",
+        "label": 3
+    },
+    {
+        "sentence": "at every virtual fair you can attend conference and learn about college without leaving home",
+        "label": 3
+    },
+    {
+        "sentence": "watch this short video for how-to information .",
+        "label": 1
+    },
+    {
+        "sentence": "be sure to sign up at virtualcollegefairs.org well before each fair date !",
+        "label": 1
+    },
+    {
+        "sentence": "thank you so much for agreeing to write me a letter of recommendation .",
+        "label": 3
+    },
+    {
+        "sentence": "thank you so much for agreeing to write a recommendation letter",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for accepting to write me a letter of recommendation",
+        "label": 3
+    },
+    {
+        "sentence": "thank you very much for agreeing to write me a letter of recommendation",
+        "label": 3
+    },
+    {
+        "sentence": "thank you so much for agreeing to write me a letter of recommendation",
+        "label": 3
+    },
+    {
+        "sentence": "this help me a lot and i will not take it for granted .",
+        "label": 3
+    },
+    {
+        "sentence": "it help me greatly and i will not take this a a given",
+        "label": 3
+    },
+    {
+        "sentence": "it help me very much and i will not take it for granted",
+        "label": 3
+    },
+    {
+        "sentence": "it help me immensely and i will not take it for granted",
+        "label": 3
+    },
+    {
+        "sentence": "this help me much and i wo n't take it for granted",
+        "label": 3
+    },
+    {
+        "sentence": "this help me a lot and i 'm not taking it for granted",
+        "label": 3
+    },
+    {
+        "sentence": "this help me very much and i will not take it for granted",
+        "label": 3
+    },
+    {
+        "sentence": "i will make sure to turn the form in by august 1st .",
+        "label": 1
+    },
+    {
+        "sentence": "i 'll check that it 's completed by august 1st",
+        "label": 1
+    },
+    {
+        "sentence": "i 'll make sure i turn in the form before august 1",
+        "label": 1
+    },
+    {
+        "sentence": "i 'll be sure to turn in the form by august 1",
+        "label": 1
+    },
+    {
+        "sentence": "i 'll make sure to return the form before august 1st",
+        "label": 1
+    },
+    {
+        "sentence": "i will make sure to turn in the form by august 1",
+        "label": 1
+    },
+    {
+        "sentence": "thank you .",
+        "label": 3
+    },
+    {
+        "sentence": "friend hang . brunch date . errand ( sigh ) . whatever your weekend plan , you can breeze around town for a little less . the discount 's already applied , so you 're good to go .",
+        "label": 3
+    },
+    {
+        "sentence": "up to 75 % off/ride . end 01/25/2025 . term apply .",
+        "label": 2
+    },
+    {
+        "sentence": "you ’ ve got 75 % off your next 2 ride",
+        "label": 2
+    },
+    {
+        "sentence": "up to $ 13 off/ride . end 01/25/2025 . term apply . excludes wait & save .",
+        "label": 2
+    },
+    {
+        "sentence": "see my deal",
+        "label": 3
+    },
+    {
+        "sentence": "* offer term and condition :",
+        "label": 3
+    },
+    {
+        "sentence": "you have 2 ride remaining . max saving of $ 13 per ride . offer excludes wait & save ride and bike and scooter . discount applies to the fare , service fee , toll , and tax only . valid until 01/25/2025 at 11:59:00 pm pst .",
+        "label": 2
+    },
+    {
+        "sentence": "only applicable in the u . promo valid only for user who received this email directly from lyft . can not be combined with other offer . subject to lyft ’ s term of service .",
+        "label": 2
+    },
+    {
+        "sentence": "unsubscribe | contact",
+        "label": 3
+    },
+    {
+        "sentence": "check out symphony san jose - the firebird , tom segura and more recommendation for you",
+        "label": 3
+    },
+    {
+        "sentence": "got plan for this weekend ?",
+        "label": 3
+    },
+    {
+        "sentence": "do you have plan for this weekend ?",
+        "label": 3
+    },
+    {
+        "sentence": "what 's your plan for this weekend ?",
+        "label": 3
+    },
+    {
+        "sentence": "do you have any plan for this weekend ?",
+        "label": 3
+    },
+    {
+        "sentence": "have plan for this weekend ?",
+        "label": 3
+    },
+    {
+        "sentence": "have you got plan for the weekend ?",
+        "label": 3
+    },
+    {
+        "sentence": "have a plan for this weekend ?",
+        "label": 3
+    },
+    {
+        "sentence": "have you got plan for this weekend ?",
+        "label": 3
+    },
+    {
+        "sentence": "here are our top pick for your weekend .",
+        "label": 3
+    },
+    {
+        "sentence": "here are some of our favourite weekend",
+        "label": 3
+    },
+    {
+        "sentence": "here 's our top pick for the weekend",
+        "label": 3
+    },
+    {
+        "sentence": "here are our top pick for the weekend",
+        "label": 3
+    },
+    {
+        "sentence": "here are our best pick for your weekend",
+        "label": 3
+    },
+    {
+        "sentence": "here are our top pick for your weekend",
+        "label": 3
+    },
+    {
+        "sentence": "los angeles lakers at golden state warrior saturday • 05:30 pm chase center • san francisco , california",
+        "label": 3
+    },
+    {
+        "sentence": "view ticket",
+        "label": 3
+    },
+    {
+        "sentence": "symphony san jose - the firebird saturday • 07:30 pm california theatre • san jose , california",
+        "label": 3
+    },
+    {
+        "sentence": "tom segura friday • 07:30 pm chase center • san francisco , california",
+        "label": 3
+    },
+    {
+        "sentence": "san diego torero at san francisco don basketball saturday • 07:00 pm war memorial gymnasium at the sobrato center • san francisco , ca",
+        "label": 3
+    },
+    {
+        "sentence": "akaash singh saturday • 09:15 pm punch line sacramento • sacramento , california",
+        "label": 3
+    },
+    {
+        "sentence": "florida panther at san jose shark saturday • 07:00 pm sap center • san jose , california",
+        "label": 3
+    },
+    {
+        "sentence": "chamber series - davy symphony hall sunday • 02:00 pm davy symphony hall • san francisco , ca",
+        "label": 3
+    },
+    {
+        "sentence": "salt lake city star at santa cruz warrior saturday • 07:00 pm kaiser permanente arena • santa cruz , ca",
+        "label": 3
+    },
+    {
+        "sentence": "view more event",
+        "label": 3
+    },
+    {
+        "sentence": "fanprotect™",
+        "label": 3
+    },
+    {
+        "sentence": "buy ticket with confidence",
+        "label": 3
+    },
+    {
+        "sentence": "customer service all the way to your seat",
+        "label": 3
+    },
+    {
+        "sentence": "every order is 100 % guaranteed",
+        "label": 3
+    },
+    {
+        "sentence": "full refund or 120 % credit for canceled event",
+        "label": 3
+    },
+    {
+        "sentence": "download the stubhub app",
+        "label": 3
+    },
+    {
+        "sentence": "discover your favorite event with ease",
+        "label": 3
+    },
+    {
+        "sentence": "copyright ©2025 stubhub inc. all right reserved . 1209 orange street , wilmington , de , 19801 .",
+        "label": 3
+    },
+    {
+        "sentence": "support",
+        "label": 3
+    },
+    {
+        "sentence": "my account",
+        "label": 3
+    },
+    {
+        "sentence": "sell ticket",
+        "label": 3
+    },
+    {
+        "sentence": "follow u on :",
+        "label": 3
+    },
+    {
+        "sentence": "follow u on twitter",
+        "label": 3
+    },
+    {
+        "sentence": "discover our mobile app",
+        "label": 3
+    },
+    {
+        "sentence": "no longer want to receive this email ?",
+        "label": 3
+    },
+    {
+        "sentence": "do n't want to receive this email anymore ?",
+        "label": 3
+    },
+    {
+        "sentence": "want to stop receiving this email ?",
+        "label": 3
+    },
+    {
+        "sentence": "do you want to stop receiving this email ?",
+        "label": 3
+    },
+    {
+        "sentence": "do you no longer want to receive this email ?",
+        "label": 3
+    },
+    {
+        "sentence": "you can unsubscribe or view policy",
+        "label": 3
+    },
+    {
+        "sentence": "you can unsubscribe or view policy information",
+        "label": 3
+    },
+    {
+        "sentence": "you can view or unsubscribe our policy",
+        "label": 3
+    },
+    {
+        "sentence": "you can unsubscribe or view the policy",
+        "label": 3
+    },
+    {
+        "sentence": "question ? our customer service is here to help",
+        "label": 3
+    },
+    {
+        "sentence": "how can we help you ?",
+        "label": 3
+    },
+    {
+        "sentence": "we are here to help you",
+        "label": 3
+    },
+    {
+        "sentence": "you can talk to a human at discover® customer service 24/7 . *",
+        "label": 2
+    },
+    {
+        "sentence": "you can talk to a customer support representative at discover 247",
+        "label": 2
+    },
+    {
+        "sentence": "you can speak to a human at discover customer service 24 hour a day",
+        "label": 2
+    },
+    {
+        "sentence": "you can talk to a human at discover customer service 24 hour a day",
+        "label": 2
+    },
+    {
+        "sentence": "you can talk to a person at discover customer service anytime",
+        "label": 2
+    },
+    {
+        "sentence": "you can talk to a person at discover 's customer service 247",
+        "label": 2
+    },
+    {
+        "sentence": "you can talk to a person at discover customer service 247",
+        "label": 2
+    },
+    {
+        "sentence": "add discover @ card-e.em.discover.com to your address book to ensure delivery of these email . see way to help identify authentic discover email by visiting our email security page .",
+        "label": 2
+    },
+    {
+        "sentence": "important information",
+        "label": 3
+    },
+    {
+        "sentence": "this email wa sent to : niserg111 @ gmail.com for discover card account number ending with 3509 .",
+        "label": 2
+    },
+    {
+        "sentence": "this email wa sent to niserg111gmailcom for a discover card number ending with 3509",
+        "label": 2
+    },
+    {
+        "sentence": "this email wa sent to niserg111gmailcom for a discover card account number ending with 3509",
+        "label": 2
+    },
+    {
+        "sentence": "you are receiving this email because you provided your email address to discover .",
+        "label": 2
+    },
+    {
+        "sentence": "you received this email because you registered your address for discover",
+        "label": 2
+    },
+    {
+        "sentence": "you received this message because you have provided an email address to discover",
+        "label": 2
+    },
+    {
+        "sentence": "you 're receiving this email because you provided your email address to discover",
+        "label": 2
+    },
+    {
+        "sentence": "to update your promotional email preference , unsubscribe here . please allow up to 10 business day to be opted-out .",
+        "label": 3
+    },
+    {
+        "sentence": "please allow up to 10 business day to be opted out",
+        "label": 3
+    },
+    {
+        "sentence": "log in to update your email address or view your account email preference .",
+        "label": 3
+    },
+    {
+        "sentence": "log in to update your email address or view your preference for the email",
+        "label": 3
+    },
+    {
+        "sentence": "log in to update your email address or check your email preference",
+        "label": 3
+    },
+    {
+        "sentence": "login to update your email address or view your account preference",
+        "label": 3
+    },
+    {
+        "sentence": "if you have any question about your account , please visit our contact u page and we will be happy to assist you .",
+        "label": 2
+    },
+    {
+        "sentence": "if you have any question about your account please visit our contact page and we will be glad to help",
+        "label": 2
+    },
+    {
+        "sentence": "if you have question about your account please visit our contact page and we will be happy to assist",
+        "label": 2
+    },
+    {
+        "sentence": "if you have question about your account please visit our contact u page and we will be happy to help you",
+        "label": 2
+    },
+    {
+        "sentence": "if you have any question about your account please visit our contact page and we will be happy to help you",
+        "label": 2
+    },
+    {
+        "sentence": "if you have question about your account please visit our contact page and we will be happy to assist you",
+        "label": 2
+    },
+    {
+        "sentence": "if you have any question about your account please visit our contact u page and we will be happy to help you",
+        "label": 2
+    },
+    {
+        "sentence": "if you have any question about your account please visit our contact u page and we 'll be happy to assist you",
+        "label": 2
+    },
+    {
+        "sentence": "if you have any question about your account please visit our contact page and we will be happy to assist you",
+        "label": 2
+    },
+    {
+        "sentence": "if you have any question about your account please visit our contact u page and we will be happy to assist you",
+        "label": 2
+    },
+    {
+        "sentence": "customer service is available anytime , day or night . you can reach a live agent by calling 1-800-347-2683 .",
+        "label": 2
+    },
+    {
+        "sentence": "customer service is available at any time day or night",
+        "label": 2
+    },
+    {
+        "sentence": "customer service is available anywhere day or night you can contact a live customer service representative by calling 1-800-347-2683",
+        "label": 2
+    },
+    {
+        "sentence": "for a list of compatible apple pay device , see http : //support.apple.com/en-us/ht208531 .",
+        "label": 2
+    },
+    {
+        "sentence": "apple pay is a service provided by apple payment service llc , a subsidiary of apple inc. neither apple inc. nor apple payment service is a bank .",
+        "label": 3
+    },
+    {
+        "sentence": "if you do n't recognize the microsoft account ni1 @ gmail.com , you can click here to remove your email address from that account . * *",
+        "label": 2
+    },
+    {
+        "sentence": "perfect , thank you so much ! i will begin to arrange with the team and send you two formal calendar/outlook invitation , complete with zoom login detail asap .",
+        "label": 2
+    },
+    {
+        "sentence": "please feel free to reach out at any time .",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for your email . i am looking forward to meeting with the team member and learning more about the position and kla a a whole .",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for your email i am looking forward to meeting with the team member and learning more about the position and the kla team a a whole",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for the email i am looking forward to meeting with the team member and learning more about the position and the kla a a whole",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for your email i look forward to meeting with the team member and learning more about the position and kla a a whole",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for your email i 'm looking forward to meeting with the team member and learning more about the position and kla a a whole",
+        "label": 2
+    },
+    {
+        "sentence": "thank you for your email i am looking forward to meeting with the team member and learning more about the position and kla a a whole",
+        "label": 2
+    },
+    {
+        "sentence": "please let me know what work best for the interviewer , and i ’ ll be happy to confirm .",
+        "label": 2
+    },
+    {
+        "sentence": "please let me know what work best for interviewer and i will be happy to confirm",
+        "label": 2
+    },
+    {
+        "sentence": "please let me know what work for the interviewer and i 'll be happy to confirm",
+        "label": 2
+    },
+    {
+        "sentence": "please let me know what work best for the interviewer and i will be happy to confirm it",
+        "label": 2
+    },
+    {
+        "sentence": "thank you again for this opportunity , and i look forward to speaking with the team !",
+        "label": 3
+    },
+    {
+        "sentence": "thank you again for the opportunity and i look forward to talking with the team",
+        "label": 3
+    },
+    {
+        "sentence": "thank you again for this opportunity and i 'm looking forward to speaking with the team",
+        "label": 3
+    },
+    {
+        "sentence": "thank you again for this opportunity and i look forward to talking with the team",
+        "label": 3
+    },
+    {
+        "sentence": "thank you again for this opportunity and i look forward to speaking to the team",
+        "label": 3
+    },
+    {
+        "sentence": "thank you again for the opportunity and i look forward to speaking with the team",
+        "label": 3
+    },
+    {
+        "sentence": "thank you again for this opportunity and i look forward to speaking with the team",
+        "label": 3
+    },
+    {
+        "sentence": "we would like to invite you to two separate interview via zoom .",
+        "label": 1
+    },
+    {
+        "sentence": "we 'd like to invite you for two separate interview via zoom",
+        "label": 1
+    },
+    {
+        "sentence": "we 'd like to invite you to two separate interview via zoom",
+        "label": 1
+    },
+    {
+        "sentence": "we would like to invite you to two separate interview via zoom",
+        "label": 1
+    },
+    {
+        "sentence": "to schedule your interview ( s ) , please reply directly to this email with your availability and current time zone .",
+        "label": 1
+    },
+    {
+        "sentence": "once we confirm the interview time with the interviewer ( s ) , we will send you a calendar invite with more detail about the interview .",
+        "label": 1
+    },
+    {
+        "sentence": "once we confirm the time of the interview with the interviewer we will send you a calendar with more detail about the interview",
+        "label": 1
+    },
+    {
+        "sentence": "we recommend you respond a soon a possible to keep the process moving .",
+        "label": 2
+    },
+    {
+        "sentence": "we recommend that you respond a soon a possible to continue the process",
+        "label": 2
+    },
+    {
+        "sentence": "we recommend you respond a soon a possible to continue the process",
+        "label": 2
+    },
+    {
+        "sentence": "during the interview ( s ) , you ’ ll have the chance to discus your experience , ask question , and learn more about the position and our company .",
+        "label": 2
+    },
+    {
+        "sentence": "during interview you have the opportunity to talk about your experience ask question and learn more about the position and our company",
+        "label": 2
+    },
+    {
+        "sentence": "your interview will take place via zoom . to connect to your interview , you will simply click on the link provided in the calendar invite .",
+        "label": 2
+    },
+    {
+        "sentence": "please download the zoom application prior to your interview and test your video setting so you are prepared .",
+        "label": 1
+    },
+    {
+        "sentence": "please download the application for zoom prior to your interview and test your video setting so you are prepared",
+        "label": 1
+    },
+    {
+        "sentence": "if you require any accommodation , simply let me know in advance so we can make the necessary arrangement .",
+        "label": 1
+    },
+    {
+        "sentence": "if you need accommodation let me know in advance so we can make necessary arrangement",
+        "label": 1
+    },
+    {
+        "sentence": "if you need accommodation just let me know in advance so that we can make the necessary arrangement",
+        "label": 1
+    },
+    {
+        "sentence": "if you need accommodation let me know in advance so we can make the necessary arrangement",
+        "label": 1
+    },
+    {
+        "sentence": "if you need accommodation just let me know in advance so we can make the necessary arrangement",
+        "label": 1
+    },
+    {
+        "sentence": "if you need accommodation simply let me know in advance so that we can make the necessary arrangement",
+        "label": 1
+    },
+    {
+        "sentence": "if you need an accommodation just let me know in advance so we can make the necessary arrangement",
+        "label": 1
+    },
+    {
+        "sentence": "if you require accommodation just let me know in advance so we can make the necessary arrangement",
+        "label": 1
+    },
+    {
+        "sentence": "if you require accommodation simply let me know in advance so that we can make the necessary arrangement",
+        "label": 1
+    },
+    {
+        "sentence": "thank you for considering opportunity to further your career with under armour .",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for considering opportunity for your career at under armour",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for considering option to further your career with under armour",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for considering opportunity to advance your career with under armour",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for considering opportunity to pursue your career with under armour",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for considering opportunity to further your career at under armour",
+        "label": 3
+    },
+    {
+        "sentence": "thank you for considering opportunity to further your career with under armour",
+        "label": 3
+    },
+    {
+        "sentence": "unfortunately , the summer 2025 internship , enterprise data management position ha been filled/closed and we are no longer considering application .",
+        "label": 2
+    },
+    {
+        "sentence": "unfortunately the summer 2025 internship position in enterprise data management ha been filled closed and we are no longer considering application",
+        "label": 2
+    },
+    {
+        "sentence": "unfortunately the summer 2025 internship position in enterprise data management ha been filledclosed and we are no longer considering application",
+        "label": 2
+    },
+    {
+        "sentence": "unfortunately the summer 2025 internship in enterprise data management wa filledclosed and we are no longer considering application",
+        "label": 2
+    },
+    {
+        "sentence": "unfortunately the summer 2025 internship enterprise data management position ha been closed and we are no longer considering application",
+        "label": 2
+    },
+    {
+        "sentence": "unfortunately the summer 2025 internship enterprise data management position ha been filledclosed and we 're no longer considering application",
+        "label": 2
+    },
+    {
+        "sentence": "unfortunately the summer 2025 internship enterprise data management position ha been filled closed and we are no longer considering application",
+        "label": 2
+    },
+    {
+        "sentence": "unfortunately the summer 2025 internship enterprise data management position ha been filledclosed and we are no longer considering application",
+        "label": 2
+    },
+    {
+        "sentence": "a new role are posted frequently , we encourage you to keep a close eye on our career site to view new position that might be a match for your skill set .",
+        "label": 2
+    },
+    {
+        "sentence": "we encourage you to stay on our website a often a possible to see new role that may be a match for your skill set",
+        "label": 2
+    },
+    {
+        "sentence": "a new job are regularly posted we encourage you to keep a close eye on our career site to view new position that might be a match for your skill",
+        "label": 2
+    },
+    {
+        "sentence": "a new role are frequently posted we encourage you to keep a close eye on our career site to see new position that might be a match for your skill",
+        "label": 2
+    },
+    {
+        "sentence": "a new position are frequently posted we encourage you to keep a close eye on our career site to view new position that might be a match for your skill set",
+        "label": 2
+    },
+    {
+        "sentence": "a new job are frequently posted we encourage you to keep a close eye on our career site to see new position that might be a match for your skill set",
+        "label": 2
+    },
+    {
+        "sentence": "a new role are frequently posted we encourage you to keep a close eye on our career site to view new position that might be a match for your skill",
+        "label": 2
+    },
+    {
+        "sentence": "a new role are often posted we encourage you to keep a close eye on our career site to view new position that could be a match for your skill set",
+        "label": 2
+    },
+    {
+        "sentence": "a new role are frequently posted we encourage you to keep a close eye on our career site to see new position that might be a match for your skill set",
+        "label": 2
+    },
+    {
+        "sentence": "a new role are frequently posted we encourage you to keep a close eye on our career site to view new position that might be a match for your skill set",
+        "label": 2
+    },
+    {
+        "sentence": "we invite you to follow u on linkedin , instagram , facebook , and youtube .",
+        "label": 3
+    },
+    {
+        "sentence": "get no-fee ticket from $ 40",
+        "label": 3
+    },
+    {
+        "sentence": "get no-cost ticket from 40",
+        "label": 3
+    },
+    {
+        "sentence": "grab warrior ticket with no hidden fee a your team play through the season .",
+        "label": 3
+    },
+    {
+        "sentence": "see full schedule",
+        "label": 3
+    },
+    {
+        "sentence": "track price now",
+        "label": 3
+    },
+    {
+        "sentence": "email communication may be monitored by kla a permitted by applicable law and regulation .",
+        "label": 2
+    },
+    {
+        "sentence": "the content of email may be monitored by kla at the discretion of the applicable law and regulation",
+        "label": 2
+    },
+    {
+        "sentence": "communication via e-mail can be monitored by the kla a permitted by applicable law and regulation",
+        "label": 2
+    },
+    {
+        "sentence": "email may be monitored by kla a permitted by applicable law and regulation",
+        "label": 2
+    },
+    {
+        "sentence": "email communication may be monitored by kla a allowed by applicable law and regulation",
+        "label": 2
+    },
+    {
+        "sentence": "email communication can be monitored by kla a permitted by applicable law and regulation",
+        "label": 2
+    },
+    {
+        "sentence": "email communication may be monitored by kla a permitted by applicable law and regulation",
+        "label": 2
+    },
+    {
+        "sentence": "please consider the environment before printing this e-mail .",
+        "label": 2
+    },
+    {
+        "sentence": "playing sport since a young age is primarily responsible for who i am today .",
+        "label": 3
+    },
+    {
+        "sentence": "playing sport is responsible for who i am today",
+        "label": 3
+    },
+    {
+        "sentence": "physical activity inspires me today to live a healthy lifestyle by having a gym routine and getting the proper nutrition .",
+        "label": 3
+    },
+    {
+        "sentence": "today physical activity motivates me to lead a healthy lifestyle by having a routine in the gym and getting adequate nutrition",
+        "label": 3
+    },
+    {
+        "sentence": "physical activity today inspires me to live a healthy lifestyle by having a gym routine and eating the right food",
+        "label": 3
+    },
+    {
+        "sentence": "physical activity motivates me to live a healthy lifestyle by having a gym routine and getting the right nutrition",
+        "label": 3
+    },
+    {
+        "sentence": "physical activity inspires me today to live a healthy lifestyle by having a workout routine and getting the proper nutrition",
+        "label": 3
+    },
+    {
+        "sentence": "physical activity inspires me to live a healthy lifestyle by having a gym routine and getting the proper nutrition",
+        "label": 3
+    },
+    {
+        "sentence": "physical activity inspires me today to live a healthy lifestyle having a gym routine and getting the proper nutrition",
+        "label": 3
+    },
+    {
+        "sentence": "to get good nutrition , i knew i could not keep relying on others to make my food , which led to developing the skill of cooking .",
+        "label": 1
+    },
+    {
+        "sentence": "to get good nutrition i knew i could not keep relying on others for my food and this led to developing the skill of cooking",
+        "label": 1
+    },
+    {
+        "sentence": "upon entering high school , many student before me had told me about the school ’ s competitive nature , extremely tough class , and academically overdriven student .",
+        "label": 3
+    },
+    {
+        "sentence": "in my freshman year , the school atmosphere forced a change in me in which i learned how to relieve stress and have fun with school .",
+        "label": 2
+    },
+    {
+        "sentence": "in my freshman year the school environment forced a change in me and i learned how to relieve stress and have fun",
+        "label": 2
+    },
+    {
+        "sentence": "in my freshman year the school atmosphere forced a change in me where i learned how to relieve stress and have fun",
+        "label": 2
+    },
+    {
+        "sentence": "i applied and got selected for a club called inclusion council , where i helped share my knowledge with younger student each kid how to do the same with this knowledge .",
+        "label": 1
+    },
+    {
+        "sentence": "this experience will help me ease into the active mind of minnesota , which aim to support mental health struggle around campus .",
+        "label": 2
+    },
+    {
+        "sentence": "this experience will help me settle into the active mind of minnesota program that aim to support mental health struggle around campus",
+        "label": 2
+    },
+    {
+        "sentence": "a i get older , i find an increasing desire to be independent .",
+        "label": 3
+    },
+    {
+        "sentence": "a i get older i find a desire to be independent",
+        "label": 3
+    },
+    {
+        "sentence": "a i get older i find a growing desire to be independent",
+        "label": 3
+    },
+    {
+        "sentence": "a i get older i find an increasing desire to become independent",
+        "label": 3
+    },
+    {
+        "sentence": "one way i approach this goal is on the financial side of life .",
+        "label": 2
+    },
+    {
+        "sentence": "one way i approach this goal is from the financial side of life",
+        "label": 2
+    },
+    {
+        "sentence": "a way i approach this goal is on the financial side of life",
+        "label": 2
+    },
+    {
+        "sentence": "one way i approach this goal is on the financial side of life",
+        "label": 2
+    },
+    {
+        "sentence": "i recently started investing and have accumulated knowledge over the past month through friend , family , book , and youtube .",
+        "label": 2
+    },
+    {
+        "sentence": "i have also built program to help me on this path .",
+        "label": 2
+    },
+    {
+        "sentence": "i also created software to help me on this path",
+        "label": 2
+    },
+    {
+        "sentence": "i 've also created program to help me out on this path",
+        "label": 2
+    },
+    {
+        "sentence": "i also created program to help me on this path",
+        "label": 2
+    },
+    {
+        "sentence": "i also have program to help me on this path",
+        "label": 2
+    },
+    {
+        "sentence": "i 've also built software to help me on this path",
+        "label": 2
+    },
+    {
+        "sentence": "i 've also built program to help me along this path",
+        "label": 2
+    },
+    {
+        "sentence": "currently , i am part of the finance committee at next generation nation , where i help with fundraising , finding investor , and working on fundamental growth .",
+        "label": 2
+    },
+    {
+        "sentence": "currently i am a member of the finance committee at next generation nation where i help with fundraising finding investor and working on fundamental growth",
+        "label": 2
+    },
+    {
+        "sentence": "currently i am part of the finance committee at next generation nation where i help with fundraising investor and working on fundamental growth",
+        "label": 2
+    },
+    {
+        "sentence": "i currently am part of the finance committee at next generation nation where i help with fundraising for investor and working on fundamental growth",
+        "label": 2
+    },
+    {
+        "sentence": "i am currently part of the finance committee at next generation nation where i help with fundraising finding investor and working on fundamental growth",
+        "label": 2
+    },
+    {
+        "sentence": "participating in the investment and finance organization would allow me to share my unique experience with finance and learn from other individual a well a professional in this area .",
+        "label": 2
+    },
+    {
+        "sentence": "participation in the investment and finance organization would allow me to share my unique experience in the financial industry and learn from other individual a well a professional in this field",
+        "label": 2
+    },
+    {
+        "sentence": "participation in the investment and finance organization will allow me to share my unique experience with finance and learn from other individual a well a professional in this area",
+        "label": 2
+    },
+    {
+        "sentence": "participating in the investment and finance organization would allow me to share my unique experience with finance and learn from other individual a well a professional in this field",
+        "label": 2
+    },
+    {
+        "sentence": "participating in the investment and finance organization would allow me to share my unique experience with finance and learn from other individual a well a professional in this area",
+        "label": 2
+    },
+    {
+        "sentence": "the participation in the investment and finance organization would allow me to share my unique experience with finance and learn from other individual a well a professional in this area",
+        "label": 2
+    },
+    {
+        "sentence": "umass application document note",
+        "label": 2
+    },
+    {
+        "sentence": "note for the umass application document",
+        "label": 2
+    },
+    {
+        "sentence": "note to the umass application document",
+        "label": 2
+    },
+    {
+        "sentence": "note on umass ' application document",
+        "label": 2
+    },
+    {
+        "sentence": "the essay is your work . should you want the essay to be reviewed by anyone , please copy only the essay part , without any comment , and share it through another document .",
+        "label": 2
+    },
+    {
+        "sentence": "it is your work and if you want the essay reviewed by anyone please copy only the part of the essay with no comment and share it through another document",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional ( educational consultant of any type ) , please speak with me before you share it .",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is an educator-consultant please talk to me before you share",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional education consultant please speak to me before sharing",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please speak to me before sharing",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please speak with me before sharing it",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please speak with me before you share it",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant of any type please speak to me before sharing",
+        "label": 2
+    },
+    {
+        "sentence": "the template , and the framework are prepared for you and you are using it under license . please do not copy the entire document or any part of it other than the essay in any form ( print/soft copy/another file/download etc . ) .",
+        "label": 2
+    },
+    {
+        "sentence": "this is not an essay . even if you do not need the framework , please go through this exercise - it will be useful .",
+        "label": 2
+    },
+    {
+        "sentence": "step 1 : question within the prompt : why do you want to attend ?",
+        "label": 1
+    },
+    {
+        "sentence": "step 1 question within the prompt why do you want to go ?",
+        "label": 1
+    },
+    {
+        "sentence": "step 1 question in the prompt why do you want to attend ?",
+        "label": 1
+    },
+    {
+        "sentence": "step 1 question within the prompt why do you want to attend ?",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 : explain why you think they are asking you to address this prompt : umass amherst want to admit student who are excited about enrolling and can bring something unique to campus .",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they want you to respond to this prompt umass amherst want to admit student who are excited about enrolling and can bring something unique to campus",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they ask you to address this prompt umass amherst want to admit student who are excited about enrolling and who can bring something unique to",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they ask you to answer this prompt umass amherst want to admit student who are excited about enrolling and can bring something unique to campus",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they asked you to address this prompt umass amherst want to accept student who are excited about enrolling and can bring something unique to campus",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they ask you to address this prompt umass amherst want to accept student who are excited about enrolling and can bring something unique to campus",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they asked you to address this prompt umass amherst want to admit student who are excited about enrolling and who can bring something unique to campus",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they ask you to address this prompt umass amherst want to admit student who are excited about enrolling and can bring something unique to campus",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they 're asking you to answer this prompt umass amherst want to admit student who are excited about enrolling and can bring something unique to campus",
+        "label": 1
+    },
+    {
+        "sentence": "step 2 explain why you think they 're asking you to address this prompt umass amherst want to admit student who are excited about enrolling and who can bring something unique to campus",
+        "label": 1
+    },
+    {
+        "sentence": "step 3 : similar essay you have written ( their prompt # ) : wisconsin-1 .",
+        "label": 1
+    },
+    {
+        "sentence": "step 4 : your thought ( please make sure you address each question ; bullet point okay , but please be very specific ; provide link to course , department , club and anything you are referring to ) .",
+        "label": 1
+    },
+    {
+        "sentence": "professional happiness design ( phd ) document",
+        "label": 2
+    },
+    {
+        "sentence": "you have the opportunity to complete a professional happiness design ! this is an opportunity for you to reflect and to build a framework to navigate your career .",
+        "label": 2
+    },
+    {
+        "sentence": "you have the opportunity to complete a professional happiness design this is an opportunity for you to reflect and build a framework for your career",
+        "label": 2
+    },
+    {
+        "sentence": "you have the opportunity to complete a professional happiness design this is an opportunity for you to reflect and build a framework to navigate your career",
+        "label": 2
+    },
+    {
+        "sentence": "you have the opportunity to complete a professional happiness design this is an opportunity for you to reflect and to build a framework to navigate your career",
+        "label": 2
+    },
+    {
+        "sentence": "you ’ ll start with several prompt for reflection , then synthesize them to tell your story .",
+        "label": 1
+    },
+    {
+        "sentence": "you 'll start with a few reflection prompt and then synthesize them to tell your story",
+        "label": 1
+    },
+    {
+        "sentence": "you 'll start with several prompt for reflection then synthesize them to tell your story",
+        "label": 1
+    },
+    {
+        "sentence": "provide your final 1-2 page synthesis followed by an appendix of reflection to the prompt .",
+        "label": 1
+    },
+    {
+        "sentence": "authentic leadership reading . read discovering your authentic leadership , bill george , harvard business review . what jumped out or resonated with you ?",
+        "label": 1
+    },
+    {
+        "sentence": "what resonated with you the most ?",
+        "label": 1
+    },
+    {
+        "sentence": "what did you think resonated with you the most in the harvard business review ?",
+        "label": 1
+    },
+    {
+        "sentence": "section 1 : where are you now ? reflect on the below question and write a few sentence responding to each bullet point .",
+        "label": 1
+    },
+    {
+        "sentence": "where are you now ? reflect on the below question and write a few sentence responding to each bullet point",
+        "label": 1
+    },
+    {
+        "sentence": "section 1 where are you now ? reflect on the following question and write a few sentence responding to each bullet point",
+        "label": 1
+    },
+    {
+        "sentence": "which people and experience in your life have had the greatest impact on you ?",
+        "label": 1
+    },
+    {
+        "sentence": "tell me the biggest impact of personal experience on your life ?",
+        "label": 1
+    },
+    {
+        "sentence": "how have the experience have changed your life ?",
+        "label": 1
+    },
+    {
+        "sentence": "which people and experience in your life ha the most impact on you ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your most deeply held value ? where did they come from ?",
+        "label": 1
+    },
+    {
+        "sentence": "tell me the deepest belief or principle that you hold ?",
+        "label": 1
+    },
+    {
+        "sentence": "what value do you believe resonate ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your most deeply held value ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your most deeply held value and why ?",
+        "label": 1
+    },
+    {
+        "sentence": "what inspires and motivates you extrinsically and intrinsically ?",
+        "label": 1
+    },
+    {
+        "sentence": "what motivates you most both in your self and externally ?",
+        "label": 1
+    },
+    {
+        "sentence": "what motivates you intrinsically ?",
+        "label": 1
+    },
+    {
+        "sentence": "what motivates you and inspires you intrinsically ?",
+        "label": 1
+    },
+    {
+        "sentence": "what motivates you extrinsically and intrinsically ?",
+        "label": 1
+    },
+    {
+        "sentence": "what make you happy and what brings meaning to your life ?",
+        "label": 1
+    },
+    {
+        "sentence": "how do you make yourself happy ?",
+        "label": 1
+    },
+    {
+        "sentence": "tell me the reason for being happy ?",
+        "label": 1
+    },
+    {
+        "sentence": "what make you happy ? what purpose doe it serve in life ?",
+        "label": 1
+    },
+    {
+        "sentence": "what make you happy and what make your life meaningful ?",
+        "label": 1
+    },
+    {
+        "sentence": "what constitutes professional happiness for you ?",
+        "label": 1
+    },
+    {
+        "sentence": "what would you describe a career happiness ?",
+        "label": 1
+    },
+    {
+        "sentence": "what doe happiness mean for professional ?",
+        "label": 1
+    },
+    {
+        "sentence": "what exactly is professional happiness ?",
+        "label": 1
+    },
+    {
+        "sentence": "what is professional happiness ?",
+        "label": 1
+    },
+    {
+        "sentence": "what exactly constitutes professional happiness for you ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your strongest skill and quality ? what are your unique talent ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are strength and weakness ?",
+        "label": 1
+    },
+    {
+        "sentence": "section 2 : where do you want to be ? imagine the future with the below prompt and write a few sentence responding to each bullet point .",
+        "label": 1
+    },
+    {
+        "sentence": "section 2 where do you want to be ?",
+        "label": 1
+    },
+    {
+        "sentence": "first , design your perfect day .",
+        "label": 1
+    },
+    {
+        "sentence": "first plan your perfect day",
+        "label": 1
+    },
+    {
+        "sentence": "first design a perfect day",
+        "label": 1
+    },
+    {
+        "sentence": "first design your perfect day",
+        "label": 1
+    },
+    {
+        "sentence": "imagine a magazine/newspaper column about yourself published 20 year in the future . what publication is it and what doe the column highlight ?",
+        "label": 1
+    },
+    {
+        "sentence": "section 3 : what do you need to do to get there ? reflect on the below question , thinking about “ what do you need to do to get from where you are now to where you want to be ? ” write a few sentence responding to each bullet point .",
+        "label": 1
+    },
+    {
+        "sentence": "section 3 what do you need to do to get there ?",
+        "label": 1
+    },
+    {
+        "sentence": "what do you need to do to get from where you are now to where you want to be ? write a few sentence responding to each bullet point in your reply",
+        "label": 1
+    },
+    {
+        "sentence": "what you need to do to get from where you are today to where you want to be ? write a few sentence responding to each bullet point",
+        "label": 1
+    },
+    {
+        "sentence": "who will be on your personal advisory board ? who are your role model ?",
+        "label": 1
+    },
+    {
+        "sentence": "who do you consider a role model on your personal advisory board ?",
+        "label": 1
+    },
+    {
+        "sentence": "what knowledge , skill , and quality would you like to learn and develop ?",
+        "label": 1
+    },
+    {
+        "sentence": "what quality do you want to develop in order to improve your knowledge ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your skill that you want to improve in order to become a better person ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are knowledge skill you want to learn in life ?",
+        "label": 1
+    },
+    {
+        "sentence": "what skill and quality do you want to learn in order to develop them ?",
+        "label": 1
+    },
+    {
+        "sentence": "what skillsqualities do you want to learn in life ?",
+        "label": 1
+    },
+    {
+        "sentence": "what skill would you like to learn and grow ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are skill and quality that you would like to learn and develop ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your knowledge skill and quality that you would like to learn and develop ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your long-term goal ( 5 year , 1 year ) ?",
+        "label": 1
+    },
+    {
+        "sentence": "what is your life goal for the next 5 year ?",
+        "label": 1
+    },
+    {
+        "sentence": "what is your plan for the next 5 year and 1 year ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your short-term goal ( top 3 for the next quarter ) ?",
+        "label": 1
+    },
+    {
+        "sentence": "list the upcoming short term goal ?",
+        "label": 1
+    },
+    {
+        "sentence": "list your goal for the upcoming quarter ?",
+        "label": 1
+    },
+    {
+        "sentence": "list the short-term goal you have in mind for the next quarter ?",
+        "label": 1
+    },
+    {
+        "sentence": "recommend some of your best short term goal for next quarter ?",
+        "label": 1
+    },
+    {
+        "sentence": "tell me the short-term goal for the next quarter ?",
+        "label": 1
+    },
+    {
+        "sentence": "what would be your top 3 short term goal for the next quarter ?",
+        "label": 1
+    },
+    {
+        "sentence": "what are your short term goal for the upcoming quarter ?",
+        "label": 1
+    },
+    {
+        "sentence": "synthesize your reflection & tell your story .",
+        "label": 1
+    },
+    {
+        "sentence": "do not simply copy-paste your reflection question response a your “ synthesis ” a this will likely lead to an auto-decline .",
+        "label": 2
+    },
+    {
+        "sentence": "should you want the essay to be reviewed by anyone , please copy only the essay part , without any comment , and share it through another document .",
+        "label": 2
+    },
+    {
+        "sentence": "should you wish for the essay to be reviewed by anyone please only copy the part of the essay with no comment and share it through another document",
+        "label": 2
+    },
+    {
+        "sentence": "should you wish to have the essay reviewed by anyone please copy only the essay part without any comment and share it via another document",
+        "label": 2
+    },
+    {
+        "sentence": "if you want the essay reviewed by someone please copy only the essay part without comment and share it through another document",
+        "label": 2
+    },
+    {
+        "sentence": "if you want the essay to be re-read by anyone please copy the essay only without any comment and share it through another document",
+        "label": 2
+    },
+    {
+        "sentence": "if you would like an essay to be read by anyone please copy only the essay part without any comment and share it through another document",
+        "label": 2
+    },
+    {
+        "sentence": "should you want your essay to be read by anyone please copy only the essay without any comment and share it through another document",
+        "label": 2
+    },
+    {
+        "sentence": "if you want the essay to be reviewed by anyone please copy only the essay part without any comment and share it via another document",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please talk with me before sharing",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please speak to me before sharing it",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please speak with me before sharing this",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please speak with me before sharing",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please talk to me before you share it",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant please speak with me before you share",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional educational consultant of any kind please speak with me before you share it",
+        "label": 2
+    },
+    {
+        "sentence": "if the reviewer is a professional education consultant of any type please speak with me before you share it",
+        "label": 2
+    },
+    {
+        "sentence": "even if you do not need the framework , please go through this exercise - it will be useful .",
+        "label": 1
+    },
+    {
+        "sentence": "if you are n't sure what each step mean , please ask .",
+        "label": 3
+    },
+    {
+        "sentence": "if you are not sure what each step mean ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you are n't sure what each step mean ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you 're not sure what each step mean please ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you are not sure what each step mean please ask",
+        "label": 3
+    },
+    {
+        "sentence": "if you are n't sure what each step mean please ask",
+        "label": 3
+    },
+    {
+        "sentence": "now identify word and sentence which are absolutely essential to your message ( your message would not come through if you don ’ t have those ) .",
+        "label": 1
+    },
+    {
+        "sentence": "now identify word and sentence that are absolutely essential to your message",
+        "label": 1
+    },
+    {
+        "sentence": "you may want to highlight them with your favorite color .",
+        "label": 1
+    },
+    {
+        "sentence": "you may want to highlight them in your favourite color",
+        "label": 1
+    },
+    {
+        "sentence": "you may want to highlight them with your favorite color",
+        "label": 1
+    },
+    {
+        "sentence": "try to cut the word from rest .",
+        "label": 1
+    },
+    {
+        "sentence": "the template , and the framework are prepared for you and you are using it under license .",
+        "label": 2
+    },
+    {
+        "sentence": "the template and framework are prepared for you and you use them under a licence",
+        "label": 2
+    },
+    {
+        "sentence": "the template and the framework are ready for you and you use them under license",
+        "label": 2
+    },
+    {
+        "sentence": "the template and framework are prepared for you and you use them under license",
+        "label": 2
+    },
+    {
+        "sentence": "the template and the framework are designed for you and you use it under license",
+        "label": 2
+    },
+    {
+        "sentence": "the template and the framework were prepared for you and you use them under license",
+        "label": 2
+    },
+    {
+        "sentence": "the template and framework are prepared for you and you use it under license",
+        "label": 2
+    },
+    {
+        "sentence": "the template and the framework are prepared for you and you can use them under license",
+        "label": 2
+    },
+    {
+        "sentence": "the template and the framework were prepared for you and you use it under license",
+        "label": 2
+    },
+    {
+        "sentence": "the template and the framework are prepared for you and you use it under license",
+        "label": 2
+    },
+    {
+        "sentence": "the template and framework are prepared for you and you are using it under a license",
+        "label": 2
+    },
+    {
+        "sentence": "please do not copy the entire document or any part of it other than the essay in any form ( print/soft copy/another file/download etc . ) .",
+        "label": 2
+    },
+    {
+        "sentence": "this is not an essay .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's not an essay",
+        "label": 2
+    },
+    {
+        "sentence": "this is not an essay",
+        "label": 2
+    },
+    {
+        "sentence": "what experience , perspective , background , and talent make up the person you are today ? how will these shape the type of person you will be on campus ?",
+        "label": 2
+    },
+    {
+        "sentence": "how did your experience shape the person you will be today ?",
+        "label": 2
+    },
+    {
+        "sentence": "this prompt is a way to tell them all about yourself .",
+        "label": 2
+    },
+    {
+        "sentence": "this is an opportunity to tell the whole truth about yourself",
+        "label": 2
+    },
+    {
+        "sentence": "when you have done this , explain who you will be on campus , so the university of minnesota get interested and eager to see the way you will contribute to their school .",
+        "label": 2
+    },
+    {
+        "sentence": "these are the 'communities ' you have been part of and their impact on you :",
+        "label": 2
+    },
+    {
+        "sentence": "these are the community you have been part of and how they influence you",
+        "label": 2
+    },
+    {
+        "sentence": "sport : disciplined , good at time management , respect for personal health , cooking , independent .",
+        "label": 2
+    },
+    {
+        "sentence": "sport discipline good time management respect for personal health cooking independent",
+        "label": 2
+    },
+    {
+        "sentence": "high school : learned to challenge yourself , and at the same time , not let the pressure hurt you . you helped others a well in this area .",
+        "label": 2
+    },
+    {
+        "sentence": "finance and investing a a result of desire to be independent .",
+        "label": 2
+    },
+    {
+        "sentence": "finance and investing out of a desire to be independent",
+        "label": 2
+    },
+    {
+        "sentence": "financial management and investing a a result of a desire to be independent",
+        "label": 2
+    },
+    {
+        "sentence": "a you write each , think about what you can do with it at minnesota - since that ’ s the primary question - both in term of extending your ability , and giving .",
+        "label": 2
+    },
+    {
+        "sentence": "you do need to find the club or organization ( stick to the on-campus one since they said 'community of scholar ' ) , so you can relate to them .",
+        "label": 2
+    },
+    {
+        "sentence": "even then , we are 54 word over ( if you include my change ) .",
+        "label": 2
+    },
+    {
+        "sentence": "i got to turn on the server code .",
+        "label": 3
+    },
+    {
+        "sentence": "i have to activate server code",
+        "label": 3
+    },
+    {
+        "sentence": "i have to activate the server code",
+        "label": 3
+    },
+    {
+        "sentence": "i have to turn on the server",
+        "label": 3
+    },
+    {
+        "sentence": "i have to turn on server code",
+        "label": 3
+    },
+    {
+        "sentence": "i have to turn on the server code",
+        "label": 3
+    },
+    {
+        "sentence": "make a separate file , make a separate folder , call it , and maybe call it , like a landing page screen and then , you know , put a component in there for the landing screen .",
+        "label": 1
+    },
+    {
+        "sentence": "in the future , again , i want a folder , it say home screen , and then all the accessory data file for the home screen should be in there .",
+        "label": 1
+    },
+    {
+        "sentence": "one thing to remember for everybody is in the future , any constant , i expect you to have like a constant folder and you store them and you reference them .",
+        "label": 1
+    },
+    {
+        "sentence": "have enums , have constant and then refer to those that save a lot of stress when it come to spelling .",
+        "label": 1
+    },
+    {
+        "sentence": "this should probably be enums too .",
+        "label": 3
+    },
+    {
+        "sentence": "in the future , we might need to change this ui because it ’ s a little like , it 's not perfect .",
+        "label": 2
+    },
+    {
+        "sentence": "in the future we might need to change this ui because it seems it 's not perfect",
+        "label": 2
+    },
+    {
+        "sentence": "so , let 's say i do this , and then i choose device , can i go to explore ? right ? okay , it 's good .",
+        "label": 2
+    },
+    {
+        "sentence": "you can ’ t really control the device from explore . i didn ’ t , i intentionally didn ’ t do this .",
+        "label": 2
+    },
+    {
+        "sentence": "it need to be connected continuously .",
+        "label": 1
+    },
+    {
+        "sentence": "that 's the point of why i added this here .",
+        "label": 3
+    },
+    {
+        "sentence": "that 's why i listed it here",
+        "label": 3
+    },
+    {
+        "sentence": "this is the reason i added it here",
+        "label": 3
+    },
+    {
+        "sentence": "so you only need to connect once and then it 's all good to go .",
+        "label": 2
+    },
+    {
+        "sentence": "you only need to connect once and then everything should go a planned",
+        "label": 2
+    },
+    {
+        "sentence": "so you only have to connect once and then you can begin to move on",
+        "label": 2
+    },
+    {
+        "sentence": "so you only have to connect once and then everything is good",
+        "label": 2
+    },
+    {
+        "sentence": "so you only need to connect once and then you 're done",
+        "label": 2
+    },
+    {
+        "sentence": "one thing that maybe can solve this solution is , if you look at old demo ...",
+        "label": 2
+    },
+    {
+        "sentence": "one thing you may solve this problem is if you look at the old demo",
+        "label": 2
+    },
+    {
+        "sentence": "one thing that might solve this solution is if you look at the old demo",
+        "label": 2
+    },
+    {
+        "sentence": "one thing that might solve this solution is if you look at an old demo",
+        "label": 2
+    },
+    {
+        "sentence": "so this is the front end code .",
+        "label": 3
+    },
+    {
+        "sentence": "so here 's the front end code",
+        "label": 3
+    },
+    {
+        "sentence": "server code can run anywhere . it can run locally or it can run on your , yeah , it can run on locally .",
+        "label": 2
+    },
+    {
+        "sentence": "server code can run anywhere it can run locally or it can run on your computer",
+        "label": 2
+    },
+    {
+        "sentence": "there 's a hook called use user that 's provided by something called , um , clerk .",
+        "label": 2
+    },
+    {
+        "sentence": "it provides you the inbuilt method for sign in , sign out and all that .",
+        "label": 2
+    },
+    {
+        "sentence": "if the user ha been signed in , then um , or not signed in , you see the sign-in button .",
+        "label": 2
+    },
+    {
+        "sentence": "if a user ha signed into um or not you can see the sign-in button",
+        "label": 2
+    },
+    {
+        "sentence": "this is where you put your code for the homepage screen .",
+        "label": 2
+    },
+    {
+        "sentence": "here you 'll put your code on the home page",
+        "label": 2
+    },
+    {
+        "sentence": "here 's where you put your code for the homepage screen",
+        "label": 2
+    },
+    {
+        "sentence": "i do n't want a bunch of component code here .",
+        "label": 2
+    },
+    {
+        "sentence": "i do n't want any of that component code",
+        "label": 2
+    },
+    {
+        "sentence": "i do n't want a bunch of component code here",
+        "label": 2
+    },
+    {
+        "sentence": "it need to be like break , you want to separate the component .",
+        "label": 2
+    },
+    {
+        "sentence": "it provides you like , um , a hard-coded , like , it store the name for different hard-coded value that you can then reference .",
+        "label": 2
+    },
+    {
+        "sentence": "the benefit is it prevents you from like accidentally spelling something wrong .",
+        "label": 2
+    },
+    {
+        "sentence": "the benefit is that it prevents you accidentally spelling something wrong",
+        "label": 2
+    },
+    {
+        "sentence": "the benefit is that it prevents you from accidentally spelling something wrong",
+        "label": 2
+    },
+    {
+        "sentence": "the benefit is it prevents you from accidentally spelling something wrong",
+        "label": 2
+    },
+    {
+        "sentence": "this is the component . it ’ s a list .",
+        "label": 2
+    },
+    {
+        "sentence": "the main thing here is , is that there 's a drawer , navigation drawer .",
+        "label": 2
+    },
+    {
+        "sentence": "so , albert is doing is , um , sorry , maybe he 'll fix this to fix this .",
+        "label": 2
+    },
+    {
+        "sentence": "adb allows you to , you know , interact with the phone , android phone and get various information from the phone at every moment .",
+        "label": 2
+    },
+    {
+        "sentence": "adb is just for android .",
+        "label": 2
+    },
+    {
+        "sentence": "adb is only available for android",
+        "label": 2
+    },
+    {
+        "sentence": "adb is purely for android",
+        "label": 2
+    },
+    {
+        "sentence": "they have something called idb for io , but it 's just io is very restrictive .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's black now . it 's not like , it 's not connected continuously .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's black now",
+        "label": 2
+    },
+    {
+        "sentence": "it 's not like it 's not connected for long",
+        "label": 2
+    },
+    {
+        "sentence": "all right , i 'm recording now .",
+        "label": 3
+    },
+    {
+        "sentence": "i 'll get it recorded soon",
+        "label": 3
+    },
+    {
+        "sentence": "i just want to give a , i guess , update on how the code work .",
+        "label": 3
+    },
+    {
+        "sentence": "i just want to give an update how it work",
+        "label": 3
+    },
+    {
+        "sentence": "i just want to give you an update on the code",
+        "label": 3
+    },
+    {
+        "sentence": "i 'd like to give you an update on how the code work",
+        "label": 3
+    },
+    {
+        "sentence": "i just want to give a little update on how the code work",
+        "label": 3
+    },
+    {
+        "sentence": "feel free to let me know if you have any question on anything a i 'm speaking .",
+        "label": 3
+    },
+    {
+        "sentence": "feel free to let me know if you have question or comment",
+        "label": 3
+    },
+    {
+        "sentence": "feel free to let me know if you have any question at all",
+        "label": 3
+    },
+    {
+        "sentence": "it may not be exactly what ?",
+        "label": 3
+    },
+    {
+        "sentence": "i think maybe albre wa doing this .",
+        "label": 3
+    },
+    {
+        "sentence": "i talked with albre about this .",
+        "label": 3
+    },
+    {
+        "sentence": "i spoke with albre about it",
+        "label": 3
+    },
+    {
+        "sentence": "i talked to albre about it",
+        "label": 3
+    },
+    {
+        "sentence": "i talked with albre about it",
+        "label": 3
+    },
+    {
+        "sentence": "i talked to albre about this",
+        "label": 3
+    },
+    {
+        "sentence": "i talked with albre about this",
+        "label": 3
+    },
+    {
+        "sentence": "tom , before you have any question , i can try to answer them or let you know if something 's not really important or not .",
+        "label": 3
+    },
+    {
+        "sentence": "jackie , is that clear about this , this first screen ?",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , i 've been , uh , i 've worked on a little bit on those stuff . so i get it . i understand that well .",
+        "label": 3
+    },
+    {
+        "sentence": "so i understand",
+        "label": 3
+    },
+    {
+        "sentence": "i 've worked on a little bit of that and i understand",
+        "label": 3
+    },
+    {
+        "sentence": "i 've worked a little bit on those thing so i understand",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , because i did n't , i did n't change the detail of the code .",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , doe this make sense for you ?",
+        "label": 3
+    },
+    {
+        "sentence": "did that seem reasonable for you ?",
+        "label": 3
+    },
+    {
+        "sentence": "doe it make sense for you ?",
+        "label": 3
+    },
+    {
+        "sentence": "doe this make sense to you ?",
+        "label": 3
+    },
+    {
+        "sentence": "doe this make sense for you ?",
+        "label": 3
+    },
+    {
+        "sentence": "so doe this make sense for you ?",
+        "label": 3
+    },
+    {
+        "sentence": "yeah . uh , not too familiar with the javascript , but it seems like you 're just using the important component , when you 're just placing them .",
+        "label": 2
+    },
+    {
+        "sentence": "yeah you 're not that familiar with javascript but it seems that you use the most important part when you simply place them",
+        "label": 2
+    },
+    {
+        "sentence": "yeah i 'm not too familiar with javascript but it seems that you use the important component when you put them here",
+        "label": 2
+    },
+    {
+        "sentence": "yeah i 'm not very familiar with javascript but it seems you just use the important component when you just put them",
+        "label": 2
+    },
+    {
+        "sentence": "yes . is that and like if the yeah , so if the user is signed in .",
+        "label": 3
+    },
+    {
+        "sentence": "funny , funny , it 's not showing up . i do n't know why .",
+        "label": 3
+    },
+    {
+        "sentence": "i do n't know , in the future , we 'll see if we get it for work .",
+        "label": 3
+    },
+    {
+        "sentence": "i don ’ t know what ’ s going on here .",
+        "label": 3
+    },
+    {
+        "sentence": "i do n't know what 's going on",
+        "label": 3
+    },
+    {
+        "sentence": "oh , i didn ’ t connect it . that ’ s why i ’ m stupid .",
+        "label": 3
+    },
+    {
+        "sentence": "can i make a connection ?",
+        "label": 3
+    },
+    {
+        "sentence": "can i make a connection to someone ?",
+        "label": 3
+    },
+    {
+        "sentence": "so then if you finish running it , it completes running the test case .",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm going to have to fix some of that skill fix .",
+        "label": 2
+    },
+    {
+        "sentence": "i have to repair some of the skill",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll have to fix one of those skill",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm going to have to fix some of these thing",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm going to have to fix some of those skill",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm going to have to fix some of these skill",
+        "label": 2
+    },
+    {
+        "sentence": "this is an error , which i 'll have to , i 'll probably , i 'll end up fixing this now .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's an error that i 'll need to fix",
+        "label": 2
+    },
+    {
+        "sentence": "this is an error i 'm going to have to fix",
+        "label": 2
+    },
+    {
+        "sentence": "it 's an error which i 'll have to fix",
+        "label": 2
+    },
+    {
+        "sentence": "this is an error which i will have to fix i 'll probably end up fixing this now",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm going to remember that this need to be fixed .",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll be reminding myself it 's necessary to fix this",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll remember this must be done",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm not going to forget that it 's got ta be fixed",
+        "label": 2
+    },
+    {
+        "sentence": "hopefully ben can fix that .",
+        "label": 2
+    },
+    {
+        "sentence": "hopefully ben can correct this",
+        "label": 2
+    },
+    {
+        "sentence": "hopefully ben can solve this",
+        "label": 2
+    },
+    {
+        "sentence": "hopefully ben can fix it",
+        "label": 2
+    },
+    {
+        "sentence": "hopefully ben can fix this",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm gon na keep that , leave it a it is for now .",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll leave it this way for now",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll keep it and leave it like it is",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm going to let it be for now",
+        "label": 2
+    },
+    {
+        "sentence": "i 'll leave it a it is for now",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm gon na keep it a it is now",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm gon na keep it just a it is now",
+        "label": 2
+    },
+    {
+        "sentence": "i 'm gon na keep it a it is for now",
+        "label": 2
+    },
+    {
+        "sentence": "so i 'm gon na like , let 's say naive bfs . and then i hit , let 's run it .",
+        "label": 2
+    },
+    {
+        "sentence": "so i 'm gon na like naive bfs and then i 'll just let it go",
+        "label": 2
+    },
+    {
+        "sentence": "the goal is , jackie , is that this graph will automatically populate a you do this .",
+        "label": 2
+    },
+    {
+        "sentence": "the goal for jackie is to make this graph automatically populate while you do it",
+        "label": 2
+    },
+    {
+        "sentence": "the goal of jackie is that this graph will automatically populate a you do it",
+        "label": 2
+    },
+    {
+        "sentence": "the goal for jackie is that this graph will automatically populate a you do this",
+        "label": 2
+    },
+    {
+        "sentence": "so you can improve it .",
+        "label": 1
+    },
+    {
+        "sentence": "so maybe you can improve it",
+        "label": 1
+    },
+    {
+        "sentence": "and then just just , just get the data from the graph .",
+        "label": 2
+    },
+    {
+        "sentence": "and then just pick up the data from the graph",
+        "label": 2
+    },
+    {
+        "sentence": "and then you just get that data from the graph",
+        "label": 2
+    },
+    {
+        "sentence": "we just do a get request to the backend .",
+        "label": 2
+    },
+    {
+        "sentence": "we simply go to the backend and make a request",
+        "label": 2
+    },
+    {
+        "sentence": "we just make a request to the backend",
+        "label": 2
+    },
+    {
+        "sentence": "we just send the request to the backend",
+        "label": 2
+    },
+    {
+        "sentence": "we just send a request to the backend",
+        "label": 2
+    },
+    {
+        "sentence": "we just do a request to the backend",
+        "label": 2
+    },
+    {
+        "sentence": "so let 's actually just go to the live graph .",
+        "label": 2
+    },
+    {
+        "sentence": "so let 's go to the graph",
+        "label": 2
+    },
+    {
+        "sentence": "so let 's go with the live graph",
+        "label": 2
+    },
+    {
+        "sentence": "let 's go to the live graph",
+        "label": 2
+    },
+    {
+        "sentence": "so let 's go to the live graph",
+        "label": 2
+    },
+    {
+        "sentence": "so let 's just go to the real graph",
+        "label": 2
+    },
+    {
+        "sentence": "let 's actually load this new one .",
+        "label": 2
+    },
+    {
+        "sentence": "let 's load the new one",
+        "label": 2
+    },
+    {
+        "sentence": "let u load this new one",
+        "label": 2
+    },
+    {
+        "sentence": "let 's load this new one",
+        "label": 2
+    },
+    {
+        "sentence": "let 's just load this new one",
+        "label": 2
+    },
+    {
+        "sentence": "okay , now you see the old one , you see that ?",
+        "label": 2
+    },
+    {
+        "sentence": "you see the old one right ?",
+        "label": 2
+    },
+    {
+        "sentence": "so we want to use neo4j .",
+        "label": 1
+    },
+    {
+        "sentence": "neo4j come in the picture where it just save .",
+        "label": 2
+    },
+    {
+        "sentence": "yeah , the name , the name i actually send it yet .",
+        "label": 2
+    },
+    {
+        "sentence": "so this , this action is sent in text format .",
+        "label": 2
+    },
+    {
+        "sentence": "so this action is sent a a text",
+        "label": 2
+    },
+    {
+        "sentence": "and this action is sent in text format",
+        "label": 2
+    },
+    {
+        "sentence": "so the loop is for event , right ?",
+        "label": 2
+    },
+    {
+        "sentence": "it just keep outputting an event .",
+        "label": 2
+    },
+    {
+        "sentence": "how doe it know , how doe it know how to break down test case into event ?",
+        "label": 2
+    },
+    {
+        "sentence": "how doe it know to break down a test case into event ?",
+        "label": 2
+    },
+    {
+        "sentence": "how doe it know how to break down test case into event ?",
+        "label": 2
+    },
+    {
+        "sentence": "the user need to access the repeat functionality and more option menu to set specific day for the alarm .",
+        "label": 2
+    },
+    {
+        "sentence": "the explorer work exactly the same actually .",
+        "label": 2
+    },
+    {
+        "sentence": "the explorer also work exactly the same",
+        "label": 2
+    },
+    {
+        "sentence": "the explorer work exactly the same",
+        "label": 2
+    },
+    {
+        "sentence": "the idea is you can hit explorer .",
+        "label": 2
+    },
+    {
+        "sentence": "the idea is that you can hit explorer",
+        "label": 2
+    },
+    {
+        "sentence": "the idea is you can click explorer",
+        "label": 2
+    },
+    {
+        "sentence": "the idea is you can use explorer",
+        "label": 2
+    },
+    {
+        "sentence": "the idea is you can get explorer",
+        "label": 2
+    },
+    {
+        "sentence": "the idea is you can hit explorer",
+        "label": 2
+    },
+    {
+        "sentence": "this is a very small graph , so these two map together .",
+        "label": 2
+    },
+    {
+        "sentence": "this is a very small graph and these two represent a map",
+        "label": 2
+    },
+    {
+        "sentence": "it 's a very small graph so they can map together",
+        "label": 2
+    },
+    {
+        "sentence": "this is a very small graph so these two are related",
+        "label": 2
+    },
+    {
+        "sentence": "this is a very small graph so these two correspond together",
+        "label": 2
+    },
+    {
+        "sentence": "it 's a very small graph so these two map together",
+        "label": 2
+    },
+    {
+        "sentence": "this is a very small graph so these two go together",
+        "label": 2
+    },
+    {
+        "sentence": "this is a very small graph so these two map together",
+        "label": 2
+    },
+    {
+        "sentence": "the key , the difference is all you need to look at is is id , right ?",
+        "label": 2
+    },
+    {
+        "sentence": "the difference is that you only need to look at id right ?",
+        "label": 2
+    },
+    {
+        "sentence": "this is a random id to uniquely represent the state .",
+        "label": 2
+    },
+    {
+        "sentence": "this is a random identifier which represents the state in a unique way",
+        "label": 2
+    },
+    {
+        "sentence": "this is a random id that represents the state uniquely",
+        "label": 2
+    },
+    {
+        "sentence": "and the edge tell you what map to what , this , the from and the two tell you what node map to what .",
+        "label": 2
+    },
+    {
+        "sentence": "neo4j is the database that save the graph .",
+        "label": 2
+    },
+    {
+        "sentence": "if you have different customer , how do you expect like we , you know , we ca n't have everything in this one server , right ?",
+        "label": 2
+    },
+    {
+        "sentence": "and it 's like saving , it 's like saving on firebase versus saving on our server and retrieving it in two different thing .",
+        "label": 2
+    },
+    {
+        "sentence": "this is a database .",
+        "label": 3
+    },
+    {
+        "sentence": "this is a database",
+        "label": 3
+    },
+    {
+        "sentence": "it 's very minimal .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's very minor",
+        "label": 2
+    },
+    {
+        "sentence": "it 's very small",
+        "label": 2
+    },
+    {
+        "sentence": "this is the previous node that have been seen .",
+        "label": 2
+    },
+    {
+        "sentence": "this is the previous node seen",
+        "label": 2
+    },
+    {
+        "sentence": "it show the previous node that have been seen",
+        "label": 2
+    },
+    {
+        "sentence": "so look at this .",
+        "label": 3
+    },
+    {
+        "sentence": "let 's take a look",
+        "label": 3
+    },
+    {
+        "sentence": "is that third ?",
+        "label": 3
+    },
+    {
+        "sentence": "is it a third ?",
+        "label": 3
+    },
+    {
+        "sentence": "okay .",
+        "label": 3
+    },
+    {
+        "sentence": "all right",
+        "label": 3
+    },
+    {
+        "sentence": "and so doe that mean it finished running the test case ?",
+        "label": 3
+    },
+    {
+        "sentence": "no , this is just the first step of the test case .",
+        "label": 3
+    },
+    {
+        "sentence": "uh , but it 's not , um , it 's , oh , because you put a break point .",
+        "label": 3
+    },
+    {
+        "sentence": "it 's only doing like one test step at a time .",
+        "label": 3
+    },
+    {
+        "sentence": "hey , do a scroll , uh , at this position .",
+        "label": 3
+    },
+    {
+        "sentence": "at these coordinate , do a scroll , start and stop .",
+        "label": 3
+    },
+    {
+        "sentence": "actually , no , this is the balance .",
+        "label": 3
+    },
+    {
+        "sentence": "this is the balance",
+        "label": 3
+    },
+    {
+        "sentence": "so you scroll in this area .",
+        "label": 3
+    },
+    {
+        "sentence": "you scroll up .",
+        "label": 3
+    },
+    {
+        "sentence": "i think it just scrolled up .",
+        "label": 3
+    },
+    {
+        "sentence": "i think it just moved up a bit",
+        "label": 3
+    },
+    {
+        "sentence": "i think it just went up",
+        "label": 3
+    },
+    {
+        "sentence": "i think it just popped up",
+        "label": 3
+    },
+    {
+        "sentence": "i think it 's just scrolled up",
+        "label": 3
+    },
+    {
+        "sentence": "you see , it 's a lot of .",
+        "label": 3
+    },
+    {
+        "sentence": "you know there 's a lot",
+        "label": 3
+    },
+    {
+        "sentence": "and the phone is different .",
+        "label": 3
+    },
+    {
+        "sentence": "but anyways , okay .",
+        "label": 3
+    },
+    {
+        "sentence": "ok ?",
+        "label": 3
+    },
+    {
+        "sentence": "so then the next action happens .",
+        "label": 3
+    },
+    {
+        "sentence": "the next action",
+        "label": 3
+    },
+    {
+        "sentence": "okay . and then , okay , let 's see what the next action .",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see what the next step should be",
+        "label": 3
+    },
+    {
+        "sentence": "and then we 'll see what will happen next",
+        "label": 3
+    },
+    {
+        "sentence": "and then we can see what 's the next step",
+        "label": 3
+    },
+    {
+        "sentence": "okay then let 's see what happens next",
+        "label": 3
+    },
+    {
+        "sentence": "okay let 's see what our next action is",
+        "label": 3
+    },
+    {
+        "sentence": "and then let 's see what the next thing is",
+        "label": 3
+    },
+    {
+        "sentence": "and then let 's see what the next step is",
+        "label": 3
+    },
+    {
+        "sentence": "and then let 's see what the next act is",
+        "label": 3
+    },
+    {
+        "sentence": "okay and then let 's see what the next step is",
+        "label": 3
+    },
+    {
+        "sentence": "i think it 's doing scroll constantly .",
+        "label": 3
+    },
+    {
+        "sentence": "you know , it 's doing scroll down again .",
+        "label": 3
+    },
+    {
+        "sentence": "okay , let 's see if it 's going to keep asking u to do this .",
+        "label": 3
+    },
+    {
+        "sentence": "i think i 'll change .",
+        "label": 3
+    },
+    {
+        "sentence": "i think i 'll change myself",
+        "label": 3
+    },
+    {
+        "sentence": "i think i 'll change it",
+        "label": 3
+    },
+    {
+        "sentence": "i think i 'll change",
+        "label": 3
+    },
+    {
+        "sentence": "okay . now it 's going to change .",
+        "label": 3
+    },
+    {
+        "sentence": "okay now thing will change",
+        "label": 3
+    },
+    {
+        "sentence": "okay now this will change",
+        "label": 3
+    },
+    {
+        "sentence": "okay now it 's going to change",
+        "label": 3
+    },
+    {
+        "sentence": "i think .",
+        "label": 3
+    },
+    {
+        "sentence": "i think",
+        "label": 3
+    },
+    {
+        "sentence": "see the crash . is n't there ?",
+        "label": 3
+    },
+    {
+        "sentence": "oh , man .",
+        "label": 3
+    },
+    {
+        "sentence": "there 's error .",
+        "label": 3
+    },
+    {
+        "sentence": "it 's a mistake",
+        "label": 3
+    },
+    {
+        "sentence": "there is a misstep",
+        "label": 3
+    },
+    {
+        "sentence": "there 's a mistake",
+        "label": 3
+    },
+    {
+        "sentence": "there 's an error",
+        "label": 3
+    },
+    {
+        "sentence": "we have an error",
+        "label": 3
+    },
+    {
+        "sentence": "i mean , i think this is .",
+        "label": 3
+    },
+    {
+        "sentence": "i think so",
+        "label": 3
+    },
+    {
+        "sentence": "i think it 's the case",
+        "label": 3
+    },
+    {
+        "sentence": "i think that 's it",
+        "label": 3
+    },
+    {
+        "sentence": "i mean you remember , you guy remember generator from python ?",
+        "label": 3
+    },
+    {
+        "sentence": "and you remember the python generator ?",
+        "label": 3
+    },
+    {
+        "sentence": "you remember generator in python ?",
+        "label": 3
+    },
+    {
+        "sentence": "you remember the generator you remember from python ?",
+        "label": 3
+    },
+    {
+        "sentence": "i mean you remember those python generator ?",
+        "label": 3
+    },
+    {
+        "sentence": "you remember generator from python ?",
+        "label": 3
+    },
+    {
+        "sentence": "i mean do you remember generator from python ?",
+        "label": 3
+    },
+    {
+        "sentence": "i think you know generator , right ?",
+        "label": 3
+    },
+    {
+        "sentence": "i think you know generator right ?",
+        "label": 3
+    },
+    {
+        "sentence": "irvine class . remember , yeah , use generator basically .",
+        "label": 3
+    },
+    {
+        "sentence": "the class of irvine",
+        "label": 3
+    },
+    {
+        "sentence": "remember you can use a generator",
+        "label": 3
+    },
+    {
+        "sentence": "we use a generator .",
+        "label": 2
+    },
+    {
+        "sentence": "we use a generator",
+        "label": 2
+    },
+    {
+        "sentence": "so generates the next action , yield there , sends that to the server , and then get the screenshot again .",
+        "label": 2
+    },
+    {
+        "sentence": "sublimat that .",
+        "label": 3
+    },
+    {
+        "sentence": "gb4 .",
+        "label": 3
+    },
+    {
+        "sentence": "yeah . gb4 .",
+        "label": 3
+    },
+    {
+        "sentence": "the problem is actually in here , i think .",
+        "label": 3
+    },
+    {
+        "sentence": "do i remember the name of the problem ?",
+        "label": 3
+    },
+    {
+        "sentence": "do you know the name of the problem ?",
+        "label": 3
+    },
+    {
+        "sentence": "can i remember the name of a problem ?",
+        "label": 3
+    },
+    {
+        "sentence": "can i remember the name of the problem ?",
+        "label": 3
+    },
+    {
+        "sentence": "you know , look at lucky .",
+        "label": 3
+    },
+    {
+        "sentence": "oh , okay .",
+        "label": 3
+    },
+    {
+        "sentence": "this one .",
+        "label": 3
+    },
+    {
+        "sentence": "jan , query gpt .",
+        "label": 3
+    },
+    {
+        "sentence": "there 's a api key .",
+        "label": 3
+    },
+    {
+        "sentence": "um , and then i just asked you before for what the action i should take is .",
+        "label": 3
+    },
+    {
+        "sentence": "i can share this .",
+        "label": 3
+    },
+    {
+        "sentence": "i can share it with you",
+        "label": 3
+    },
+    {
+        "sentence": "i 'm able to share this",
+        "label": 3
+    },
+    {
+        "sentence": "here is the response step tap on the button .",
+        "label": 3
+    },
+    {
+        "sentence": "id equal one , select repeat , select the specific day , tap on save analysis .",
+        "label": 2
+    },
+    {
+        "sentence": "the tap should be output .",
+        "label": 2
+    },
+    {
+        "sentence": "i do n't want to fix this .",
+        "label": 3
+    },
+    {
+        "sentence": "i do n't want to fix it",
+        "label": 3
+    },
+    {
+        "sentence": "i do n't want to fix that",
+        "label": 3
+    },
+    {
+        "sentence": "i do n't want to fix this",
+        "label": 3
+    },
+    {
+        "sentence": "okay , it 's at 966 and put all the c .",
+        "label": 3
+    },
+    {
+        "sentence": "it should be actually very easy to fix .",
+        "label": 3
+    },
+    {
+        "sentence": "it should be quite simple",
+        "label": 3
+    },
+    {
+        "sentence": "it should be easy to fix",
+        "label": 3
+    },
+    {
+        "sentence": "it should be really very simple to fix",
+        "label": 3
+    },
+    {
+        "sentence": "it should be very easy to fix",
+        "label": 3
+    },
+    {
+        "sentence": "it should be really easy to fix",
+        "label": 3
+    },
+    {
+        "sentence": "it should be really very easy to fix",
+        "label": 3
+    },
+    {
+        "sentence": "i introduced this very recently , i think .",
+        "label": 3
+    },
+    {
+        "sentence": "okay , i have a solution for this .",
+        "label": 3
+    },
+    {
+        "sentence": "okay i 've got a solution",
+        "label": 3
+    },
+    {
+        "sentence": "okay i have a solution",
+        "label": 3
+    },
+    {
+        "sentence": "okay i have a solution for this",
+        "label": 3
+    },
+    {
+        "sentence": "i think the following is 42 long .",
+        "label": 3
+    },
+    {
+        "sentence": "this is mr. problem .",
+        "label": 3
+    },
+    {
+        "sentence": "um , so what we can do is , i 'm going to remember that this need to be fixed .",
+        "label": 3
+    },
+    {
+        "sentence": "and i could just make some random thing up .",
+        "label": 3
+    },
+    {
+        "sentence": "and i could make thing up",
+        "label": 3
+    },
+    {
+        "sentence": "and i could just do something random",
+        "label": 3
+    },
+    {
+        "sentence": "something like that .",
+        "label": 3
+    },
+    {
+        "sentence": "it 'll be a , in this one thing say actually , because i want to show you the full thing running itself , you know , should n't just be .",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , i wa seeing the future time i want people to be able to just like go and modify it , because right now it 's like , oh , it 's just me .",
+        "label": 3
+    },
+    {
+        "sentence": "i do n't like that one .",
+        "label": 3
+    },
+    {
+        "sentence": "i do n't like it",
+        "label": 3
+    },
+    {
+        "sentence": "it 's just me .",
+        "label": 3
+    },
+    {
+        "sentence": "it 's me",
+        "label": 3
+    },
+    {
+        "sentence": "so yeah , okay , let 's try again .",
+        "label": 3
+    },
+    {
+        "sentence": "okay let 's try it again",
+        "label": 3
+    },
+    {
+        "sentence": "okay let 's try again",
+        "label": 3
+    },
+    {
+        "sentence": "auto-generate .",
+        "label": 3
+    },
+    {
+        "sentence": "okay , this is a bug .",
+        "label": 3
+    },
+    {
+        "sentence": "i do n't know what happens .",
+        "label": 3
+    },
+    {
+        "sentence": "connect open .",
+        "label": 3
+    },
+    {
+        "sentence": "okay , let 's see .",
+        "label": 3
+    },
+    {
+        "sentence": "scroll again .",
+        "label": 3
+    },
+    {
+        "sentence": "it try to do this .",
+        "label": 3
+    },
+    {
+        "sentence": "scroll .",
+        "label": 3
+    },
+    {
+        "sentence": "okay , nowhere .",
+        "label": 3
+    },
+    {
+        "sentence": "there 's no clue .",
+        "label": 3
+    },
+    {
+        "sentence": "there 's no .",
+        "label": 3
+    },
+    {
+        "sentence": "okay , this is the one causing her .",
+        "label": 3
+    },
+    {
+        "sentence": "so this is a tap , right ?",
+        "label": 3
+    },
+    {
+        "sentence": "so it 's a tap right ?",
+        "label": 3
+    },
+    {
+        "sentence": "so this is a tap right ?",
+        "label": 3
+    },
+    {
+        "sentence": "this is a tap .",
+        "label": 3
+    },
+    {
+        "sentence": "event type is a click .",
+        "label": 3
+    },
+    {
+        "sentence": "the type of the event is clicking",
+        "label": 3
+    },
+    {
+        "sentence": "the type of the event is a click",
+        "label": 3
+    },
+    {
+        "sentence": "the type of event is click",
+        "label": 3
+    },
+    {
+        "sentence": "the event type is a click",
+        "label": 3
+    },
+    {
+        "sentence": "okay , so let 's actually see the click happen .",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see what is happening",
+        "label": 3
+    },
+    {
+        "sentence": "okay let 's see what 's going on",
+        "label": 3
+    },
+    {
+        "sentence": "okay let 's see how it work",
+        "label": 3
+    },
+    {
+        "sentence": "okay let 's see if it 's actually happening",
+        "label": 3
+    },
+    {
+        "sentence": "okay so let 's see what happens",
+        "label": 3
+    },
+    {
+        "sentence": "so let 's actually see what happens",
+        "label": 3
+    },
+    {
+        "sentence": "so you see this screen first .",
+        "label": 3
+    },
+    {
+        "sentence": "if i hit play , guy , it changed .",
+        "label": 3
+    },
+    {
+        "sentence": "it changed on my screen .",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see if it changed here .",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see if this ha changed",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see if that 's changed",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see if it change",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see if it ha changed here",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see if it change here",
+        "label": 3
+    },
+    {
+        "sentence": "let 's see if it changed here",
+        "label": 3
+    },
+    {
+        "sentence": "why is n't it showing the change ?",
+        "label": 3
+    },
+    {
+        "sentence": "why is n't the change displayed ?",
+        "label": 3
+    },
+    {
+        "sentence": "why is n't the change shown ?",
+        "label": 3
+    },
+    {
+        "sentence": "why is n't it showing change ?",
+        "label": 3
+    },
+    {
+        "sentence": "anyways , you see the here , right ?",
+        "label": 3
+    },
+    {
+        "sentence": "tom the analysis .",
+        "label": 3
+    },
+    {
+        "sentence": "so you see the step one .",
+        "label": 3
+    },
+    {
+        "sentence": "that 's step one",
+        "label": 3
+    },
+    {
+        "sentence": "you see step 1 ?",
+        "label": 3
+    },
+    {
+        "sentence": "so you can see the first step",
+        "label": 3
+    },
+    {
+        "sentence": "oh , there you go .",
+        "label": 3
+    },
+    {
+        "sentence": "change . you see that ?",
+        "label": 3
+    },
+    {
+        "sentence": "you see that ?",
+        "label": 3
+    },
+    {
+        "sentence": "it changed .",
+        "label": 3
+    },
+    {
+        "sentence": "and then this is like the output of the gp4 .",
+        "label": 3
+    },
+    {
+        "sentence": "you guy see that ?",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , it 's a pretty cool action .",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , that make sense .",
+        "label": 3
+    },
+    {
+        "sentence": "okay , is that clear ?",
+        "label": 3
+    },
+    {
+        "sentence": "okay is that clear ?",
+        "label": 3
+    },
+    {
+        "sentence": "any question from you jackie about this ?",
+        "label": 3
+    },
+    {
+        "sentence": "what are your thought on this ?",
+        "label": 3
+    },
+    {
+        "sentence": "are there any question you want from jackie ?",
+        "label": 3
+    },
+    {
+        "sentence": "is that clear ?",
+        "label": 3
+    },
+    {
+        "sentence": "is this clear ?",
+        "label": 3
+    },
+    {
+        "sentence": "we 're raw right now , where we 're going ahead to .",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , yeah .",
+        "label": 3
+    },
+    {
+        "sentence": "so this is not at the end all .",
+        "label": 3
+    },
+    {
+        "sentence": "so this is not the end of everything",
+        "label": 3
+    },
+    {
+        "sentence": "but our mission for this team is to somehow alleviate the workload for qas .",
+        "label": 1
+    },
+    {
+        "sentence": "but our mission for this team is to somehow ease the workload of qas",
+        "label": 1
+    },
+    {
+        "sentence": "but our mission for this team is to somehow lighten the workload for qas",
+        "label": 1
+    },
+    {
+        "sentence": "but our mission for this team is to somehow ease the workload for qas",
+        "label": 1
+    },
+    {
+        "sentence": "and eventually , if we can altogether get rid of the , like totally automating the qa field , that would , yeah , like change the industry , be very positive a well .",
+        "label": 2
+    },
+    {
+        "sentence": "so most of the time when it 's a complex like question , i refer them over to the developer who 's in charge of that .",
+        "label": 2
+    },
+    {
+        "sentence": "so the night , i try to explain to them a best a i can for the simple stuff , but for more in detail stuff , i just , for them over .",
+        "label": 2
+    },
+    {
+        "sentence": "i think that 's what i think the central question is about like what qa mean to do some research about that .",
+        "label": 2
+    },
+    {
+        "sentence": "yeah , i guess we do the same thing a developer , a in how we use jira and read about certain story or feature that are going into the product or company .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's just that the difference is instead of pushing in code or creating the feature , the one who double check that the feature are working properly .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's just that the difference is that instead of pushing or creating feature they are the one who double check that feature work properly",
+        "label": 2
+    },
+    {
+        "sentence": "it 's just that the difference is that instead of pushing in code or creating the feature they are the one who check that feature work properly",
+        "label": 2
+    },
+    {
+        "sentence": "it 's just that the difference is that instead of pushing in code or creating feature they double check that the feature work properly",
+        "label": 2
+    },
+    {
+        "sentence": "it 's just that the difference is that rather than pushing in code or creating feature the one who double check that feature are working properly",
+        "label": 2
+    },
+    {
+        "sentence": "it 's just that the difference is that instead of pushing in code or creating feature the one who check that the feature are working properly",
+        "label": 2
+    },
+    {
+        "sentence": "it 's just that the difference is that instead of pushing in code or creating feature the one who double check that the feature are working properly",
+        "label": 2
+    },
+    {
+        "sentence": "there are some team at my company who call themselves performance tester . so those guy try to stress test and like actually break the product under high , high traffic , because we have a web app .",
+        "label": 2
+    },
+    {
+        "sentence": "because like , downtime for a big enterprise software cost a lot of money , and it prevents trust between the customer and like our ceo .",
+        "label": 2
+    },
+    {
+        "sentence": "because a big enterprise software downtime cost a lot of money and it prevents trust between the customer and our ceo",
+        "label": 2
+    },
+    {
+        "sentence": "because such downtime for a big enterprise software cost a lot of money and it prevents trust between the customer and our ceo",
+        "label": 2
+    },
+    {
+        "sentence": "because like downtime for a big enterprise software cost a lot of money and it prevents trust between the customer and our ceo",
+        "label": 2
+    },
+    {
+        "sentence": "so sometimes you get stumped when engineering manager or someone else reach out to you , ask you question , because you 're not so in-depth with the knowledge .",
+        "label": 2
+    },
+    {
+        "sentence": "sometimes you get stumped when your engineering manager or someone else asks question that you do n't have the depth of knowledge to answer",
+        "label": 2
+    },
+    {
+        "sentence": "sometimes you get confused when an engineer or someone else reach out to ask you question because you are not so experienced",
+        "label": 2
+    },
+    {
+        "sentence": "sometimes you 'll get stumped when an engineering manager or someone else reach out and asks you question because you do n't have that much of a background",
+        "label": 2
+    },
+    {
+        "sentence": "sometimes you get stumped when an engineering manager or someone else call to ask you a question because you do n't have the necessary knowledge",
+        "label": 2
+    },
+    {
+        "sentence": "sometimes you get stumped when an engineering manager or another person reach out to you asking you question because you 're not so in-depth with knowledge",
+        "label": 2
+    },
+    {
+        "sentence": "so sometimes you 're stumped when engineering manager or someone else want to ask you question because you 're not so in-depth with the knowledge",
+        "label": 2
+    },
+    {
+        "sentence": "sometimes you get stumped when engineering manager or someone else reach out and asks you question because you 're not in depth with the knowledge",
+        "label": 2
+    },
+    {
+        "sentence": "you do have access to the implementation dock and a lot of the company documentation .",
+        "label": 2
+    },
+    {
+        "sentence": "you have access to the implementation dock and a lot of the documentation of the company",
+        "label": 2
+    },
+    {
+        "sentence": "you have access to the implementation dock and a lot of company document",
+        "label": 2
+    },
+    {
+        "sentence": "you have access to the implementation dock and to a lot of company documentation",
+        "label": 2
+    },
+    {
+        "sentence": "you have access to the implementation dock and much of the company documentation",
+        "label": 2
+    },
+    {
+        "sentence": "you have access to the implementation dock and a lot of company documentation",
+        "label": 2
+    },
+    {
+        "sentence": "you have access to the implementation dock and a lot of the company documentation",
+        "label": 2
+    },
+    {
+        "sentence": "there 's like a mixture . so i 'd say like half of the new people coming in a qa , they did c or like a pure engineering . and then the other half is like applied math or like a adjacent type of major , like math or science or whatever .",
+        "label": 2
+    },
+    {
+        "sentence": "i see people with master from like duke coming in a just an associate developer .",
+        "label": 2
+    },
+    {
+        "sentence": "i see people with master 's degree from duke just a associate developer",
+        "label": 2
+    },
+    {
+        "sentence": "i feel like during school , you do n't really get exposure until you do internship and stuff .",
+        "label": 2
+    },
+    {
+        "sentence": "i feel like you do n't really have exposure during school before you do internship and stuff",
+        "label": 2
+    },
+    {
+        "sentence": "i feel like you do n't get exposure until you do internship and stuff during school",
+        "label": 2
+    },
+    {
+        "sentence": "i feel that you do n't get exposure in school until you do internship and stuff",
+        "label": 2
+    },
+    {
+        "sentence": "i feel like you do n't really get exposure - until you do internship and stuff - during school",
+        "label": 2
+    },
+    {
+        "sentence": "i feel like you do n't really get exposure in school until you do internship and stuff",
+        "label": 2
+    },
+    {
+        "sentence": "i think at school you do n't get an exposure until you do internship and stuff",
+        "label": 2
+    },
+    {
+        "sentence": "i feel like during school you do n't really get exposure until you do internship and stuff",
+        "label": 2
+    },
+    {
+        "sentence": "so there 's not an exposure . but i wish like school gave more exposure to .",
+        "label": 2
+    },
+    {
+        "sentence": "oh , okay . that 's why the interview you have to like pretend to know stuff and like make yourself look knowledgeable .",
+        "label": 2
+    },
+    {
+        "sentence": "and then just doing a lot of research on like what sort of question are you going to ask ?",
+        "label": 2
+    },
+    {
+        "sentence": "so i think there 's like a screening that happens before . any of the coding assessment or technical question assessment .",
+        "label": 2
+    },
+    {
+        "sentence": "so i think it 's like a screening that take place before all coding test or technical question assessment",
+        "label": 2
+    },
+    {
+        "sentence": "i think there 's a screening that happens before any of the coding assessment or the technical question assessment",
+        "label": 2
+    },
+    {
+        "sentence": "so i think there 's like an screening that happens before a coding assessment or technical question assessment",
+        "label": 2
+    },
+    {
+        "sentence": "so i think there 's like a screening that occurs before any of the coding assessment or technical question assessment",
+        "label": 2
+    },
+    {
+        "sentence": "so i think there is a screening that happens before any of the coding assessment or technical question assessment",
+        "label": 2
+    },
+    {
+        "sentence": "so a long a like yeah , a long a your personality is good and you 're like open to helping other people like you show that .",
+        "label": 2
+    },
+    {
+        "sentence": "do you guy have like senior capstone class ?",
+        "label": 2
+    },
+    {
+        "sentence": "do you guy have senior capstone class ?",
+        "label": 2
+    },
+    {
+        "sentence": "yeah , i think that 's like the single most important like directly applicable class because .",
+        "label": 2
+    },
+    {
+        "sentence": "at least for my school , they had you pair up with like a nonprofit .",
+        "label": 2
+    },
+    {
+        "sentence": "and they were like the stakeholder . so they were asking for certain thing .",
+        "label": 2
+    },
+    {
+        "sentence": "and then we had to communicate with them and plan out like how we 're going to break up these feature into story .",
+        "label": 2
+    },
+    {
+        "sentence": "and then we had to communicate with them and plan how we 're going to break these feature into story",
+        "label": 2
+    },
+    {
+        "sentence": "and present our feature in front of the class or like the teacher who acted a the the scrum master or the engineering manager .",
+        "label": 2
+    },
+    {
+        "sentence": "so each group of people worked on like they worked for different nonprofit .",
+        "label": 2
+    },
+    {
+        "sentence": "so each group of people worked a they did for different organization",
+        "label": 2
+    },
+    {
+        "sentence": "so each group of people worked a though they 'd been working for different nonprofit",
+        "label": 2
+    },
+    {
+        "sentence": "so each group of people worked a if it were a different nonprofit",
+        "label": 2
+    },
+    {
+        "sentence": "so each group of people worked a they worked for different nonprofit",
+        "label": 2
+    },
+    {
+        "sentence": "either making a web app for them or mobile app or some of them ha to do like intense backend api configuration stuff for them .",
+        "label": 2
+    },
+    {
+        "sentence": "yeah , tommy , can you hear me ?",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , i just wanted to ask , this is honestly really unrelated , but while we 're just waiting , i want to ask , what do you do for work again ?",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , so i work a a quality insurance engineer .",
+        "label": 2
+    },
+    {
+        "sentence": "i work a an insurance quality engineer",
+        "label": 2
+    },
+    {
+        "sentence": "so i work a an insurance expert",
+        "label": 2
+    },
+    {
+        "sentence": "i work a an insurance engineer",
+        "label": 2
+    },
+    {
+        "sentence": "i am a quality insurance engineer",
+        "label": 2
+    },
+    {
+        "sentence": "so i work a an insurance engineer",
+        "label": 2
+    },
+    {
+        "sentence": "what kind of work do you do there ?",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , i 'd say that 's just a bit .",
+        "label": 3
+    },
+    {
+        "sentence": "you know i 'd say it 's just a little",
+        "label": 3
+    },
+    {
+        "sentence": "when you said quality insurance , sorry , i just do n't really get what that mean .",
+        "label": 3
+    },
+    {
+        "sentence": "when you said quality insurance i just do n't really understand what it meant",
+        "label": 3
+    },
+    {
+        "sentence": "when you said quality insurance i just do n't really understand what that mean",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , quality insurance , like , i guess double checking thing are working , making sure that they wo n't break in the future .",
+        "label": 2
+    },
+    {
+        "sentence": "right . yeah . is it fun ? like , do you like the work you do ?",
+        "label": 3
+    },
+    {
+        "sentence": "is it fun ? do you like work ?",
+        "label": 3
+    },
+    {
+        "sentence": "is it fun ? do you like what you do ?",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , it 's , it 's pretty chill . that 's what i like about it .",
+        "label": 2
+    },
+    {
+        "sentence": "it 's cool and that 's what i like about it",
+        "label": 2
+    },
+    {
+        "sentence": "i see the vaulter like rushing to get , like they write up document a lot , because they 're in charge of like the new feature .",
+        "label": 3
+    },
+    {
+        "sentence": "the pm is bringing in to the team .",
+        "label": 3
+    },
+    {
+        "sentence": "the prime minister is helping the team",
+        "label": 3
+    },
+    {
+        "sentence": "the pm brings in someone",
+        "label": 3
+    },
+    {
+        "sentence": "the pm is joining the team",
+        "label": 3
+    },
+    {
+        "sentence": "so , yeah , and that 's like pretty cool . you get to see everything .",
+        "label": 2
+    },
+    {
+        "sentence": "so yeah and it 's pretty cool to see everything",
+        "label": 2
+    },
+    {
+        "sentence": "so yeah and it 's pretty cool you get to see everything",
+        "label": 2
+    },
+    {
+        "sentence": "yeah , exactly . pretty much , i think that 's like kind of like the downside of the qa .",
+        "label": 3
+    },
+    {
+        "sentence": "i think it 's like the downside of qa",
+        "label": 3
+    },
+    {
+        "sentence": "that 's something i think is kind of the downside of qa",
+        "label": 3
+    },
+    {
+        "sentence": "so what made you switch ?",
+        "label": 3
+    },
+    {
+        "sentence": "tell me the reason why you changed ?",
+        "label": 3
+    },
+    {
+        "sentence": "what prompted you to switch ?",
+        "label": 3
+    },
+    {
+        "sentence": "what 's the reason you switched ?",
+        "label": 3
+    },
+    {
+        "sentence": "what made you change ?",
+        "label": 3
+    },
+    {
+        "sentence": "i guess the workload .",
+        "label": 2
+    },
+    {
+        "sentence": "yeah . yeah . yeah . and i kind of wanted a higher gpa , but it wa like so much harder to do that with just traditional comp .",
+        "label": 2
+    },
+    {
+        "sentence": "oh , interesting . okay . that 's cool .",
+        "label": 3
+    },
+    {
+        "sentence": "i 'd say so . yeah . i mean , i would n't say our company like like the tech company and like san fran and stuff , but yeah .",
+        "label": 2
+    },
+    {
+        "sentence": "even though we 're not like the snapchat .",
+        "label": 3
+    },
+    {
+        "sentence": "yeah . facebook . yeah . what 's the company name ?",
+        "label": 3
+    },
+    {
+        "sentence": "what 's the company name ?",
+        "label": 3
+    },
+    {
+        "sentence": "what is the facebook company name ?",
+        "label": 3
+    },
+    {
+        "sentence": "it 's called viva viva system .",
+        "label": 2
+    },
+    {
+        "sentence": "okay . cool . cool . thanks for telling me .",
+        "label": 3
+    },
+    {
+        "sentence": "thanks for telling me",
+        "label": 3
+    },
+    {
+        "sentence": "cool thank you for telling me",
+        "label": 3
+    },
+    {
+        "sentence": "cool thanks for telling me",
+        "label": 3
+    },
+    {
+        "sentence": "cool cool thanks for telling me",
+        "label": 3
+    },
+    {
+        "sentence": "so like one , if you do n't get it like in school or like a the intern , one do you get it ? you just do n't get it until you get hired .",
+        "label": 2
+    },
+    {
+        "sentence": "so like how do you how do you kind of like fake it in an interview ?",
+        "label": 2
+    },
+    {
+        "sentence": "how do you try and fake it in an interview ?",
+        "label": 2
+    },
+    {
+        "sentence": "doe that include like the tech question or like all the other question too ?",
+        "label": 3
+    },
+    {
+        "sentence": "like i do n't know if you went through like the internship process or any of the company , but i think the common thing is for them to not ask technical stuff in the beginning .",
+        "label": 2
+    },
+    {
+        "sentence": "i do n't know if you went through the internship process or any of the company but i think the common thing is for them not to ask technical stuff in the beginning",
+        "label": 2
+    },
+    {
+        "sentence": "yeah . did you feel like like since you said stuff in school like doe n't give you that much exposure ?",
+        "label": 3
+    },
+    {
+        "sentence": "did you feel like you were n't given exposure because you talked in school ?",
+        "label": 3
+    },
+    {
+        "sentence": "did you feel like you did n't get exposure because you said it at school ?",
+        "label": 3
+    },
+    {
+        "sentence": "do you feel like if you 're saying thing in school that doe n't give you that much exposure ?",
+        "label": 3
+    },
+    {
+        "sentence": "like , wa n't like any notable class that i looked or were not really .",
+        "label": 3
+    },
+    {
+        "sentence": "so wa it like it wa you and then it wa like just you and then an nonprofit or were there other student working with you ?",
+        "label": 3
+    },
+    {
+        "sentence": "yeah , so like we were split up into team of like five people and there were about like 20 people in the class .",
+        "label": 2
+    },
+    {
+        "sentence": "what did you do ?",
+        "label": 3
+    },
+    {
+        "sentence": "we just had a simple like front end .",
+        "label": 2
+    },
+    {
+        "sentence": "we had a simple front-end",
+        "label": 2
+    },
+    {
+        "sentence": "react site .",
+        "label": 3
+    },
+    {
+        "sentence": "that 's good .",
+        "label": 3
+    },
+    {
+        "sentence": "all right . yeah . since i know no one else is joining today .",
+        "label": 3
+    },
+    {
+        "sentence": "i know no one else join me today",
+        "label": 3
+    },
+    {
+        "sentence": "okay because i know nobody else is joining me today",
+        "label": 3
+    },
+    {
+        "sentence": "okay because i know no one else is joining today",
+        "label": 3
+    },
+    {
+        "sentence": "okay since i know no one else is joining u today",
+        "label": 3
+    },
+    {
+        "sentence": "yeah because i know no one else is joining today",
+        "label": 3
+    },
+    {
+        "sentence": "i think . yeah , jackie and albert , you guy were here last week , but .",
+        "label": 3
+    },
+    {
+        "sentence": "increased sale through the integration of ai-powered whatsapp and messenger chatbots",
+        "label": 2
+    },
+    {
+        "sentence": "improved search volume by implementing seo tactic and use of google analytics",
+        "label": 2
+    },
+    {
+        "sentence": "improved search volume through applying seo strategy and using google analytics",
+        "label": 2
+    },
+    {
+        "sentence": "utilized wordlift for semantic seo and enhancing website content with linked data",
+        "label": 2
+    },
+    {
+        "sentence": "leveraged google analytics and google tag manager for tracking , analyzing website traffic , and managing marketing tag",
+        "label": 2
+    },
+    {
+        "sentence": "i used google analytics and google tag manager for tracking analyzing website traffic and managing marketing tag",
+        "label": 2
+    },
+    {
+        "sentence": "i utilized google analytics and google tag manager for tracking analyzing website traffic and managing marketing tag",
+        "label": 2
+    },
+    {
+        "sentence": "executed google ad campaign , focusing on keyword research , ad copy creation , and performance optimization",
+        "label": 2
+    },
+    {
+        "sentence": "implemented and maintained structured data with schema.org and knowledge graph , embedding schema in html to improve search visibility and serp feature",
+        "label": 2
+    },
+    {
+        "sentence": "collaborated with international team across multiple time zone to coordinate marketing strategy and ensure cohesive execution",
+        "label": 2
+    },
+    {
+        "sentence": "collaborated with international team across multiple time zone to coordinate marketing strategy and ensure cohesive execution of marketing initiative",
+        "label": 2
+    },
+    {
+        "sentence": "collaborated with international team in multiple time zone to coordinate marketing strategy and ensure cohesive execution",
+        "label": 2
+    },
+    {
+        "sentence": "collaborated with international team across multiple time zone to coordinate marketing strategy and ensure coherent execution",
+        "label": 2
+    },
+    {
+        "sentence": "cooperated closely with developer to create user-friendly interface enabling non-technical user to automate process via llm with simple text input",
+        "label": 2
+    },
+    {
+        "sentence": "collaboration with developer to create user-friendly interface that allow non-technical user to automate process via llm with simple text input",
+        "label": 2
+    },
+    {
+        "sentence": "cooperated closely with developer to create user-friendly interface that allow non-technical user to automate process via llm with simple text input",
+        "label": 2
+    },
+    {
+        "sentence": "the company worked closely with developer to create user-friendly interface enabling non-technical user to automate process via llm with simple text input",
+        "label": 2
+    },
+    {
+        "sentence": "mentored two first-year student",
+        "label": 2
+    },
+    {
+        "sentence": "gave tip on school , college life , and career advice",
+        "label": 2
+    },
+    {
+        "sentence": "worked with a group to build a house for a family in tijuana , mexico",
+        "label": 2
+    },
+    {
+        "sentence": "working with a group to build a house for a family in tijuana mexico",
+        "label": 2
+    },
+    {
+        "sentence": "worked with a group to build a house for a family in tijuana mexico",
+        "label": 2
+    },
+    {
+        "sentence": "used nasa exoplanet archive & mysql to set parameter and obtain result on the planet ’ condition",
+        "label": 2
+    },
+    {
+        "sentence": "built ai model for language , emotion , object detection , and fake news detection",
+        "label": 2
+    },
+    {
+        "sentence": "spread ai knowledge through school club , teacher , social medium , and blog",
+        "label": 2
+    },
+    {
+        "sentence": "spread ai knowledge through school club teacher social medium and blog",
+        "label": 2
+    },
+    {
+        "sentence": "led by professor yi zhang and postgrad student jeshwanth bheemanpally",
+        "label": 2
+    },
+    {
+        "sentence": "this session is under the direction of professor yi zhang and postgrad student jeshwanth bheemanpally",
+        "label": 2
+    },
+    {
+        "sentence": "chosen to work with the principal , staff , and other student to discus school issue",
+        "label": 2
+    },
+    {
+        "sentence": "improved mental health in about 50 % of student body by creating feedback survey for student and teacher",
+        "label": 2
+    },
+    {
+        "sentence": "connected with company such a google , microsoft , stanford , and mit",
+        "label": 2
+    },
+    {
+        "sentence": "dean 's honor for both fall and spring quarter in 2022-23",
+        "label": 2
+    },
+    {
+        "sentence": "hey gemini niserg desai",
+        "label": 3
+    },
+    {
+        "sentence": "niserg111 @ gmail.com",
+        "label": 2
+    },
+    {
+        "sentence": "510-304-8490",
+        "label": 2
+    },
+    {
+        "sentence": "www.linkedin.com/in/niserg-desai",
+        "label": 2
+    },
+    {
+        "sentence": "bachelor of science in computer science",
+        "label": 2
+    },
+    {
+        "sentence": "university of california , santa cruz",
+        "label": 2
+    },
+    {
+        "sentence": "expected graduation : june 2026",
+        "label": 2
+    },
+    {
+        "sentence": "gpa : 3.57",
+        "label": 3
+    },
+    {
+        "sentence": "relevant coursework : ( list of course )",
+        "label": 3
+    },
+    {
+        "sentence": "relevant course list of course",
+        "label": 3
+    },
+    {
+        "sentence": "relevant coursework list of course",
+        "label": 3
+    },
+    {
+        "sentence": "intern | onshorekare",
+        "label": 2
+    },
+    {
+        "sentence": "june 2023 - present",
+        "label": 3
+    },
+    {
+        "sentence": "research assistant | ucsc",
+        "label": 2
+    },
+    {
+        "sentence": "february 2024 - present",
+        "label": 3
+    },
+    {
+        "sentence": "ucsc slug mentor network",
+        "label": 2
+    },
+    {
+        "sentence": "september 2023 - present",
+        "label": 3
+    },
+    {
+        "sentence": "doxa serf",
+        "label": 2
+    },
+    {
+        "sentence": "november 2018",
+        "label": 3
+    },
+    {
+        "sentence": "organization",
+        "label": 3
+    },
+    {
+        "sentence": "research intern | asdrp",
+        "label": 2
+    },
+    {
+        "sentence": "june 2019 - august 2019",
+        "label": 3
+    },
+    {
+        "sentence": "inclusion council member",
+        "label": 2
+    },
+    {
+        "sentence": "mission san jose high school",
+        "label": 2
+    },
+    {
+        "sentence": "september 2020 - june 2022",
+        "label": 3
+    },
+    {
+        "sentence": "inspirit ai",
+        "label": 2
+    },
+    {
+        "sentence": "june 2021 - november 2021",
+        "label": 3
+    },
+    {
+        "sentence": "june 2021 -- november 2021",
+        "label": 3
+    },
+    {
+        "sentence": "june 2021- november 2021",
+        "label": 3
+    },
+    {
+        "sentence": "skill & certification ( list of skill )",
+        "label": 3
+    },
+    {
+        "sentence": "award",
+        "label": 3
+    }
+]
