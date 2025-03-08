@@ -99,6 +99,7 @@
                 if (!fetchControllers[cardId]) return; 
 
                 if (data.summary) {
+                    // Use innerHTML to properly render line breaks and bullets
                     cardElement.innerHTML = `
                         <p>${data.summary}</p>
                         <button class="back-button" onclick="restoreContent('${cardId}', false)">Back</button>

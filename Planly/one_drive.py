@@ -44,8 +44,10 @@ def summarize_content_with_gemini(content):
         ]
         )
     )
-
-    return(response.text)
+    # Replace asterisks with HTML-friendly bullet points and preserve line breaks
+    clean_text = response.text.replace("* ", "• ").replace("\n", "<br>")
+    
+    return clean_text
 
 GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
 
