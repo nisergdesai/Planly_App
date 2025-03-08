@@ -6,4 +6,4 @@
 
 4. Now do "cd .." to get out of the Trainer folder. Try running app.py. This message should appear shortly:  "* Running on http://127.0.0.1:5000". 
 
-5. Open the link in your browser. You will see a few different "connect" buttons. Contact Niserg Desai to obtain permission for your particular Google and/or Microsoft accounts. 
+5. Open the link in your browser. You will see a few different "connect" buttons. You will need to contact Niserg Desai to obtain permission to connect your particular Google and/or Microsoft accounts. 
