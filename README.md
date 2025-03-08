@@ -6,4 +6,4 @@
 
 4. Now do "cd .." to get out of the Trainer folder. Try running app.py. This message should appear shortly:  "* Running on http://127.0.0.1:5000". 
 
-5. Open the link in your browser and connect whichever Google or Microsoft accounts you please. Note: if connecting a google account, you will need to contact Niserg Desai to give your google account permission to access the Planly project.
+5. Open the link in your browser. You will see a few different "connect" buttons. Contact Niserg Desai to obtain permission for your particular Google and/or Microsoft accounts. 
