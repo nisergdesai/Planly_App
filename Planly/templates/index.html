@@ -4,60 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add jQuery here -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .left-column, .right-column {
-            flex: 1;
-            min-width: 45%;
-        }
-        .card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            background: white;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .file-container {
+            background: linear-gradient(to right, #1a1a2e, #16213e);
+            color: white;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-bottom: 12px;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
         }
-        .summarize-button {
-            align-self: flex-start;
-            padding: 6px 12px;
-            background-color: #007bff;
+        .logo-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease-in-out;
+        }
+        .logo {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .logo:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .logo img {
+            width: 80px;
+            height: 80px;
+            transition: width 0.5s, height 0.5s;
+        }
+        .container {
+            display: none;
+            padding: 30px;
+            width: 80%;
+            max-width: 900px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            text-align: justify;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        .card {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+        .button {
+            background: #712290;
             color: white;
             border: none;
+            padding: 10px;
             border-radius: 5px;
             cursor: pointer;
-        }
-        .summarize-button:hover {
-            background-color: #0056b3;
-        }
-        .back-button {
+            display: block;
+            width: 100%;
+            text-align: center;
             margin-top: 10px;
-            padding: 6px 12px;
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
-        .back-button:hover {
-            background-color: #c82333;
+        .button:hover {
+            background: #8e44ad;
+        }
+
+        .logo-container.shrink {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            transform: none;
+            justify-content: flex-start;
+        }
+        .logo-container.shrink .logo img {
+            width: 40px;
+            height: 40px;
         }
     </style>
     <script>
@@ -161,176 +197,204 @@
 
 </head>
 <body>
+    <script>
+        function showDashboard(service) {
+            document.getElementById("dashboard").style.display = "block";
+            document.querySelector(".logo-container").classList.add("shrink");
+            
+            // Hide all service cards initially
+            document.getElementById("gmail").style.display = "none";
+            document.getElementById("drive").style.display = "none";
+            document.getElementById("microsoft").style.display = "none";
+            document.getElementById("courses").style.display = "none";
+            
+            // Show only the selected service card
+            if (service === 'gmail') {
+                document.getElementById("gmail").style.display = "block";
+            } else if (service === 'drive') {
+                document.getElementById("drive").style.display = "block";
+            } else if (service === 'microsoft') {
+                document.getElementById("microsoft").style.display = "block";
+            } else if (service === 'canvas') {
+                document.getElementById("courses").style.display = "block";
+            }
+        }
+    </script>
 
-    <h1>Dashboard</h1>
+
+    <h1></h1>
+    <div class="logo-container">
+        <div class="logo" onclick="showDashboard('gmail')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
+        </div>
+        <div class="logo" onclick="showDashboard('drive')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" alt="Google Drive">
+        </div>
+        <div class="logo" onclick="showDashboard('microsoft')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+        </div>
+        <div class="logo" onclick="showDashboard('canvas')">
+            <img src="https://www.wabash.edu/images2/technology/canvas.png" alt="Canvas">
+        </div>
+    </div>
     
-    <div class="container">
-        <!-- Left Column -->
-        <div class="left-column">
-            <div class="card" id="gmail-card">
-                <h2>Gmail Emails</h2>
-            
-                <button id="connect-gmail-btn" class="connect-button">Connect Gmail</button>
-                <p id="gmail-status" class="status">Not Connected</p>
-            
-                <!-- Choose Date Input (Initially Hidden) -->
-                <div id="gmail-date-selection" style="display: none;">
-                    <label for="gmail-date">Choose Gmail Date:</label>
-                    <input type="date" id="gmail-date">
-                    <button onclick="chooseGmailDate()">Set Gmail Date</button>
-                </div>
-            
-                <ul id="email-list"></ul> <!-- Placeholder for Gmail emails -->
-                <button id="summarize-emails-button" class="summarize-button" style="display:none;" onclick="summarizeSelectedEmails()">Summarize Selected</button>
+    <div class="container" id="dashboard">
+        <div class="card" id="gmail">
+            <h2>Gmail Emails</h2>
+            <button class="button" id="connect-gmail-btn">Connect Gmail</button>
+            <p id="gmail-status">Status: Not Connected</p>
+            <div id="gmail-date-selection" style="display: none;">
+                <label for="gmail-date">Choose Gmail Date:</label>
+                <input type="date" id="gmail-date">
+                <button class="button" onclick="chooseGmailDate()">Set Gmail Date</button>
             </div>
+            <div class="card" id="gmail-card">
+                <h2>Gmails</h2>
+                <ul id="email-list"></ul>
+            </div>
+            <button id="summarize-emails-button" class="button" style="display:none;" onclick="summarizeSelectedEmails()">Summarize Selected</button>
+        </div>
             
-            
-            <script>
-                let originalGmailContent = ""; 
-                let gmailFetchController = null; 
-            
-                function updateSummarizeButton() {
-                    let checkboxes = document.querySelectorAll('.email-checkbox');
-                    let selected = Array.from(checkboxes).some(checkbox => checkbox.checked);
-                    document.getElementById('summarize-emails-button').style.display = selected ? 'block' : 'none';
+        <script>
+            let originalGmailContent = ""; 
+            let gmailFetchController = null; 
+        
+            function updateSummarizeButton() {
+                let checkboxes = document.querySelectorAll('.email-checkbox');
+                let selected = Array.from(checkboxes).some(checkbox => checkbox.checked);
+                document.getElementById('summarize-emails-button').style.display = selected ? 'block' : 'none';
+            }
+        
+            function summarizeSelectedEmails() {
+                let selectedEmails = Array.from(document.querySelectorAll('.email-checkbox:checked')).map(cb => cb.value);
+                if (selectedEmails.length === 0) return;
+        
+                let gmailCard = document.getElementById("gmail-card");
+        
+                // Save original content
+                if (!originalGmailContent) {
+                    originalGmailContent = gmailCard.innerHTML;
                 }
-            
-                function summarizeSelectedEmails() {
-                    let selectedEmails = Array.from(document.querySelectorAll('.email-checkbox:checked')).map(cb => cb.value);
-                    if (selectedEmails.length === 0) return;
-            
-                    let gmailCard = document.getElementById("gmail-card");
-            
-                    // Save original content
-                    if (!originalGmailContent) {
-                        originalGmailContent = gmailCard.innerHTML;
-                    }
-            
-                    // Abort any ongoing fetch request
-                    if (gmailFetchController) {
-                        gmailFetchController.abort();
-                    }
-                    gmailFetchController = new AbortController();
-                    let signal = gmailFetchController.signal;
-            
-                    gmailCard.innerHTML = `
-                        <p>Summarizing selected emails...</p>
-                        <button class="back-button" onclick="restoreGmailContent(true)">Cancel</button>
-                    `;
-            
-                    fetch('/summarize_emails', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email_ids: selectedEmails }),
-                        signal: signal
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (!gmailFetchController) return;
-            
-                        if (data.summary) {
-                            gmailCard.innerHTML = `
-                                <h2>Gmail Summary</h2>
-                                <p>${data.summary}</p>
-                                <button class="back-button" onclick="restoreGmailContent(false)">Back</button>
-                            `;
-                        } else {
-                            gmailCard.innerHTML = `<p>Error: Unable to summarize.</p>`;
-                        }
-                    })
-                    .catch(error => {
-                        if (error.name === 'AbortError') {
-                            console.log("Summarization request canceled.");
-                        } else {
-                            console.error('Error:', error);
-                            gmailCard.innerHTML = `<p>Error: Something went wrong.</p>`;
-                        }
-                    })
-                    .finally(() => {
-                        gmailFetchController = null;
-                    });
+        
+                // Abort any ongoing fetch request
+                if (gmailFetchController) {
+                    gmailFetchController.abort();
                 }
-            
-                function restoreGmailContent(isCancel) {
-                    let gmailCard = document.getElementById("gmail-card");
-            
-                    if (originalGmailContent) {
-                        gmailCard.innerHTML = originalGmailContent;
-                        originalGmailContent = "";
+                gmailFetchController = new AbortController();
+                let signal = gmailFetchController.signal;
+        
+                gmailCard.innerHTML = `
+                    <p>Summarizing selected emails...</p>
+                    <button class="back-button" onclick="restoreGmailContent(true)">Cancel</button>
+                `;
+        
+                fetch('/summarize_emails', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email_ids: selectedEmails }),
+                    signal: signal
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!gmailFetchController) return;
+        
+                    if (data.summary) {
+                        gmailCard.innerHTML = `
+                            <h2>Gmail Summary</h2>
+                            <p>${data.summary}</p>
+                            <button class="back-button" onclick="restoreGmailContent(false)">Back</button>
+                        `;
+                    } else {
+                        gmailCard.innerHTML = `<p>Error: Unable to summarize.</p>`;
                     }
-            
-                    if (isCancel && gmailFetchController) {
-                        gmailFetchController.abort();
-                        gmailFetchController = null;
+                })
+                .catch(error => {
+                    if (error.name === 'AbortError') {
+                        console.log("Summarization request canceled.");
+                    } else {
+                        console.error('Error:', error);
+                        gmailCard.innerHTML = `<p>Error: Something went wrong.</p>`;
                     }
+                })
+                .finally(() => {
+                    gmailFetchController = null;
+                });
+            }
+        
+            function restoreGmailContent(isCancel) {
+                let gmailCard = document.getElementById("gmail-card");
+        
+                if (originalGmailContent) {
+                    gmailCard.innerHTML = originalGmailContent;
+                    originalGmailContent = "";
                 }
-            </script>            
+        
+                if (isCancel && gmailFetchController) {
+                    gmailFetchController.abort();
+                    gmailFetchController = null;
+                }
+            }
+        </script>            
 
-            <div class="card">
-                <h2>Active Courses</h2>
-                <div id="courses">
-                    {% for course in courses %}
-                        <div class="course" onclick="toggleCourse('{{ course.id }}')">
-                            {{ course.name }}
-                            <div id="buttons-{{ course.id }}" class="hidden">
-                                <button onclick="fetchContent('{{ course.id }}', 'syllabus')">Syllabus</button>
-                                <button onclick="fetchContent('{{ course.id }}', 'upcoming_assignments')">Upcoming Assignments</button>
-                                <button onclick="fetchContent('{{ course.id }}', 'recent_announcements')">Recent Announcements</button>
-                                <div id="content-{{ course.id }}" class="content hidden"></div>
-                            </div>
+        <div class="card" id="courses">
+            <h2>Active Courses</h2>
+            <div id="courses">
+                {% for course in courses %}
+                    <div class="course" onclick="toggleCourse('{{ course.id }}')">
+                        {{ course.name }}
+                        <div id="buttons-{{ course.id }}" class="hidden">
+                            <button onclick="fetchContent('{{ course.id }}', 'syllabus')">Syllabus</button>
+                            <button onclick="fetchContent('{{ course.id }}', 'upcoming_assignments')">Upcoming Assignments</button>
+                            <button onclick="fetchContent('{{ course.id }}', 'recent_announcements')">Recent Announcements</button>
+                            <div id="content-{{ course.id }}" class="content hidden"></div>
                         </div>
-                    {% endfor %}
-                </div>                               
+                    </div>
+                {% endfor %}
+            </div>                               
+        </div>
+
+        <div class="card" id="drive">
+            <h2>Google Drive Files</h2>
+            <button class="button" id="connect-drive-btn">Connect Google Drive</button>
+            <p id="drive-status">Status: Not Connected</p>
+            <div id="drive-date-selection" style="display: none;">
+                <label for="drive-date">Choose Google Drive Date:</label>
+                <input type="date" id="drive-date">
+                <button class="button" onclick="chooseDriveDate()">Set Drive Date</button>
+            </div>
+            <div class="card" id="google-drive-card">
+                <h2>Google Drive Files</h2>
+                <ul id="google-drive-files"></ul>
+            </div>
+        </div>
+            
+        <div class="card" id="microsoft">
+            <h2>Microsoft Services</h2>
+            <button class="button" id="connect-microsoft-btn">Connect Microsoft</button>
+            <p id="microsoft-status">Status: Not Connected</p>
+            <div id="microsoft-auth-container" style="display: none;">
+                <p>Enter this code: <strong id="user-code"></strong></p>
+            </div>
+            <button id="check-status-btn" class="button" style="display: none;">Check Status</button>
+            <div id="date-selection" style="display: none;">
+                <label for="onedrive-date">Choose OneDrive Date:</label>
+                <input type="date" id="onedrive-date">
+                <button class="button" onclick="chooseDate('onedrive')">Set OneDrive Date</button>
+                <label for="outlook-date">Choose Outlook Date:</label>
+                <input type="date" id="outlook-date">
+                <button class="button" onclick="chooseDate('outlook')">Set Outlook Date</button>
+            </div>
+            <div class="card">
+                <h2>Outlook Summary</h2>
+                <div id="outlook-summary">No data yet.</div>
+            </div>
+            <div class="card" id="onedrive-card">
+                <h2>OneDrive Files</h2>
+                <ul id="onedrive-files"></ul>
             </div>
         </div>
 
-        <!-- Right Column -->
-        <div class="right-column">
-            <div class="card" id="google-drive-card">
-                <h2>Google Drive Files</h2>
-            
-                <!-- Connect Google Drive Button -->
-                <button id="connect-drive-btn" class="connect-button">Connect Google Drive</button>
-                <p id="drive-status" class="status">Not Connected</p>
-            
-                <!-- Choose Date Input (Initially Hidden) -->
-                <div id="drive-date-selection" style="display: none;">
-                    <label for="drive-date">Choose Google Drive Date:</label>
-                    <input type="date" id="drive-date">
-                    <button onclick="chooseDriveDate()">Set Drive Date</button>
-                </div>
-            
-                <ul id="google-drive-files"></ul> <!-- Placeholder for Drive Files -->
-            </div>
-            
-            <div class="card" id="microsoft-card">
-                <h2>Microsoft (OneDrive & Outlook)</h2>
-                <button id="connect-microsoft-btn" class="connect-button">Connect Microsoft</button>
-                <p id="microsoft-status" class="status">Not Connected</p>
-                <div id="microsoft-auth-container" style="display: none;">
-                    <p>Enter this code: <strong id="user-code"></strong></p>
-                </div>    
-                <button id="check-status-btn" class="connect-button" style="display: none;">Check Status</button>    
-                    <!-- Choose Date Inputs (Initially Hidden) -->
-                    <div id="date-selection" style="display: none;">
-                        <label for="onedrive-date">Choose OneDrive Date:</label>
-                        <input type="date" id="onedrive-date">
-                        <button onclick="chooseDate('onedrive')">Set OneDrive Date</button>
-                
-                        <label for="outlook-date">Choose Outlook Date:</label>
-                        <input type="date" id="outlook-date">
-                        <button onclick="chooseDate('outlook')">Set Outlook Date</button>
-                    </div>
-                <div class="card">
-                    <h2>Outlook Summary</h2>
-                    <div id="outlook-summary">No data yet.</div> <!-- Placeholder -->
-                </div>
-            
-                <div class="card" id="onedrive-card">
-                    <h2>OneDrive Files</h2>
-                    <ul id="onedrive-files"></ul> <!-- Placeholder -->
-                </div>
-            </div>
+    </div>
 
         <script>
             $(document).ready(function() {
@@ -674,6 +738,3 @@
 
 </body>
 </html>
-
-
-
