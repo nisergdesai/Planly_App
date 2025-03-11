@@ -71,6 +71,36 @@
             height: 40px;
         }
 
+        /* Course Container (CSS Grid Layout) */
+        .course-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Dynamic grid */
+            gap: 20px;
+            width: 100%;
+            padding: 25px;
+            box-sizing: border-box;
+            overflow-y: auto; /* Enable scrolling if content overflows */
+        }
+
+        /* Course Cards */
+        .course-card {
+            background: rgba(210, 180, 140, 0.15);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 40px;
+            transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .course-card:hover {
+            background: rgba(210, 180, 140, 0.25);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
         /* Content Container */
         .container {
             display: none;
@@ -112,7 +142,7 @@
             border-radius: 6px;
             cursor: pointer;
             display: block;
-            width: 20%;
+            width: auto%;
             text-align: center;
             margin-top: 10px;
             transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
@@ -260,7 +290,7 @@
             } else if (service === 'microsoft') {
                 document.getElementById("microsoft").style.display = "block";
             } else if (service === 'canvas') {
-                document.getElementById("courses").style.display = "block";
+                document.getElementById("courses").style.display = "grid"; /* Changed to grid */
             }
         }
     </script>
@@ -380,21 +410,18 @@
             }
         </script>            
 
-        <div class="card" id="courses">
-            <h2>Active Courses</h2>
-            <div id="courses">
-                {% for course in courses %}
-                    <div class="course" onclick="toggleCourse('{{ course.id }}')">
-                        {{ course.name }}
-                        <div id="buttons-{{ course.id }}" class="hidden">
-                            <button onclick="fetchContent('{{ course.id }}', 'syllabus')">Syllabus</button>
-                            <button onclick="fetchContent('{{ course.id }}', 'upcoming_assignments')">Upcoming Assignments</button>
-                            <button onclick="fetchContent('{{ course.id }}', 'recent_announcements')">Recent Announcements</button>
-                            <div id="content-{{ course.id }}" class="content hidden"></div>
-                        </div>
+        <div class="course-container" id="courses">
+            {% for course in courses %}
+                <div class="course-card" onclick="toggleCourse('{{ course.id }}')">
+                    {{ course.name }}
+                    <div id="buttons-{{ course.id }}" class="hidden">
+                        <button class="button" onclick="fetchContent('{{ course.id }}', 'syllabus')">Syllabus</button>
+                        <button class="button" onclick="fetchContent('{{ course.id }}', 'upcoming_assignments')">Upcoming Assignments</button>
+                        <button class="button" onclick="fetchContent('{{ course.id }}', 'recent_announcements')">Recent Announcements</button>
+                        <div id="content-{{ course.id }}" class="content hidden"></div>
                     </div>
-                {% endfor %}
-            </div>                               
+                </div>
+            {% endfor %}
         </div>
 
         <div class="card" id="drive">
