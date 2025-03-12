@@ -79,7 +79,8 @@
             width: 100%;
             padding: 25px;
             box-sizing: border-box;
-            overflow-y: auto; /* Enable scrolling if content overflows */
+            overflow-y: auto;
+            align-items: start; /* Make sure cards don't stretch to match height */
         }
 
         /* Course Cards */
@@ -88,13 +89,14 @@
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            margin-bottom: 40px;
             transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
             border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            margin-bottom: 0; /* Remove margin-bottom, let the grid handle spacing */
         }
+
 
         .course-card:hover {
             background: rgba(210, 180, 140, 0.25);
@@ -142,7 +144,7 @@
             border-radius: 6px;
             cursor: pointer;
             display: block;
-            width: auto%;
+            width: auto;
             text-align: center;
             margin-top: 10px;
             transition: all 0.3s ease-in-out; /* Smooth transition for all changes */
