@@ -1,4 +1,4 @@
-1. Hey, you're in the cut! Here are the instrucitons are how to run this.
+1. Hey, you're in the cut! Here are the instrucitons are how to run this. First git clone the http link.
 
 2. Install the requirements.txt file with "pip install -r requirements.txt"
 
