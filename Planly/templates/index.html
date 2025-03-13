@@ -948,16 +948,21 @@
                     let listItem = document.createElement('li');
                     listItem.classList.add('search-result-item');
 
+                    let serviceTag = `<span class="service-tag">(${item.service})</span> `; // Service tag to display
+
+                    // 🔍 Highlighting the matched text
+                    const regex = new RegExp(`(${query})`, 'gi');  // Case-insensitive matching
+                    const highlightedText = item.text.replace(regex, '<mark>$1</mark>');  // Wrap matches with <mark> tag
+
                     if (item.link) {
-                        listItem.innerHTML = `<a href="${item.link}" target="_blank">${item.text}</a>`;
+                        listItem.innerHTML = `${serviceTag}<a href="${item.link}" target="_blank">${highlightedText}</a>`;
                     } else {
-                        listItem.textContent = item.text;
+                        listItem.innerHTML = `${serviceTag}${highlightedText}`;
                     }
 
                     resultsContainer.appendChild(listItem);
                 });
             }
-
 
         </script>        
 
