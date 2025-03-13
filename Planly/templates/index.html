@@ -170,6 +170,61 @@
             border-radius: 5px;
         }
 
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        #search-input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        #service-filter {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        #search-results {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-result-item {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: background 0.3s;
+        }
+
+        .search-result-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .search-result-item a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-result-item a:hover {
+            text-decoration: underline;
+        }
+
+
     </style>
 
     <script>
@@ -315,6 +370,18 @@
     </div>
     
     <div class="container" id="dashboard">
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search data..." oninput="filterResults()">
+            <select id="service-filter" onchange="filterResults()">
+                <option value="all">All</option>
+                <option value="gmail">Gmail</option>
+                <option value="drive">Google Drive</option>
+                <option value="microsoft">Microsoft</option>
+                <option value="canvas">Canvas</option>
+            </select>
+        </div>
+        <ul id="search-results"></ul>
+        
         <div class="card" id="gmail">
             <h2>Gmail Emails</h2>
             <button class="button" id="connect-gmail-btn">Connect Gmail</button>
@@ -635,10 +702,7 @@
                 if (selectedDate) {
                     let dateDifference = calculateDateDifference(selectedDate);
                     
-                    // Determine the target element for displaying the loading message
                     let targetElement = type === 'onedrive' ? $("#onedrive-files") : $("#outlook-summary");
-
-                    // Show a loading message in the respective card
                     targetElement.html(`<p style="color: orange;">Fetching ${type.charAt(0).toUpperCase() + type.slice(1)} data... ⏳</p>`);
 
                     $.ajax({
@@ -646,17 +710,30 @@
                         type: "POST",
                         data: {
                             cutoff_days: dateDifference,
-                            type: type  // Pass 'onedrive' or 'outlook'
+                            type: type  
                         },
                         success: function(response) {
-                            console.log(response); // Debugging
+                            console.log("Fetched Microsoft Data:", response); // Debugging
+
+                            let microsoftData = [];
 
                             if (type === "outlook") {
                                 let outlookData = response.outlooks || "<p style='color: gray;'>No recent emails found.</p>";
                                 targetElement.html(outlookData);
+
+                                // ✅ Store Outlook Emails in Search Data
+                                if (response.outlooks && response.outlooks.length > 0) {
+                                    response.outlooks.forEach(email => {
+                                        microsoftData.push({
+                                            service: 'microsoft',
+                                            text: `Outlook: ${email.subject}`,
+                                            link: null
+                                        });
+                                    });
+                                }
                             } else if (type === "onedrive") {
                                 let filesList = $("#onedrive-files");
-                                filesList.empty(); // Clear previous content
+                                filesList.empty();
 
                                 if (response.o_files && response.o_files.length > 0) {
                                     response.o_files.forEach(file => {
@@ -670,10 +747,22 @@
                                             </li>
                                         `;
                                         filesList.append(listItem);
+
+                                        // ✅ Store OneDrive Files in Search Data
+                                        microsoftData.push({
+                                            service: 'microsoft',
+                                            text: `OneDrive: ${file[0]}`,
+                                            link: null
+                                        });
                                     });
                                 } else {
                                     filesList.append("<li style='color: gray;'>No recent OneDrive files found.</li>");
                                 }
+                            }
+
+                            // ✅ Store all fetched Microsoft data in `allData`
+                            if (microsoftData.length > 0) {
+                                storeData('microsoft', microsoftData);
                             }
                         },
                         error: function() {
@@ -683,52 +772,55 @@
                     });
                 }
             }
-            // Function to handle date selection for Google Drive
+
             function chooseDriveDate() {
                 let selectedDate = $("#drive-date").val();
+                if (!selectedDate) return;
 
-                if (selectedDate) {
-                    let dateDifference = calculateDateDifference(selectedDate);
+                let dateDifference = calculateDateDifference(selectedDate);
+                $("#google-drive-files").html(`<p style="color: orange;">Fetching Google Drive data... ⏳</p>`);
 
-                    // Show a loading message
-                    $("#google-drive-files").html(`<p style="color: orange;">Fetching Google Drive data... ⏳</p>`);
+                $.ajax({
+                    url: "/connect_google_drive",
+                    type: "POST",
+                    data: { num_days: dateDifference },
+                    success: function(response) {
+                        console.log("Fetched Drive Files:", response); // Debugging
 
-                    $.ajax({
-                        url: "/connect_google_drive",
-                        type: "POST",
-                        data: {
-                            num_days: dateDifference
-                        },
-                        success: function(response) {
-                            console.log(response); // Debugging
+                        let filesList = $("#google-drive-files");
+                        filesList.empty(); // Clear previous content
 
-                            let filesList = $("#google-drive-files");
-                            filesList.empty(); // Clear previous content
+                        if (response.files && response.files.length > 0) {
+                            let driveData = response.files.map(file => ({
+                                text: file.name,
+                                link: `https://drive.google.com/file/d/${file.id}`
+                            }));
 
-                            if (response.files && response.files.length > 0) {
-                                response.files.forEach(file => {
-                                    let listItem = `
-                                        <li class="file-container">
-                                            <a href="https://drive.google.com/file/d/${file.id}" target="_blank">${file.name}</a>
-                                            <button class="summarize-button" 
-                                                onclick="summarizeFile(event, '${file.id}', '${file.name}', '${file.mimeType}', 'google_drive', 'google-drive-card')">
-                                                Summarize
-                                            </button>
-                                        </li>
-                                    `;
-                                    filesList.append(listItem);
-                                });
-                            } else {
-                                filesList.append("<li style='color: purple;'>No recent Google Drive files found.</li>");
-                            }
-                        },
-                        error: function() {
-                            console.error("Error retrieving data");
-                            $("#google-drive-files").html(`<p style="color: red;">Error retrieving Google Drive data ❌</p>`);
+                            storeData('drive', driveData); // ✅ Store files AFTER they are fetched
+
+                            response.files.forEach(file => {
+                                let listItem = `
+                                    <li class="file-container">
+                                        <a href="https://drive.google.com/file/d/${file.id}" target="_blank">${file.name}</a>
+                                        <button class="summarize-button" 
+                                            onclick="summarizeFile(event, '${file.id}', '${file.name}', '${file.mimeType}', 'google_drive', 'google-drive-card')">
+                                            Summarize
+                                        </button>
+                                    </li>
+                                `;
+                                filesList.append(listItem);
+                            });
+                        } else {
+                            filesList.append("<li style='color: gray;'>No recent Google Drive files found.</li>");
                         }
-                    });
-                }
+                    },
+                    error: function() {
+                        console.error("Error retrieving Google Drive data");
+                        $("#google-drive-files").html(`<p style="color: red;">Error retrieving Google Drive data ❌</p>`);
+                    }
+                });
             }
+
 
             function toggleCourse(courseId) {
                 $("#buttons-" + courseId).toggleClass("hidden");
@@ -744,6 +836,8 @@
                         if (data.content) {
                             // Injecting the HTML content directly without wrapping it in <p> tags.
                             $("#content-" + courseId).html(data.content).removeClass("hidden");
+
+                            storeData('canvas', [{ text: `Canvas: ${data.content}`, link: null }]); // Store Canvas content
                         } else {
                             $("#content-" + courseId).html("<p>Error fetching data.</p>").removeClass("hidden");
                         }
@@ -757,46 +851,49 @@
 
             function chooseGmailDate() {
                 let selectedDate = $("#gmail-date").val();
+                if (!selectedDate) return;
 
-                if (selectedDate) {
-                    let dateDifference = calculateDateDifference(selectedDate);
+                let dateDifference = calculateDateDifference(selectedDate);
+                $("#email-list").html(`<p style="color: orange;">Fetching Gmail data... ⏳</p>`);
 
-                    // Show a loading message while fetching
-                    $("#email-list").html(`<p style="color: orange;">Fetching Gmail data... ⏳</p>`);
+                $.ajax({
+                    url: "/connect_gmail",
+                    type: "POST",
+                    data: { num_days: dateDifference },
+                    success: function(response) {
+                        console.log("Fetched Emails:", response); // Debugging
 
-                    $.ajax({
-                        url: "/connect_gmail",
-                        type: "POST",
-                        data: {
-                            num_days: dateDifference
-                        },
-                        success: function(response) {
-                            console.log(response); // Debugging
+                        let emailList = $("#email-list");
+                        emailList.empty(); // Clear previous content
 
-                            let emailList = $("#email-list");
-                            emailList.empty(); // Clear previous content
+                        if (response.emails && response.emails.length > 0) {
+                            let gmailData = response.emails.map(email => ({
+                                text: `${email.sender} - ${email.subject}`,
+                                link: email.link
+                            }));
 
-                            if (response.emails && response.emails.length > 0) {
-                                response.emails.forEach(email => {
-                                    let listItem = `
-                                        <li>
-                                            <input type="checkbox" class="email-checkbox" value="${email.id}" onchange="updateSummarizeButton()">
-                                            <a href="${email.link}" target="_blank">${email.sender} ${email.subject} (${email.date})</a>
-                                        </li>
-                                    `;
-                                    emailList.append(listItem);
-                                });
-                            } else {
-                                emailList.append("<li style='color: gray;'>No recent Gmail emails found.</li>");
-                            }
-                        },
-                        error: function() {
-                            console.error("Error retrieving data");
-                            $("#email-list").html(`<p style="color: red;">Error retrieving Gmail data ❌</p>`);
+                            storeData('gmail', gmailData); // ✅ Store emails AFTER they are fetched
+
+                            response.emails.forEach(email => {
+                                let listItem = `
+                                    <li>
+                                        <input type="checkbox" class="email-checkbox" value="${email.id}" onchange="updateSummarizeButton()">
+                                        <a href="${email.link}" target="_blank">${email.sender} ${email.subject} (${email.date})</a>
+                                    </li>
+                                `;
+                                emailList.append(listItem);
+                            });
+                        } else {
+                            emailList.append("<li style='color: gray;'>No recent Gmail emails found.</li>");
                         }
-                    });
-                }
+                    },
+                    error: function() {
+                        console.error("Error retrieving Gmail data");
+                        $("#email-list").html(`<p style="color: red;">Error retrieving Gmail data ❌</p>`);
+                    }
+                });
             }
+
 
             function calculateDateDifference(selectedDate) {
                 let today = new Date();
@@ -804,6 +901,61 @@
                 let timeDiff = today - chosenDate;  // Difference in milliseconds
                 let dayDiff = Math.max(Math.floor(timeDiff / (1000 * 3600 * 24)), 0);  // Ensure non-negative
                 return dayDiff;
+            }
+
+            let allData = []; // Global array to store all fetched data for search
+
+            // Function to store data when services fetch new results
+            function storeData(service, dataList) {
+                console.log(`Storing data for ${service}:`, dataList); // Debugging log
+
+                dataList.forEach(item => {
+                    allData.push({
+                        service: service, 
+                        text: item.text || item.name || item.subject || "",  // Ensure text is always assigned
+                        link: item.link || null, 
+                    });
+                });
+
+                console.log("Updated allData:", allData); // Check if data is being added
+            }
+
+
+            function filterResults() {
+                let query = document.getElementById('search-input').value.toLowerCase();
+                let filter = document.getElementById('service-filter').value;
+                let resultsContainer = document.getElementById('search-results');
+                
+                // ✅ Clear search results if input is empty
+                if (query.trim() === "") {
+                    resultsContainer.innerHTML = "";
+                    return;
+                }
+
+                resultsContainer.innerHTML = ''; // Clear previous results
+
+                let filteredData = allData.filter(item =>
+                    (filter === "all" || item.service === filter) &&
+                    item.text.toLowerCase().includes(query)
+                );
+
+                if (filteredData.length === 0) {
+                    resultsContainer.innerHTML = "<li class='search-result-item'>No results found.</li>";
+                    return;
+                }
+
+                filteredData.forEach(item => {
+                    let listItem = document.createElement('li');
+                    listItem.classList.add('search-result-item');
+
+                    if (item.link) {
+                        listItem.innerHTML = `<a href="${item.link}" target="_blank">${item.text}</a>`;
+                    } else {
+                        listItem.textContent = item.text;
+                    }
+
+                    resultsContainer.appendChild(listItem);
+                });
             }
 
 
