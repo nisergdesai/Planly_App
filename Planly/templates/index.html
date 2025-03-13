@@ -247,7 +247,7 @@
 
             cardElement.innerHTML = `
                 <p>Summarizing...</p>
-                <button class="back-button" onclick="restoreContent('${cardId}', true)">Cancel</button>
+                <button class="back-button" onclick="restoreContent('${cardId}', true, '${fileName}', '${fileSource}')">Cancel</button>
             `;
 
             let formData = new FormData();
@@ -266,10 +266,10 @@
                 if (!fetchControllers[cardId]) return; 
 
                 if (data.summary) {
-                    // Use innerHTML to properly render line breaks and bullets
+                    storeData(fileSource, [{ text: `${fileName} Summary: ${data.summary}`, link: null }])
                     cardElement.innerHTML = `
                         <p>${data.summary}</p>
-                        <button class="back-button" onclick="restoreContent('${cardId}', false)">Back</button>
+                        <button class="back-button" onclick="restoreContent('${cardId}', false, '${fileName}', '${fileSource}')">Back</button>
                     `;
                 } else {
                     cardElement.innerHTML = `<p>Error: Unable to summarize.</p>`;
@@ -288,17 +288,18 @@
             });
         }
 
-        function restoreContent(cardId, isCancel) {
+        function restoreContent(cardId, isCancel, fileName, fileSource) {
+            let cardElement = document.getElementById(cardId);
             if (originalCardContent[cardId]) {
-                document.getElementById(cardId).innerHTML = originalCardContent[cardId];
+                cardElement.innerHTML = originalCardContent[cardId];
                 delete originalCardContent[cardId];
+            }
 
-                if (isCancel && fetchControllers[cardId]) {
-                    fetchControllers[cardId].abort();
-                    delete fetchControllers[cardId];
-                }
+            if (!isCancel) {  // Only remove from allData if it's a "Back" action, not "Cancel"
+                allData = allData.filter(item => !(item.text.startsWith(fileName) && item.service === fileSource));
             }
         }
+
 
         function updateSummarizeButton() {
             let checkboxes = document.querySelectorAll('.email-checkbox');
@@ -306,7 +307,7 @@
             document.getElementById('summarize-emails-button').style.display = selected ? 'block' : 'none';
         }
 
-        function summarizeSelectedEmails() {
+        /*function summarizeSelectedEmails() {
             let selectedEmails = Array.from(document.querySelectorAll('.email-checkbox:checked')).map(cb => cb.value);
             if (selectedEmails.length === 0) return;
 
@@ -319,10 +320,11 @@
             })
             .then(response => response.json())
             .then(data => {
+                console.log('we good')
                 document.getElementById('gmail-card').innerHTML = `<h2>Gmail Summary</h2><p>${data.summary}</p>`;
             })
             .catch(error => console.error('Error:', error));
-        }
+        }*/
 
     </script>
 
@@ -411,26 +413,26 @@
             function summarizeSelectedEmails() {
                 let selectedEmails = Array.from(document.querySelectorAll('.email-checkbox:checked')).map(cb => cb.value);
                 if (selectedEmails.length === 0) return;
-        
+
                 let gmailCard = document.getElementById("gmail-card");
-        
+
                 // Save original content
                 if (!originalGmailContent) {
                     originalGmailContent = gmailCard.innerHTML;
                 }
-        
+
                 // Abort any ongoing fetch request
                 if (gmailFetchController) {
                     gmailFetchController.abort();
                 }
                 gmailFetchController = new AbortController();
                 let signal = gmailFetchController.signal;
-        
+
                 gmailCard.innerHTML = `
                     <p>Summarizing selected emails...</p>
-                    <button class="back-button" onclick="restoreGmailContent(true)">Cancel</button>
+                    <button class="back-button" onclick="restoreGmailContent(true, '${selectedEmails.join(", ")}')">Cancel</button>
                 `;
-        
+
                 fetch('/summarize_emails', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -440,12 +442,15 @@
                 .then(response => response.json())
                 .then(data => {
                     if (!gmailFetchController) return;
-        
+
                     if (data.summary) {
+                        // Store the summary in allData
+                        storeData("Gmail", [{ text: `Gmail Summary: ${data.summary}`, link: null }]);
+
                         gmailCard.innerHTML = `
                             <h2>Gmail Summary</h2>
                             <p>${data.summary}</p>
-                            <button class="back-button" onclick="restoreGmailContent(false)">Back</button>
+                            <button class="back-button" onclick="restoreGmailContent(false, '${selectedEmails.join(", ")}')">Back</button>
                         `;
                     } else {
                         gmailCard.innerHTML = `<p>Error: Unable to summarize.</p>`;
@@ -463,20 +468,25 @@
                     gmailFetchController = null;
                 });
             }
-        
-            function restoreGmailContent(isCancel) {
+
+            function restoreGmailContent(isCancel, emailIds) {
                 let gmailCard = document.getElementById("gmail-card");
-        
+
                 if (originalGmailContent) {
                     gmailCard.innerHTML = originalGmailContent;
                     originalGmailContent = "";
                 }
-        
+
                 if (isCancel && gmailFetchController) {
                     gmailFetchController.abort();
                     gmailFetchController = null;
                 }
+
+                if (!isCancel) {  // Remove the summary from allData if "Back" is clicked
+                    allData = allData.filter(item => !(item.text.startsWith("Gmail Summary:") && item.service === "Gmail"));
+                }
             }
+
         </script>            
 
         <div class="course-container" id="courses">
@@ -668,6 +678,7 @@
 
                                 // Update Outlook Summary
                                 $("#outlook-summary").html(response.outlooks || "No emails found.");
+                                console.log("outlook")
 
                                 // Update OneDrive Files
                                 let filesList = $("#onedrive-files");
@@ -725,8 +736,8 @@
                                 if (response.outlooks && response.outlooks.length > 0) {
                                     response.outlooks.forEach(email => {
                                         microsoftData.push({
-                                            service: 'microsoft',
-                                            text: `Outlook: ${email.subject}`,
+                                            service: 'Outlooks',
+                                            text: `${email.subject}`,
                                             link: null
                                         });
                                     });
@@ -750,8 +761,8 @@
 
                                         // ✅ Store OneDrive Files in Search Data
                                         microsoftData.push({
-                                            service: 'microsoft',
-                                            text: `OneDrive: ${file[0]}`,
+                                            service: 'OneDrive',
+                                            text: `${file[0]}`,
                                             link: null
                                         });
                                     });
@@ -762,6 +773,7 @@
 
                             // ✅ Store all fetched Microsoft data in `allData`
                             if (microsoftData.length > 0) {
+                                console.log("uh?")
                                 storeData('microsoft', microsoftData);
                             }
                         },
