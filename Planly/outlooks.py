@@ -5,7 +5,7 @@ from graph_api import generate_access_token
 from datetime import datetime, timedelta
 import time
 import random
-from predict import predict_sentences  # Import your sentence prediction function
+from predict import predict_sentences, predict_sentences_action_notes  # Import your sentence prediction function
 
 GRAPH_API_ENDPOINT = 'https://graph.microsoft.com/v1.0'
 
@@ -34,15 +34,17 @@ def retry_with_backoff(api_call, max_retries=5):
 
 def display_and_summarize_emails(headers, cutoff_days=7):
     try:
+        from datetime import datetime, timedelta
+        import requests
+        from bs4 import BeautifulSoup
+        
         # Calculate the cutoff date
         cutoff_date = datetime.utcnow() - timedelta(days=cutoff_days)
-        
-        # Format cutoff_date in the required string format for Graph API
         cutoff_date_str = cutoff_date.strftime('%Y-%m-%dT%H:%M:%SZ')
         
         params = {
             '$select': 'id,subject,from,receivedDateTime,bodyPreview,body',
-            '$filter': f"receivedDateTime ge {cutoff_date_str}"  # Filter for emails received after the cutoff date
+            '$filter': f"receivedDateTime ge {cutoff_date_str}"
         }
 
         # Retry the API call with backoff
@@ -52,9 +54,9 @@ def display_and_summarize_emails(headers, cutoff_days=7):
         emails = response.json().get('value', [])
         if not emails:
             print("No emails found within the cutoff date.")
-            return
+            return []
 
-        summarized_emails = ""
+        outlook_emails = []
 
         for email in emails:
             email_id = email.get('id', 'Unknown ID')
@@ -64,40 +66,39 @@ def display_and_summarize_emails(headers, cutoff_days=7):
             body_content = email.get('body', {}).get('content', 'No Content Available')
 
             # Format the received date to MM/DD/YY
+            formatted_date = 'No Date'
             if received_time != 'No Date':
-                date_object = datetime.fromisoformat(received_time[:-1])  # Remove the trailing 'Z'
-                formatted_date = date_object.strftime('%m/%d/%y')  # Format to MM/DD/YY
-            else:
-                formatted_date = 'No Date'
+                date_object = datetime.fromisoformat(received_time[:-1])  # Remove trailing 'Z'
+                formatted_date = date_object.strftime('%m/%d/%y')
 
-            # Clean the HTML content
+            # Clean HTML from email body
             soup = BeautifulSoup(body_content, 'html.parser')
             clean_text = soup.get_text().strip()
 
             # Summarize only the email body
-            if clean_text:
-                summary = predict_sentences(clean_text)  # Summarize only the body
-            else:
-                summary = "No important content detected."
+            summary = predict_sentences(clean_text) if clean_text else "No important content detected."
 
-            # Construct the email link
-            email_link = f"https://outlook.office.com/mail/inbox/id/{email_id}"
+            # Construct email metadata
+            email_metadata = {
+                "id": email_id,
+                "subject": subject.strip() or 'No Action',
+                "sender": sender,
+                "date": formatted_date,
+                "summary": summary,
+                "link": f"https://outlook.office.com/mail/inbox/id/{email_id}"
+            }
 
-            # Reattach metadata after summarization
-            summarized_emails += (
-                f"**Subject:** {subject.strip() or 'No Action'}\n"
-                f"**Sender:** {sender}\n"
-                f"**Date:** {formatted_date}\n"
-                f"**Link:** {email_link}\n\n"
-                f"{summary}\n\n"
-            )
+            outlook_emails.append(email_metadata)
 
-        return ("\nSummary of Outlook Emails:\n") + summarized_emails if summarized_emails else "No email content to summarize."
+        return outlook_emails  # Return structured list of metadata
 
     except requests.exceptions.HTTPError as http_err:
         print(f"HTTP error occurred: {http_err}")
     except Exception as err:
         print(f"Other error occurred: {err}")
+
+    return []
+
 
 '''if __name__ == '__main__':
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'

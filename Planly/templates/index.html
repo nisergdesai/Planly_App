@@ -263,10 +263,10 @@
             })
             .then(response => response.json())
             .then(data => {
-                if (!fetchControllers[cardId]) return; 
+                if (!fetchControllers[cardId]) return; // Ignore if fetch has been aborted
 
                 if (data.summary) {
-                    storeData(fileSource, [{ text: `${fileName} Summary: ${data.summary}`, link: null }])
+                    storeData(fileSource, [{ text: `${fileName} Summary: ${data.summary}`, link: null }]);
                     cardElement.innerHTML = `
                         <p>${data.summary}</p>
                         <button class="back-button" onclick="restoreContent('${cardId}', false, '${fileName}', '${fileSource}')">Back</button>
@@ -298,14 +298,20 @@
             if (!isCancel) {  // Only remove from allData if it's a "Back" action, not "Cancel"
                 allData = allData.filter(item => !(item.text.startsWith(fileName) && item.service === fileSource));
             }
+
+            // If Cancel was pressed, ensure that fetchControllers for that card are deleted to stop any further updates
+            if (isCancel) {
+                delete fetchControllers[cardId];
+            }
         }
 
 
-        function updateSummarizeButton() {
+
+        /*function updateSummarizeButton() {
             let checkboxes = document.querySelectorAll('.email-checkbox');
             let selected = Array.from(checkboxes).some(checkbox => checkbox.checked);
             document.getElementById('summarize-emails-button').style.display = selected ? 'block' : 'none';
-        }
+        }*/
 
         /*function summarizeSelectedEmails() {
             let selectedEmails = Array.from(document.querySelectorAll('.email-checkbox:checked')).map(cb => cb.value);
@@ -487,6 +493,101 @@
                 }
             }
 
+            let originalOutlookContent = ""; 
+            let outlookFetchController = null;  // We will use this to handle canceling the fetch request.
+
+            function summarizeSelectedOutlookEmails() {
+                let selectedEmailIds = [];
+
+                $(".email-checkbox:checked").each(function() {
+                    selectedEmailIds.push($(this).val());
+                });
+                console.log("Selected Email IDs:", selectedEmailIds); // Debugging
+
+                if (selectedEmailIds.length === 0) {
+                    alert("Please select at least one email to summarize.");
+                    return;
+                }
+
+                let outlookSummaryContainer = $("#outlook-summary");
+                originalOutlookContent = outlookSummaryContainer.html();  // Store original content
+
+                outlookSummaryContainer.html("<p>Summarizing selected emails... ⏳</p>");
+                outlookSummaryContainer.append("<button class='back-button' onclick='cancelOutlookSummary()'>Cancel</button>");
+
+                // Abort any previous ongoing request to avoid conflicts
+                if (outlookFetchController) {
+                    outlookFetchController.abort();
+                }
+                outlookFetchController = new AbortController();
+                let signal = outlookFetchController.signal;
+
+                $.ajax({
+                    url: "/summarize_outlook_emails",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ email_ids: selectedEmailIds }),
+                    signal: signal,
+                    success: function(response) {
+                        // Ensure outlookFetchController is not null before accessing its properties
+                        if (!outlookFetchController || outlookFetchController.signal.aborted) {
+                            return;  // If the request was aborted, do nothing
+                        }
+
+                        if (response.summary) {
+                            // Store the summary so it appears in search results
+                            storeData("Outlook", [{ text: `Outlook Summary: ${response.summary}`, link: null }]);
+
+                            outlookSummaryContainer.html(`
+                                <p>${response.summary}</p>
+                                <button class="back-button" onclick="restoreOutlookContent()">Back</button>
+                            `);
+                        } else {
+                            outlookSummaryContainer.html("<p style='color: red;'>Error summarizing emails ❌</p>");
+                        }
+                    },
+                    error: function() {
+                        if (!outlookFetchController.signal.aborted) {
+                            outlookSummaryContainer.html("<p style='color: red;'>Error summarizing emails ❌</p>");
+                        }
+                    }
+                });
+            }
+
+            function cancelOutlookSummary() {
+                let outlookSummaryContainer = $("#outlook-summary");
+
+                // Abort the current summarization request
+                if (outlookFetchController) {
+                    outlookFetchController.abort();
+                    outlookFetchController = null;
+                }
+
+                // Restore the original content (list of emails)
+                outlookSummaryContainer.html(originalOutlookContent); 
+
+                // Optionally, you can reset or modify the list as needed (if the emails should be displayed again or not)
+                updateSummarizeButtonOutlook();  // Make sure the "Summarize Selected" button is correctly displayed or hidden
+            }
+
+            function restoreOutlookContent() {
+                let outlookSummaryContainer = $("#outlook-summary");
+
+                // Restore the original content (list of emails)
+                outlookSummaryContainer.html(originalOutlookContent); 
+                allData = allData.filter(item => !(item.text.startsWith("Outlook Summary:") && item.service === "Outlook"));
+
+                // Optionally, reset or modify the list as needed (if the emails should be displayed again or not)
+                updateSummarizeButtonOutlook();  // Make sure the "Summarize Selected" button is correctly displayed or hidden
+            }
+
+            function updateSummarizeButtonOutlook() {
+                let anyChecked = $(".email-checkbox:checked").length > 0;
+                $("#summarize-emails-button-outlook").toggle(anyChecked);
+            }
+
+
+
         </script>            
 
         <div class="course-container" id="courses">
@@ -536,8 +637,9 @@
             </div>
             <div class="card">
                 <h2>Outlook Summary</h2>
-                <div id="outlook-summary">No data yet.</div>
+                <div id="outlook-summary"></div>
             </div>
+            <button id="summarize-emails-button-outlook" class="button" style="display:none;" onclick="summarizeSelectedOutlookEmails()">Summarize Selected</button>
             <div class="card" id="onedrive-card">
                 <h2>OneDrive Files</h2>
                 <ul id="onedrive-files"></ul>
@@ -662,6 +764,12 @@
                     $.ajax({
                         url: "/fetch_onedrive_outlook",
                         type: "POST",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            cutoff_days_onedrive: cutoffDays.onedrive !== null ? cutoffDays.onedrive : -1,
+                            cutoff_days_outlook: cutoffDays.outlook !== null ? cutoffDays.outlook : -1,
+                            type: 'both'  // Indicating you want to fetch both OneDrive & Outlook data
+                        }),
                         success: function(response) {
                             console.log(response);
 
@@ -677,8 +785,26 @@
                                 $("#date-selection").show();
 
                                 // Update Outlook Summary
-                                $("#outlook-summary").html(response.outlooks || "No emails found.");
-                                console.log("outlook")
+                                let emailList = "<ul style='list-style: none; padding: 0;'>";
+
+                                response.outlooks.forEach(email => {
+                                    let emailSubject = email.subject || "No Subject";
+                                    let emailSender = email.sender || "Unknown Sender";
+                                    let emailDate = email.date || "No Date";
+                                    let emailLink = email.link || "#";
+                                    let emailID = email.id || "No ID";
+
+                                    emailList += `
+                                        <li style='margin-bottom: 10px; display: flex; align-items: center;'>
+                                            <input type="checkbox" class="email-checkbox" value="${emailID}" onchange="updateSummarizeButtonOutlook()">
+                                            <a href="${emailLink}" target="_blank">${emailSender} ${emailSubject} (${emailDate})</a>
+                                        </li>
+                                    `;
+                                });
+
+                                emailList += "</ul>";
+                                $("#outlook-summary").html(emailList);
+                                updateSummarizeButtonOutlook(); // Ensure the button is visible if emails are checked
 
                                 // Update OneDrive Files
                                 let filesList = $("#onedrive-files");
@@ -707,40 +833,63 @@
                     });
                 }
             });
+            let cutoffDays = { onedrive: null, outlook: null };
+
             function chooseDate(type) {
                 let selectedDate = type === 'onedrive' ? $("#onedrive-date").val() : $("#outlook-date").val();
 
                 if (selectedDate) {
-                    let dateDifference = calculateDateDifference(selectedDate);
-                    
+                    cutoffDays[type] = calculateDateDifference(selectedDate);
+
                     let targetElement = type === 'onedrive' ? $("#onedrive-files") : $("#outlook-summary");
                     targetElement.html(`<p style="color: orange;">Fetching ${type.charAt(0).toUpperCase() + type.slice(1)} data... ⏳</p>`);
 
                     $.ajax({
                         url: "/fetch_onedrive_outlook",
                         type: "POST",
-                        data: {
-                            cutoff_days: dateDifference,
-                            type: type  
-                        },
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            cutoff_days_onedrive: calculateDateDifference($("#onedrive-date").val()),
+                            cutoff_days_outlook: calculateDateDifference($("#outlook-date").val()),
+                            type: type
+                        }),
                         success: function(response) {
-                            console.log("Fetched Microsoft Data:", response); // Debugging
+                            console.log(`Fetched ${type} data:`, response);
 
                             let microsoftData = [];
 
                             if (type === "outlook") {
-                                let outlookData = response.outlooks || "<p style='color: gray;'>No recent emails found.</p>";
-                                targetElement.html(outlookData);
+                                let outlookData = response.outlooks;
 
-                                // ✅ Store Outlook Emails in Search Data
-                                if (response.outlooks && response.outlooks.length > 0) {
-                                    response.outlooks.forEach(email => {
+                                if (!outlookData || outlookData.length === 0) {
+                                    targetElement.html("<p style='color: #ddd;'>No recent emails found.</p>");
+                                } else {
+                                    let emailList = "<ul style='list-style: none; padding: 0;'>";
+
+                                    outlookData.forEach(email => {
+                                        let emailSubject = email.subject || "No Subject";
+                                        let emailSender = email.sender || "Unknown Sender";
+                                        let emailDate = email.date || "No Date";
+                                        let emailLink = email.link || "#";
+                                        let emailID = email.id || "No ID";
+
+                                        emailList += `
+                                            <li style='margin-bottom: 10px; display: flex; align-items: center;'>
+                                                <input type="checkbox" class="email-checkbox" value="${emailID}" onchange="updateSummarizeButtonOutlook()">
+                                                <a href="${emailLink}" target="_blank">${emailSender} ${emailSubject} (${emailDate})</a>
+                                            </li>
+                                        `;
+
+                                        // ✅ Store Outlook Emails in Search Data
                                         microsoftData.push({
-                                            service: 'Outlooks',
-                                            text: `${email.subject}`,
-                                            link: null
+                                            service: 'Outlook',
+                                            text: `${emailSender}: ${emailSubject} (${emailDate})`,
+                                            link: emailLink
                                         });
                                     });
+
+                                    emailList += "</ul>";
+                                    targetElement.html(emailList);
                                 }
                             } else if (type === "onedrive") {
                                 let filesList = $("#onedrive-files");
@@ -773,12 +922,11 @@
 
                             // ✅ Store all fetched Microsoft data in `allData`
                             if (microsoftData.length > 0) {
-                                console.log("uh?")
-                                storeData('microsoft', microsoftData);
+                                storeData('microsoft:', microsoftData);
                             }
                         },
                         error: function() {
-                            console.error("Error retrieving data");
+                            console.error(`Error retrieving ${type} data`);
                             targetElement.html(`<p style="color: red;">Error retrieving ${type} data ❌</p>`);
                         }
                     });

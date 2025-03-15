@@ -36,6 +36,7 @@ genai.configure(api_key=api_key)
 drive_service = None
 drive_credentials = None
 flow = None
+cutoff_days_outlook = None
 
 gmail_service = None 
 
@@ -160,47 +161,46 @@ def fetch_onedrive_outlook():
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
     SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
     access_token = None
+    # Parse JSON data from the request
+    global cutoff_days_outlook
+    request_data = request.get_json()  # ✅ Receive data as JSON
+    cutoff_days_onedrive = request_data.get('cutoff_days_onedrive', -1)
+    cutoff_days_outlook = request_data.get('cutoff_days_outlook', -1)
+    request_type = request_data.get('type')
 
-    # Get the cutoff_days from the frontend
-    cutoff_days_onedrive = int(request.form.get("cutoff_days", -1))  # Default to 300 if not provided
-    cutoff_days_outlook = int(request.form.get("cutoff_days", -1))   # Default to 300 if not provided
-    type = request.form.get('type')  # 'onedrive' or 'outlook'
     print(f"Received cutoff_days: OneDrive={cutoff_days_onedrive}, Outlook={cutoff_days_outlook}")  # Debugging
+
 
     if is_token_valid():
         with open("ms_graph_api_token.json", "r") as file:
-            data = json.load(file)
-            access_token = list(data["AccessToken"].values())[0]["secret"]
-        headers = {'Authorization': 'Bearer ' + access_token}
+            token_data = json.load(file)
+            access_token = list(token_data["AccessToken"].values())[0]["secret"]
+        headers = {'Authorization': f'Bearer {access_token}'}
         
-        # Based on the type, call the appropriate function for either OneDrive or Outlook
-        if type == 'onedrive':
+        if request_type == 'onedrive':
             onedrive_files = navigate_onedrive(headers, access_token, cutoff_days_onedrive)
-            print(onedrive_files)
-            outlook_summary = []  # No need to process Outlook data
+            outlook_summary = []
         else:  # 'outlook'
-            onedrive_files = []  # No need to process OneDrive data
+            onedrive_files = []
             outlook_summary = display_and_summarize_emails(headers, cutoff_days_outlook)
-            print(outlook_summary)
 
     else:
-        # If token is not valid, get a new one (e.g., after successful authentication)
         access_token = generate_access_token(flow, app_id=APP_ID, scopes=SCOPES)
-        headers = {'Authorization': 'Bearer ' + access_token['access_token']}
+        headers = {'Authorization': f'Bearer {access_token["access_token"]}'}
         
-        # Based on the type, call the appropriate function for either OneDrive or Outlook
-        if type == 'onedrive':
-            onedrive_files = navigate_onedrive(headers, access_token['access_token'], cutoff_days_onedrive)
-            outlook_summary = []  # No need to process Outlook data
+        if request_type == 'onedrive':
+            onedrive_files = navigate_onedrive(headers, access_token["access_token"], cutoff_days_onedrive)
+            outlook_summary = []
         else:  # 'outlook'
-            onedrive_files = []  # No need to process OneDrive data
+            onedrive_files = []
             outlook_summary = display_and_summarize_emails(headers, cutoff_days_outlook)
 
     return jsonify({
         "status": "pending",
         "o_files": onedrive_files,
-        "outlooks": outlook_summary,
+        "outlooks": outlook_summary
     })
+
 
 
 '''def process_onedrive_data():
@@ -285,6 +285,33 @@ def summarize_selected_emails():
 
     final_summary = "<br><br>".join(summaries) if summaries else "No emails selected for summarization."
     return jsonify({'summary': final_summary})
+
+@app.route('/summarize_outlook_emails', methods=['POST'])
+def summarize_outlook_emails():
+    global cutoff_days_outlook
+    email_ids = request.json.get('email_ids', [])
+    summaries = []
+    print("Received email IDs:", email_ids)  # Debugging
+
+    '''if not email_ids:
+        return jsonify({'summary': 'No emails selected for summarization'})'''
+    
+    APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
+    SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
+    access_token = generate_access_token(flow, app_id=APP_ID, scopes=SCOPES)
+    headers = {'Authorization': 'Bearer ' + access_token['access_token']}
+
+    email_data = display_and_summarize_emails(headers, cutoff_days_outlook)
+    for data in email_data:
+        subject = data['subject']
+        sender = data['sender']
+        date = data['date']
+        summary = data['summary']
+        link = data['link']
+        summaries.append(f"Email from {sender}: ({subject}) sent on {date}:\n{summary}\n")
+    final_summary = "<br><br>".join(summaries) if summaries else "No emails selected for summarization."
+    return jsonify({'summary': final_summary})
+
 
 @app.route('/summarize', methods=['POST'])
 def summarize():
