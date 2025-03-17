@@ -331,7 +331,7 @@ def get_onedrive_file_content(headers, file_id, file_name, access_token, cutoff_
     summary = summarize_content_with_gemini(extracted_text)
 
     # Return structured data
-    return summary
+    return extracted_text, summary
 
 
 def navigate_onedrive(headers, access_token, cutoff_days):

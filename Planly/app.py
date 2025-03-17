@@ -11,11 +11,11 @@ from gmail import fetch_emails_in_date_ranges, get_message_content, get_message_
 
 # Import Google Drive processing functions
 from drive_service import Create_Service_Drive
-from drive import setup_whisper, setup_gemini, process_files, list_recent_drive_files, combine_file_contents
+from drive import setup_whisper, setup_gemini, process_files, list_recent_drive_files, combine_file_contents, setup_gemini, summarize_content_with_gemini
 
 # Import Microsoft (Outlook, OneDrive) processing functions
 from outlooks import display_and_summarize_emails
-from one_drive import navigate_onedrive, format_combined_content, summarize_content_with_gemini, get_onedrive_file_content, combined_content
+from one_drive import navigate_onedrive, format_combined_content, get_onedrive_file_content, combined_content
 from graph_api import generate_access_token, generate_user_code
 
 # Import Canvas processing functions
@@ -37,7 +37,7 @@ drive_service = None
 drive_credentials = None
 flow = None
 cutoff_days_outlook = None
-
+file_content = None
 gmail_service = None 
 
 # Process Gmail emails
@@ -265,7 +265,6 @@ def course_details():
     # Return the content in the response
     return jsonify({"content": content})
 
-
 @app.route('/summarize_emails', methods=['POST'])
 def summarize_selected_emails():
     email_ids = request.json.get('email_ids', [])
@@ -276,7 +275,7 @@ def summarize_selected_emails():
             sender, formatted_date, subject = get_message_metadata(gmail_service, msg_id=msg_id)
             content = get_message_content(gmail_service, msg_id=msg_id)
             if content:
-                summary = predict_sentences(content)
+                summary = predict_sentences_action_notes(content)
                 if not any(char.isalpha() for char in summary):
                     summary = predict_sentences_action_notes(content)
                 summaries.append(f"Email from {sender} ({subject}) sent on {formatted_date}:\n{summary}\n")
@@ -323,20 +322,41 @@ def summarize():
         print(f"Received for summarization: ID={file_id}, Name={file_name}, Type={file_mime_type}, Source={file_source}")
 
         summary = ""
-
+        global file_content
         if file_source == 'google_drive' and drive_service:
             whisper_model = setup_whisper()
-            summary = combine_file_contents(file_name, file_id, file_mime_type, drive_credentials, drive_service, whisper_model)
+            file_content, summary = combine_file_contents(file_name, file_id, file_mime_type, drive_credentials, drive_service, whisper_model)
 
         elif file_source == 'onedrive':
             APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
             SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
             access_token = generate_access_token(flow, app_id=APP_ID, scopes=SCOPES)
             headers = {'Authorization': 'Bearer ' + access_token['access_token']}
-            summary = get_onedrive_file_content(headers, file_id, file_name, access_token, 300)
+            file_content, summary = get_onedrive_file_content(headers, file_id, file_name, access_token, 300)
 
         return jsonify({'summary': summary})
+    
+@app.route('/ask_gemini', methods=['POST'])
+def ask_gemini():
+    data = request.get_json()
+    query = "My question is about original content and sumamary" + data.get('query', '').strip()
+    original_text = data.get('original_text', '').strip()
+    summary = data.get('summary', '').strip()
 
+    if not query:
+        return jsonify({"error": "No query provided"}), 400
+    if not original_text and not summary:
+        return jsonify({"error": "No relevant text provided"}), 400
+    global file_content
+    combined_text = f"Original Content:\n{file_content}\n\nSummary:\n{summary}"
+    print("onedrive test" + file_content)
+    try:
+        answer = summarize_content_with_gemini(combined_text, query)
+        return jsonify({"answer": answer})
+    except Exception as e:
+        print(f"Error querying Gemini: {e}")
+        return jsonify({"error": "Failed to get a response from Gemini"}), 500
+    
 if __name__ == '__main__':
     app.run(debug=True)
 

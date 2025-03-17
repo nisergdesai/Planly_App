@@ -368,11 +368,11 @@ vision_client = setup_vision_client(r"ServiceAccountToken.json")
 def setup_gemini(api_key):
     return genai.Client(api_key=api_key)
 
-def summarize_content_with_gemini(content):
+def summarize_content_with_gemini(content, question='summarize'):
     client = setup_gemini("AIzaSyBrl4OwWlUfGzNjwo2brjNj73Z7jXop1oc")
     response = client.models.generate_content(
         model="gemini-2.0-flash",
-        contents=['summarize', content],
+        contents=[question, content],
         config=types.GenerateContentConfig(
             safety_settings=[
                 types.SafetySetting(
@@ -558,7 +558,7 @@ def combine_file_contents(file_name, file_id, mime_type, credentials, service, w
     '''if content:
         combined_content_list.append(f"File Name: {file_name}\nModified Time: {modified_time}\nContent:\n{content}\n\n")
 '''
-    return summarize_content_with_gemini(content)
+    return content, summarize_content_with_gemini(content)
 
 def generate_todo_list(content):
     return summarize_content_with_gemini(content)

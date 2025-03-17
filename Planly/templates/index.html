@@ -269,6 +269,9 @@
                     storeData(fileSource, [{ text: `${fileName} Summary: ${data.summary}`, link: null }]);
                     cardElement.innerHTML = `
                         <p>${data.summary}</p>
+                        <input type="text" id="query-${cardId}" placeholder="Ask a question..." class="query-input">
+                        <button class="button" onclick="askQuestion('${cardId}')">Ask</button>
+                        <div id="response-${cardId}"></div>
                         <button class="back-button" onclick="restoreContent('${cardId}', false, '${fileName}', '${fileSource}')">Back</button>
                     `;
                 } else {
@@ -287,6 +290,36 @@
                 delete fetchControllers[cardId];
             });
         }
+
+        function askQuestion(cardId) {
+            let query = document.getElementById(`query-${cardId}`).value.trim();
+            let responseDiv = document.getElementById(`response-${cardId}`);
+
+            if (!query) {
+                responseDiv.innerHTML = "<p>Please enter a question.</p>";
+                return;
+            }
+
+            responseDiv.innerHTML = "<p>Fetching answer...</p>";
+
+            let originalText = originalCardContent[cardId] || "";
+            let summary = document.getElementById(cardId).querySelector("p").innerText || "";
+
+            fetch('/ask_gemini', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: query, original_text: originalText, summary: summary })
+            })
+            .then(response => response.json())
+            .then(data => {
+                responseDiv.innerHTML = `<p><strong>Answer:</strong> ${data.answer}</p>`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                responseDiv.innerHTML = "<p>Error fetching answer.</p>";
+            });
+        }
+
 
         function restoreContent(cardId, isCancel, fileName, fileSource) {
             let cardElement = document.getElementById(cardId);
@@ -588,7 +621,7 @@
 
 
 
-        </script>            
+        </script>             
 
         <div class="course-container" id="courses">
             {% for course in courses %}
@@ -656,7 +689,7 @@
                         type: "POST",
                         success: function(response) {
                             if (response.status === "success") {
-                                $("#drive-status").text("Connected to Google Drive ✅").css("color", "green");
+                                $("#drive-status").text("Connected to Google Drive ✅").css("color", "#99b8d0");
                                 $("#connect-drive-btn").hide();
 
                                 // Show date selection fields
@@ -690,14 +723,14 @@
             });
             $(document).ready(function() {
                 $("#connect-gmail-btn").click(function() {
-                    $("#gmail-status").text("Fetching metadata... ⏳").css("color", "orange");
+                    $("#gmail-status").text("Fetching metadata... ⏳").css("color", "#99b8d0");
 
                     $.ajax({
                         url: "/connect_gmail",  // Endpoint for Gmail authentication
                         type: "POST",
                         success: function(response) {
                             if (response.status === "success") {
-                                $("#gmail-status").text("Connected to Gmail ✅").css("color", "green");
+                                $("#gmail-status").text("Connected to Gmail ✅").css("color", "#99b8d0");
                                 $("#connect-gmail-btn").hide();
                                 // Show the date selection fields
                                 $("#gmail-date-selection").show();
@@ -724,7 +757,7 @@
             });
             $(document).ready(function() {
                 $("#connect-microsoft-btn").click(function() {
-                    $("#microsoft-status").text("Checking connection... ⏳").css("color", "orange");
+                    $("#microsoft-status").text("Checking connection... ⏳").css("color", "#99b8d0");
 
                     $.ajax({
                         url: "/fetch_code",
@@ -734,7 +767,7 @@
 
                             if (response.status === "pending") {
                                 if (response.user_code) {
-                                    $("#microsoft-status").text("User authentication required! ⚠️").css("color", "green");
+                                    $("#microsoft-status").text("User authentication required! ⚠️").css("color", "#9ac8e3");
                                     $("#microsoft-auth-container").show();
                                     $("#user-code").text(response.user_code);
                                     $("#check-status-btn")
@@ -759,7 +792,7 @@
                 });
 
                 function fetchMicrosoftStatus() {
-                    $("#microsoft-status").text("Fetching data from OneDrive & Outlook... ⏳").css("color", "orange");
+                    $("#microsoft-status").text("Fetching data from OneDrive & Outlook... ⏳").css("color", "#9ac8e3");
 
                     $.ajax({
                         url: "/fetch_onedrive_outlook",
@@ -774,7 +807,7 @@
                             console.log(response);
 
                             if (response.status === "pending") {
-                                $("#microsoft-status").text("Connected ✅").css("color", "green");
+                                $("#microsoft-status").text("Connected ✅").css("color", "#99b8d0");
 
                                 // Hide authentication elements
                                 $("#connect-microsoft-btn").hide();
@@ -842,7 +875,7 @@
                     cutoffDays[type] = calculateDateDifference(selectedDate);
 
                     let targetElement = type === 'onedrive' ? $("#onedrive-files") : $("#outlook-summary");
-                    targetElement.html(`<p style="color: orange;">Fetching ${type.charAt(0).toUpperCase() + type.slice(1)} data... ⏳</p>`);
+                    targetElement.html(`<p style="color: 9#9b8d0;">Fetching ${type.charAt(0).toUpperCase() + type.slice(1)} data... ⏳</p>`);
 
                     $.ajax({
                         url: "/fetch_onedrive_outlook",
@@ -938,7 +971,7 @@
                 if (!selectedDate) return;
 
                 let dateDifference = calculateDateDifference(selectedDate);
-                $("#google-drive-files").html(`<p style="color: orange;">Fetching Google Drive data... ⏳</p>`);
+                $("#google-drive-files").html(`<p style="color: #99b8d0;">Fetching Google Drive data... ⏳</p>`);
 
                 $.ajax({
                     url: "/connect_google_drive",
@@ -1014,7 +1047,7 @@
                 if (!selectedDate) return;
 
                 let dateDifference = calculateDateDifference(selectedDate);
-                $("#email-list").html(`<p style="color: orange;">Fetching Gmail data... ⏳</p>`);
+                $("#email-list").html(`<p style="color: #99b8d0;">Fetching Gmail data... ⏳</p>`);
 
                 $.ajax({
                     url: "/connect_gmail",
