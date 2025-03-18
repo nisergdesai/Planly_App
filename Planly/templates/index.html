@@ -224,6 +224,43 @@
             text-decoration: underline;
         }
 
+        /* Search Box for AI Questions */
+        .search-box {
+            display: flex;
+            align-items: center;
+            width: 100%;  /* Full width */
+            max-width: 400px;  /* Wider than before */
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .query-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .query-input:focus {
+            border-color: #99b8d0;
+            box-shadow: 0 0 5px rgba(153, 184, 208, 0.8);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 10px;
+            color: #555;
+            cursor: pointer;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .search-icon:hover {
+            color: #005A8D;
+        }
 
     </style>
 
@@ -247,7 +284,7 @@
 
             cardElement.innerHTML = `
                 <p>Summarizing...</p>
-                <button class="back-button" onclick="restoreContent('${cardId}', true, '${fileName}', '${fileSource}')">Cancel</button>
+                <button class="button" onclick="restoreContent('${cardId}', true, '${fileName}', '${fileSource}')">Cancel</button>
             `;
 
             let formData = new FormData();
@@ -269,10 +306,12 @@
                     storeData(fileSource, [{ text: `${fileName} Summary: ${data.summary}`, link: null }]);
                     cardElement.innerHTML = `
                         <p>${data.summary}</p>
-                        <input type="text" id="query-${cardId}" placeholder="Ask a question..." class="query-input">
-                        <button class="button" onclick="askQuestion('${cardId}')">Ask</button>
+                        <div class="search-box">
+                            <input type="text" id="query-${cardId}" class="query-input" placeholder="Ask a question..." onkeydown="handleKeyPress(event, '${cardId}')">
+                            <i class="fas fa-search search-icon" onclick="askQuestion('${cardId}')"></i>
+                        </div>
                         <div id="response-${cardId}"></div>
-                        <button class="back-button" onclick="restoreContent('${cardId}', false, '${fileName}', '${fileSource}')">Back</button>
+                        <button class="button" onclick="restoreContent('${cardId}', false, '${fileName}', '${fileSource}')">Back</button>
                     `;
                 } else {
                     cardElement.innerHTML = `<p>Error: Unable to summarize.</p>`;
@@ -289,6 +328,12 @@
             .finally(() => {
                 delete fetchControllers[cardId];
             });
+        }
+
+        function handleKeyPress(event, cardId) {
+            if (event.key === "Enter") {
+                askQuestion(cardId);
+            }
         }
 
         function askQuestion(cardId) {
@@ -319,6 +364,7 @@
                 responseDiv.innerHTML = "<p>Error fetching answer.</p>";
             });
         }
+
 
 
         function restoreContent(cardId, isCancel, fileName, fileSource) {
