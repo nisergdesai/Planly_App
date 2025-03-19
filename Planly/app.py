@@ -137,8 +137,8 @@ def is_token_valid():
     return False  # Token is invalid or doesn't exist
 
 
-@app.route('/fetch_code', methods=['POST'])
-def fetch_code():
+@app.route('/fetch_code_outlook', methods=['POST'])
+def fetch_code_outlook():
     if is_token_valid():
         # If token is valid, skip authentication and proceed to fetch data
         return jsonify({
@@ -156,16 +156,66 @@ def fetch_code():
         "verification_url": 'https://microsoft.com/devicelogin'
     })
 
-@app.route('/fetch_onedrive_outlook', methods=['POST'])
-def fetch_onedrive_outlook():
+@app.route('/fetch_code_onedrive', methods=['POST'])
+def fetch_code_onedrive():
+    if is_token_valid():
+        # If token is valid, skip authentication and proceed to fetch data
+        return jsonify({
+            "status": "success"
+        })
+
+    APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
+    SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
+    global flow
+    flow = generate_user_code(app_id=APP_ID, scopes=SCOPES)
+
+    return jsonify({
+        "status": "pending",
+        "user_code": flow.get('user_code'),
+        "verification_url": 'https://microsoft.com/devicelogin'
+    })
+
+@app.route('/fetch_outlook', methods=['POST'])
+def fetch_outlook():
     APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
     SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
     access_token = None
     # Parse JSON data from the request
     global cutoff_days_outlook
     request_data = request.get_json()  # ✅ Receive data as JSON
-    cutoff_days_onedrive = request_data.get('cutoff_days_onedrive', -1)
     cutoff_days_outlook = request_data.get('cutoff_days_outlook', -1)
+    request_type = request_data.get('type')
+
+    print(f"Outlook={cutoff_days_outlook}")  # Debugging
+
+
+    if is_token_valid():
+        with open("ms_graph_api_token.json", "r") as file:
+            token_data = json.load(file)
+            access_token = list(token_data["AccessToken"].values())[0]["secret"]
+        headers = {'Authorization': f'Bearer {access_token}'}
+        
+        outlook_summary = display_and_summarize_emails(headers, cutoff_days_outlook)
+
+    else:
+        access_token = generate_access_token(flow, app_id=APP_ID, scopes=SCOPES)
+        headers = {'Authorization': f'Bearer {access_token["access_token"]}'}
+        
+        outlook_summary = display_and_summarize_emails(headers, cutoff_days_outlook)
+
+    return jsonify({
+        "status": "pending",
+        "outlooks": outlook_summary
+    })
+
+@app.route('/fetch_onedrive', methods=['POST'])
+def fetch_onedrive():
+    APP_ID = 'edf0be76-049c-4130-aa48-cad3cd75a2c9'
+    SCOPES = ['Mail.Read', 'Files.Read', 'Notes.Read']
+    access_token = None
+    # Parse JSON data from the request
+    request_data = request.get_json()  # ✅ Receive data as JSON
+    cutoff_days_onedrive = request_data.get('cutoff_days_onedrive', -1)
     request_type = request_data.get('type')
 
     print(f"Received cutoff_days: OneDrive={cutoff_days_onedrive}, Outlook={cutoff_days_outlook}")  # Debugging
@@ -177,30 +227,18 @@ def fetch_onedrive_outlook():
             access_token = list(token_data["AccessToken"].values())[0]["secret"]
         headers = {'Authorization': f'Bearer {access_token}'}
         
-        if request_type == 'onedrive':
-            onedrive_files = navigate_onedrive(headers, access_token, cutoff_days_onedrive)
-            outlook_summary = []
-        else:  # 'outlook'
-            onedrive_files = []
-            outlook_summary = display_and_summarize_emails(headers, cutoff_days_outlook)
+        onedrive_files = navigate_onedrive(headers, access_token, cutoff_days_onedrive)
 
     else:
         access_token = generate_access_token(flow, app_id=APP_ID, scopes=SCOPES)
         headers = {'Authorization': f'Bearer {access_token["access_token"]}'}
         
-        if request_type == 'onedrive':
-            onedrive_files = navigate_onedrive(headers, access_token["access_token"], cutoff_days_onedrive)
-            outlook_summary = []
-        else:  # 'outlook'
-            onedrive_files = []
-            outlook_summary = display_and_summarize_emails(headers, cutoff_days_outlook)
+        onedrive_files = navigate_onedrive(headers, access_token["access_token"], cutoff_days_onedrive)
 
     return jsonify({
         "status": "pending",
         "o_files": onedrive_files,
-        "outlooks": outlook_summary
     })
-
 
 
 '''def process_onedrive_data():
@@ -359,4 +397,3 @@ def ask_gemini():
     
 if __name__ == '__main__':
     app.run(debug=True)
-
