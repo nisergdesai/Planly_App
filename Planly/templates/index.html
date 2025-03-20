@@ -263,6 +263,9 @@
         .logo-container .logo img[alt="OneDrive"] {
             transform: scale(1.2); /* Makes it 30% bigger */
         }
+        #course-selection {
+            margin-bottom: 1px;
+        }
 
 
     </style>
@@ -429,8 +432,9 @@
             document.getElementById("drive").style.display = "none";
             document.getElementById("outlook").style.display = "none";
             document.getElementById("onedrive").style.display = "none";
-            document.getElementById("courses").style.display = "none";
-            
+            document.getElementById("course-selection").style.display = "none";  // New
+            document.getElementById("course-content").style.display = "none";    // New
+
             // Show only the selected service card
             if (service === 'gmail') {
                 document.getElementById("gmail").style.display = "block";
@@ -441,7 +445,8 @@
             } else if (service === 'onedrive') {
                 document.getElementById("onedrive").style.display = "block";
             } else if (service === 'canvas') {
-                document.getElementById("courses").style.display = "grid"; /* Changed to grid */
+                document.getElementById("course-selection").style.display = "block"; // Show dropdown
+                document.getElementById("course-content").style.display = "block";   // Display content area
             }
         }
     </script>
@@ -680,19 +685,16 @@
 
         </script>             
 
-        <div class="course-container" id="courses">
-            {% for course in courses %}
-                <div class="course-card" onclick="toggleCourse('{{ course.id }}')">
-                    {{ course.name }}
-                    <div id="buttons-{{ course.id }}" class="hidden">
-                        <button class="button" onclick="fetchContent('{{ course.id }}', 'syllabus')">Syllabus</button>
-                        <button class="button" onclick="fetchContent('{{ course.id }}', 'upcoming_assignments')">Upcoming Assignments</button>
-                        <button class="button" onclick="fetchContent('{{ course.id }}', 'recent_announcements')">Recent Announcements</button>
-                        <div id="content-{{ course.id }}" class="content hidden"></div>
-                    </div>
-                </div>
-            {% endfor %}
+        <div id="course-selection">
+            <select id="course-select" class="button">
+                <option value="">Select a Course</option>
+                {% for course in courses %}
+                    <option value="{{ course.id }}">{{ course.name }}</option>
+                {% endfor %}
+            </select>
         </div>
+
+        <div id="course-content" class="container"></div>
 
         <div class="card" id="drive">
             <h2>Google Drive Files</h2>
@@ -1189,26 +1191,64 @@
                 $("#buttons-" + courseId).toggleClass("hidden");
             }
 
-            function fetchContent(courseId, contentType) {
-                $.ajax({
-                    url: "/course_details",
-                    type: "POST",
-                    contentType: "application/json",  // ✅ Specify JSON content type
-                    data: JSON.stringify({ course_id: courseId, content_type: contentType }),
-                    success: function (data) {
-                        if (data.content) {
-                            // Injecting the HTML content directly without wrapping it in <p> tags.
-                            $("#content-" + courseId).html(data.content).removeClass("hidden");
+            const courseCache = {};  // Stores loaded content for each course
 
-                            storeData('canvas', [{ text: `Canvas: ${data.content}`, link: null }]); // Store Canvas content
-                        } else {
-                            $("#content-" + courseId).html("<p>Error fetching data.</p>").removeClass("hidden");
-                        }
-                    },
-                    error: function () {
-                        $("#content-" + courseId).html("<p>Failed to fetch data.</p>").removeClass("hidden");
+            document.getElementById('course-select').addEventListener('change', function () {
+                const courseId = this.value;
+
+                if (courseId) {
+                    if (courseCache[courseId]) {
+                        displayCachedContent(courseId);  // Display cached content if it exists
+                    } else {
+                        fetchCourseContent(courseId);
                     }
-                });
+                } else {
+                    document.getElementById('course-content').style.display = 'none';
+                }
+            });
+
+            function displayCachedContent(courseId) {
+                const contentDiv = document.getElementById('course-content');
+                contentDiv.innerHTML = courseCache[courseId];
+                contentDiv.style.display = 'block';
+            }
+
+            function fetchCourseContent(courseId) {
+                document.getElementById('course-content').style.display = 'block';
+                const contentDiv = document.getElementById('course-content');
+
+                const cardHtml = `
+                    <div class="card">
+                        <button class="button" onclick="fetchContent('${courseId}', 'syllabus')">Syllabus</button>
+                        <button class="button" onclick="fetchContent('${courseId}', 'upcoming_assignments')">Upcoming Assignments</button>
+                        <button class="button" onclick="fetchContent('${courseId}', 'recent_announcements')">Recent Announcements</button>
+                        <div id="content-${courseId}" class="content"></div>
+                    </div>`;
+
+                contentDiv.innerHTML = cardHtml;
+                courseCache[courseId] = cardHtml;  // Cache the initial card HTML
+            }
+
+            function fetchContent(courseId, contentType) {
+                fetch('/course_details', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ course_id: courseId, content_type: contentType })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const contentDiv = document.getElementById(`content-${courseId}`);
+                    if (data.content) {
+                        contentDiv.innerHTML = data.content;
+                        storeData('canvas', [{ text: `Canvas - ${contentType}: ${data.content}`, link: null }]);
+
+                        // Cache the updated content
+                        courseCache[courseId] = document.getElementById('course-content').innerHTML;
+                    } else {
+                        contentDiv.innerHTML = 'Error fetching content.';
+                    }
+                })
+                .catch(error => console.error('Error:', error));
             }
 
 
@@ -1343,4 +1383,3 @@
 
 </body>
 </html>
-
